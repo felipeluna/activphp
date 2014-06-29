@@ -141,11 +141,14 @@ input[name="submit_login"]{
 #home form[name="cadastro"] a{
 	color: #33F;
 }
-#home form[name="cadastro"] .checkboxes{
+#home form[name="cadastro"] .input-group{
 	float:left;
 	width: 100%;
 }
 
 #home #concordo{
 	font-size: 11px;
+}
+
+#home  form[name="submit_cadastro"]{
 }

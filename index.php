@@ -4,6 +4,8 @@
 	<meta charset="utf-8"/>
 		<title>ActivFun - Home</title>
 	<link href="styles/index.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script>
 </head>
 <body id="home">
 	<header>
@@ -18,6 +20,7 @@
 	<div id="main-container">
 			<form name="cadastro" action ="register.php" method="post">
 			<p>Cadastre-se, é grátis</p>
+			<div class="input-group">
 				<input type="text" name="name" placeholder="Nome"/>
 				<input type="e-mail" name="email" placeholder="E-mail"/></br>
 				<input type="password" name="pass1" placeholder="Senha"/>
@@ -61,32 +64,54 @@
 					}
 					echo "</select>"
 				?>
-				<label class="grupo-input">Atividades de interesse</label>
-				<div class="checkboxes">
-					<input type="checkbox" name="checkbox[]"  value ='1' >Futebol <br />
-					<input type="checkbox" name="checkbox[]"  value ='2'>Voley <br />
-					<input type="checkbox" name="checkbox[]" value ='3'>Basketball <br />
-					<input type="checkbox" name="checkbox[]" value ='4'>Cicismo <br />
-					<input type="checkbox" name="checkbox[]" value ='5'>RPG/MMO <br />
-					<input type="checkbox" name="checkbox[]"  value ='6'>Jogos de Tabuleiro <br />
-				</div>
+			</div>
+			<label class="grupo-input">Atividades de interesse</label>
+			<div class="input-group">
+			<!-- PEGA INTERESSES DO BANCO  -->
+			<?php
+				require('config.php');
+				$result = mysql_query(
+					"SELECT idinteresses, descricao FROM interesses;"
+					)or die(mysql_error("Ops, ocorreu algum erro =("));
+
+				while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+					$descricao = $row['descricao'];
+					$idinteresses = $row['idinteresses'];
+					echo "<input type='checkbox' name='checkbox[]'  value ='$idinteresses' id='cb$idinteresses'>";
+					echo "<label for='cb$idinteresses'>";
+ 					echo $row['descricao'];
+ 					echo "</label> <br />";
+				}
+				
+			?>
+
+			<!-- 	<input type="checkbox" name="checkbox[]"  value ='1' id="cb1" ><label for="cb1"> Futebol</label> <br />
+				<input type="checkbox" name="checkbox[]"  value ='2'>Voley <br />
+				<input type="checkbox" name="checkbox[]" value ='3'>Basketball <br />
+				<input type="checkbox" name="checkbox[]" value ='4'>Cicismo <br />
+				<input type="checkbox" name="checkbox[]" value ='5'>RPG/MMO <br />
+				<input type="checkbox" name="checkbox[]"  value ='6'>Jogos de Tabuleiro <br /> -->
+			</div>
+			<div class="input-group">
 				<input type="submit" name="submit_cadastro" value="Cadastrar" disabled="true" id="cadastro_btn" />
 				<input type="checkbox" id="checkme"/>
-				<label id="concordo">Concordo com os <a href="#">Termos de uso</a></label>
+				<label id="concordo" for="checkme">Concordo com os <a href="#">Termos de uso</a></label>
+			</div>
 
-				<script type="text/javascript">
-					var checker = document.getElementById('checkme');
-					var sendbtn = document.getElementById('cadastro_btn');
-					// when unchecked or checked, run the function
-					checker.onchange = function(){
-					    if(this.checked){
-					        sendbtn.disabled = false;
-					    } else {
-					        sendbtn.disabled = true;
-					    }
+			<script type="text/javascript">
+				var checker = document.getElementById('checkme');
+				var sendbtn = document.getElementById('cadastro_btn');
 
-					}
-				</script>
+				// when unchecked or checked, run the function
+				var changecbagree = function(){
+				    if(this.checked){
+				        sendbtn.disabled = false;
+				    } else {
+				        sendbtn.disabled = true;
+				    }
+				}
+				checker.onchange = changecbagree;
+			</script>
 			</form>	
 	</div>
 	<footer>		
