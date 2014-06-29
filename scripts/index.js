@@ -25,10 +25,11 @@ $( document ).ready(function() {
 						type: 'POST',
 						data: $("#loginForm").serialize(),
 						success: function(data){
-							
+
 								if(data != ''){
 									if(data == 'ok'){
 										showErroLogin('FEZ LOGIN DE BOUA');
+										window.location.replace('dashboard.php');
 									}else{
 										showErroLogin('Login e senha não coicidem');
 									}
