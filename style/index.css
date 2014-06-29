@@ -1,0 +1,151 @@
+input,select{
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	outline-color: #ff6700;
+	border-style: solid;
+	border-color: #a9a9a9;
+	border-width: 1px;
+}
+
+input[name="submit_login"]{
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	background-color: #4385bd;
+	border: none;
+	outline: none;
+	color: #fff;
+	padding: 3px 4px;
+}
+
+#home{
+	padding: 0px;
+	margin: 0px;
+	font-family: "Century Gothic";
+	background-image: url("../images/bg-theme-basket.jpg");
+}
+
+#home a{
+	color: #dedede;
+}
+
+#home header, #home footer{
+	background-image: url("../images/bg-footer-header.jpg");
+}
+
+#home header{
+	height: 70px;
+	width: 100%;
+	vertical-align: top;
+}
+#home header .logo{
+	float:left;
+	margin: 10px;
+	width: 130px;
+}
+
+#home #main-container{
+	width: 100%;
+}
+
+#home footer{
+	height: 300px;
+	width: 100%;
+	background-color: #165a8a;
+	vertical-align: bottom;
+	position: absolute;
+	bottom: 0;
+	z-index: 1;
+}
+
+#home footer a{
+	font-size: 11px;
+	width: 100%;
+} 
+
+#home form[name="login"]{
+	float: right;
+	margin-top: 15px;
+}
+
+#home form[name="login"] a{
+	font-size: 12px;
+	margin-left: 165px;
+}
+
+#home footer .block{
+	float: right;
+	width: 150px;
+	text-align: right;
+}
+
+#home footer .logo{
+	width: 130px;
+}
+
+#home footer #busca{
+	float: left;
+	margin-left: 430px;
+	color: #fff;
+}
+
+#home footer #busca a{
+	font-size: 15px;
+}
+
+
+#home footer #busca input[name="busca_atividade"]{
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+
+
+	background-color: #134167;
+	outline-color: #3989cb;
+	border: 0;
+	font-size: 20px;
+	text-transform: uppercase;
+	color:#fff;
+	padding: 6px 10px;
+	width: 200px;
+}
+
+#home form[name="cadastro"] input[type="text"], #home form[name="cadastro"]  input[type="password"]{
+	font-size: 17px;
+	width: 150px;
+	margin-right: 10px;
+}
+#home form[name="cadastro"]{
+	width: 328px;
+	padding: 25px;
+	margin: 30px;
+	float: left;
+	background-color: rgba(255,255,255,0.9);
+	position: absolute;
+	z-index: 2;
+}
+#home form[name="cadastro"] p{
+	color:#ff6600;
+	font-weight: bold;
+	margin: 0 0 10px 0;
+}
+#home form[name="cadastro"] label.grupo-input{
+	width: 100%;
+	float: left;
+	font-size: 13px;
+	font-weight: bold;
+	margin:10px 0 6px 0;
+}
+
+#home form[name="cadastro"] a{
+	color: #33F;
+}
+#home form[name="cadastro"] .checkboxes{
+	float:left;
+	width: 100%;
+}
+
+#home #concordo{
+	font-size: 11px;
+}
