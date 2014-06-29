@@ -25,15 +25,18 @@ $( document ).ready(function() {
 						type: 'POST',
 						data: $("#loginForm").serialize(),
 						success: function(data){
-							
+
 								if(data != ''){
-									if(data == 'ok'){
+									if(data = 'falta'){
+										showErroLogin('E-mail e senha devem ser preenchidos');
+									}else if(data == 'ok'){
 										showErroLogin('FEZ LOGIN DE BOUA');
+										window.location.replace('dashboard.php');
 									}else{
 										showErroLogin('Login e senha não coicidem');
 									}
 								}else{
-									showErroLogin('E-mail e senha devem ser preenchidos');
+									showErroLogin('Ops! Ocorreu algum erro');
 								}
 							},
 						ajaxError: function(){showErroLogin();}
