@@ -5,7 +5,7 @@
 		<title>ActivFun - Home</title>
 	<link href="styles/index.css" type="text/css" rel="stylesheet" />
 	<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script>
-	<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="scripts/index.js"></script>
 </head>
 <body id="home">
 	<header>
@@ -39,18 +39,18 @@
 				?>
 
 				<select id="user_data_2i" name="mes">
-					<option value="1">January</option>
-					<option value="2">February</option>
-					<option value="3">March</option>
-					<option value="4">April</option>
-					<option value="5">May</option>
-					<option selected="selected" value="6">June</option>
-					<option value="7">July</option>
-					<option value="8">August</option>
-					<option value="9">September</option>
-					<option value="10">October</option>
-					<option value="11">November</option>
-					<option value="12">December</option>
+					<option value="1">Janeiro</option>
+					<option value="2">Fevereiro</option>
+					<option value="3">Março</option>
+					<option value="4">Abril</option>
+					<option value="5">Maio</option>
+					<option selected="selected" value="6">Junho</option>
+					<option value="7">Julho</option>
+					<option value="8">Agosto</option>
+					<option value="9">Setembro</option>
+					<option value="10">Outubro</option>
+					<option value="11">Novembro</option>
+					<option value="12">Dezembro</option>
 				</select>
 
 				<?php
@@ -81,8 +81,7 @@
 					echo "<label for='cb$idinteresses'>";
  					echo $row['descricao'];
  					echo "</label> <br />";
-				}
-				
+				}				
 			?>
 
 			<!-- 	<input type="checkbox" name="checkbox[]"  value ='1' id="cb1" ><label for="cb1"> Futebol</label> <br />
@@ -97,21 +96,6 @@
 				<input type="checkbox" id="checkme"/>
 				<label id="concordo" for="checkme">Concordo com os <a href="#">Termos de uso</a></label>
 			</div>
-
-			<script type="text/javascript">
-				var checker = document.getElementById('checkme');
-				var sendbtn = document.getElementById('cadastro_btn');
-
-				// when unchecked or checked, run the function
-				var changecbagree = function(){
-				    if(this.checked){
-				        sendbtn.disabled = false;
-				    } else {
-				        sendbtn.disabled = true;
-				    }
-				}
-				checker.onchange = changecbagree;
-			</script>
 			</form>	
 	</div>
 	<footer>		
@@ -125,10 +109,12 @@
 		<div id="busca">
 			<p>Encontre atividades que você gosta</p>
 			<input type="text" name="busca_atividade" value="Busca" /></br>
-			<a href="#"><img src="#" alt="ICON"> BASKET</a></br>
-			<a href="#">FUTEBOL</a></br>
-			<a href="#">PASSEIO CICLíSTICO</a></br>
-			<a href="#">PARTIDAS DE CHADEX</a></br>
+			<a href="#"><img width="15px" src="images/icons/atividades/football.png" alt="ICON"> Partidas de futebol</a></br>
+			<a href="#"><img width="15px" src="images/icons/atividades/basketball.png" alt="ICON"> Partidas de basquete</a></br>
+			<a href="#"><img width="15px" src="images/icons/atividades/volleyball.png" alt="ICON"> Partidas de volley</a></br>
+			<a href="#"><img width="15px" src="images/icons/atividades/bike.png" alt="ICON"> Passeios ciclisticos</a></br>
+			<a href="#"><img width="15px" src="images/icons/atividades/chess.png" alt="ICON">Partida de Chadrez </a></br>
+			<a href="#"><img width="15px" src="images/icons/atividades/rpg.png" alt="ICON"> Seções de RPG/MMO</a></br>
 		</div>
 	</footer>
 </body>
