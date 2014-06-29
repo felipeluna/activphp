@@ -34,34 +34,27 @@
 				// verificação de cadastro.
 				// informacoes principais.
 
-				$datestamp = new DateTime();
-				// $time = time();
-				$datenovo = $datestamp->format('m/d/Y H:i:s');
-				echo $datenovo;
-				echo "\n";
+				$pass1 = mysql_real_escape_string($pass1);
+		
 
-					$pass1 = mysql_real_escape_string($pass1);
+				// A higher "cost" is more secure but consumes more processing power
+				$cost = 10;
 
-			
+				// Create a random salt
+				$salt = strtr(base64_encode(mcrypt_create_iv(16, MCRYPT_DEV_URANDOM)), '+', '.');
 
-					// A higher "cost" is more secure but consumes more processing power
-					$cost = 10;
+				// Prefix information about the hash so PHP knows how to verify it later.
+				// "$2a$" Means we're using the Blowfish algorithm. The following two digits are the cost parameter.
+				$salt = sprintf("$2a$%02d$", $cost) . $salt;
 
-					// Create a random salt
-					$salt = strtr(base64_encode(mcrypt_create_iv(16, MCRYPT_DEV_URANDOM)), '+', '.');
+				// Value:
+				// $2a$10$eImiTXuWVxfM37uY4JANjQ==
 
-					// Prefix information about the hash so PHP knows how to verify it later.
-					// "$2a$" Means we're using the Blowfish algorithm. The following two digits are the cost parameter.
-					$salt = sprintf("$2a$%02d$", $cost) . $salt;
+				// Hash the password with the salt
+				$hash = crypt($pass1, $salt);
 
-					// Value:
-					// $2a$10$eImiTXuWVxfM37uY4JANjQ==
-
-					// Hash the password with the salt
-					$hash = crypt($pass1, $salt);
-
-					$pass1 = $hash;       //add essa na database.
-					//echo $pass1;
+				$pass1 = $hash;       //add essa na database.
+				//echo $pass1;
 				
 				//data
 				$ano = mysql_real_escape_string($_POST['ano']);
@@ -69,12 +62,10 @@
 				$dia = mysql_real_escape_string($_POST['dia']);
 			
 				$date = $dia . "/" . $mes . "/" . $ano;
-				echo $date;
-				// $newDate = date("d/m/Y H:i:s", strtotime($date));
 				
 				mysql_query(
 					"insert into usuarios (idusuarios, nome, email, password, data_nascimento, foto, create_time )
-					values ('','$name', '$email', '$pass1', str_to_date('$date', '%d/%m/%Y' ), NULL, select current_timestamp)"
+					values ('','$name', '$email', '$pass1', str_to_date('$date', '%d/%m/%Y' ), NULL, SYSDATE())"
 					)or die(mysql_error());
 
 				// 	) or die(mysql_error());
