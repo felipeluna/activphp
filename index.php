@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8"/>
 		<title>ActivFun - Home</title>
-	<link href="style/index.css" type="text/css" rel="stylesheet" />
+	<link href="styles/index.css" type="text/css" rel="stylesheet" />
 </head>
 <body id="home">
 	<header>

@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8"/>
 		<title>ActivFun - Dashboard</title>
-		<link href="style/dashboard.css" type="text/css" rel="stylesheet" />
+		<link href="styles/dashboard.css" type="text/css" rel="stylesheet" />
 	</head>
 	<body id="dashboard">
 		<header>
