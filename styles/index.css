@@ -152,3 +152,14 @@ input[name="submit_login"]{
 
 #home  form[name="submit_cadastro"]{
 }
+
+#home .errologin{
+	color:red;
+	background-color: #f0f187;
+	display: none;
+	padding: 2px 5px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	margin-right:5px; 
+}

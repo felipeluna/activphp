@@ -22,12 +22,9 @@
 		if (empty($name)) {
 		    $nameErr = "Name is required";
 		    echo $nameErr;
-		} else {
+		} else{
 		    
 		}
-			
-
-
 		
 		if($pass1 == $pass2){
 				// tudo ok, pode cadastar.
@@ -64,16 +61,15 @@
 				$date = $dia . "/" . $mes . "/" . $ano;
 				
 				mysql_query(
-					"insert into usuarios (idusuarios, nome, email, password, data_nascimento, foto, create_time )
-					values ('','$name', '$email', '$pass1', str_to_date('$date', '%d/%m/%Y' ), NULL, SYSDATE())"
-					)or die(mysql_error());
+					"insert into usuarios values ('','$name', '$email', '$pass1', '$salt', str_to_date('$date', '%d/%m/%Y' ), NULL, SYSDATE())"
+					)or die(mysql_error()." erro no insert usuarios");
 
 				// 	) or die(mysql_error());
 				
 				foreach($_POST['checkbox'] as $interesse){
 				    mysql_query(
 							"insert into usuarios_interesses values ((select idusuarios from usuarios where email = '$email'), $interesse)"
-							) or die(mysql_error());
+							) or die(mysql_error()." erro ao inserir interesses do usuario");
 				}
 
 

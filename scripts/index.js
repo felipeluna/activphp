@@ -13,4 +13,32 @@ $( document ).ready(function() {
 	}
 	checker.onchange = changecbagree;
 
+	function showErroLogin(){
+		$('.errologin').fadeIn('fast');
+	}
+
+	$(function(){
+			$("#loginForm").submit(function(){
+				$.ajax(
+					url: 'login_session.php',
+					type: 'POST',
+					data: $("#loginForm").serialize(),
+					success: function(data){
+							if(data != ''){
+									$('.errologin').html('E-mail e senha devem ser preenchidos');
+									$('.errologin').fadeIn('fast');
+							}
+						},
+					error: function(){
+						showErroLogin();
+					}
+				);
+
+
+				return false;
+			});
+	});
+
+
+
 });

@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html len="pt">
 <head>
@@ -10,9 +12,15 @@
 <body id="home">
 	<header>
 		<img class="logo" alt="Logomarca ActivFun Branca" src="images/logo-branca.png" />
-		<form name="login">
+		<!-- 
+		<?php
+			// require('login_session.php');
+		?> -->
+		
+		<form name="login" action="" method="post" id="loginForm">
+		<label class="errologin">Combinação de email e senha inválida</label>
 			<input type="text" name="email" placeholder="E-mail" /> 
-			<input type="password" name="senha" placeholder="Senha" /> 
+			<input type="password" name="pass" placeholder="Senha" /> 
 			<input type="submit" name="submit_login" value="Entrar"/></br>
 			<a href="#">Esqueci minha senha</a>
 		</form>
@@ -70,6 +78,7 @@
 			<!-- PEGA INTERESSES DO BANCO  -->
 			<?php
 				require('config.php');
+				
 				$result = mysql_query(
 					"SELECT idinteresses, descricao FROM interesses;"
 					)or die(mysql_error("Ops, ocorreu algum erro =("));
