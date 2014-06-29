@@ -38,7 +38,7 @@
 					#GERA OS Dias do mes
 					$startyear = 1;
 					echo "<select id='user_data_3i' name='dia' >";
-					for ($i=0; $i < 32; $i++){
+					for ($i=0; $i < 31; $i++){
 						echo "<option>";
 						echo $startyear++;
 						echo "</option>";
@@ -78,7 +78,7 @@
 			<!-- PEGA INTERESSES DO BANCO  -->
 			<?php
 				require('config.php');
-				
+
 				$result = mysql_query(
 					"SELECT idinteresses, descricao FROM interesses;"
 					)or die(mysql_error("Ops, ocorreu algum erro =("));
