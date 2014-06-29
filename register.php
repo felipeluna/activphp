@@ -42,31 +42,64 @@
 				$ano = mysql_real_escape_string($_POST['ano']);
 				$mes = mysql_real_escape_string($_POST['mes']);
 				$dia = mysql_real_escape_string($_POST['dia']);
-				$date = $ano . "/" . $mes . "/" . $dia;
-			//	echo $date;
+			
+				$date = $dia . "-" . $mes . "-" . $ano;
+				echo $date;
 				//STR_TO_DATE('$date', '%m/%d/%Y')
-				$time = strtotime($date);
+				// $time = strtotime($date);
 
-				$newformat = date('Y-m-d',$time);
+				// $newformat = date('Y-m-d',$time);
+// 
+				//echo $newformat;
 
-				echo $newformat;
+				// $timezone = date_default_timezone_get();
+				// date_default_timezone_set($timezone);
+				
+				// $date = date('m/d/Y h:i:s a', time());
 
 				//interesses
-				// $futebol = mysql_real_escape_string($_POST['futebol']);
+				// $futebol = $_POST['futebol'];
 				// $voley = mysql_real_escape_string($_POST['voley']);
 				// $basketball = mysql_real_escape_string($_POST['basketball']);
 				// $ciclismo = mysql_real_escape_string($_POST['ciclismo']);
 				// $rpg = mysql_real_escape_string($_POST['rpg']);
 				// $tabuleiro = mysql_real_escape_string($_POST['tabuleiro']);
+				// $interesses = array($_POST['futebol'], $_POST['voley'], $_POST['']);
 
+				// echo $futebol;	
 
 				//mysql_query("insert into `usuarios` (``, `$name`, `$email`, `$pass1`,`date(\"Y-m-d\", $aniversario)`,``,`$datestamp`)");
-				mysql_query(
-					"insert into usuarios (idusuarios, nome, email, password, data_nascimento, foto, create_time )
-					values ('','$name', '$email', '$pass1', $newformat, NULL, NULL )"
+				// mysql_query(
+				// 	"insert into usuarios (idusuarios, nome, email, password, data_nascimento, foto, create_time )
+				// 	values ('','$name', '$email', '$pass1', str_to_date($date, '%d %m %Y'), NULL, NULL )"
 
 
-					) or die(mysql_error());	
+				// 	) or die(mysql_error());
+				
+				
+
+
+
+				for ($i=1; $i < 7 ; $i++) { 
+					$interesse = $_POST["i".strval($i)];
+					if($interesse){
+							mysql_query(
+							"insert into usuarios (idusuarios, nome, email, password, data_nascimento, foto, create_time )
+					values ('','$name', '$email', '$pass1', str_to_date($date, '%d %m %Y'), NULL, NULL )"
+						.	
+							"insert into usuarios_interesses values ((select idusuarios from usuarios where email = $email), $i)"
+							) or die(msql_error("erro"));
+
+					}else{
+
+					}
+				}
+
+
+				// mysql_query(
+
+				// 	"insert into usuarios_interesses values ("
+				// 	);
 
 		}
 			
@@ -241,12 +274,12 @@
 	<br>
 	Atividades de Interesse: <br>
 	
-	<input type="checkbox" name="futebol" value="Futebol"  value ='1'>Futebol <br />
-	<input type="checkbox" name="voley" value="Voley" value ='1'>Voley <br />
-	<input type="checkbox" name="basketball" value="Basketball" value ='1'>Basketball <br />
-	<input type="checkbox" name="ciclismo" value="Ciclismo" value ='1'>Cicismo <br />
-	<input type="checkbox" name="rpg" value="RPG" value ='1'>RPG/MMO <br />
-	<input type="checkbox" name="tabuleiro" value="abuleiro" value ='1'>Jogos de Tabuleiro <br />
+	<input type="checkbox" name="i1"  value ='1'>Futebol <br />
+	<input type="checkbox" name="i2"  value ='2'>Voley <br />
+	<input type="checkbox" name="i3" value ='3'>Basketball <br />
+	<input type="checkbox" name="i4" value ='4'>Cicismo <br />
+	<input type="checkbox" name="i5" value ='5'>RPG/MMO <br />
+	<input type="checkbox" name="i6"  value ='6'>Jogos de Tabuleiro <br />
 
 	
 	
