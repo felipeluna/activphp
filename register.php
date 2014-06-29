@@ -1,10 +1,33 @@
-<?php 
+	<?php 
 	require('config.php');
 	if(isset($_POST['submit_cadastro'])){
 		//http://alias.io/2010/01/store-passwords-safely-with-php-and-mysql/
 		$email = $_POST['email'];
 		$pass1 = $_POST['pass1'];
 		$pass2 = $_POST['pass2'];
+		$name = mysql_real_escape_string($_POST['name']);
+		$email = mysql_real_escape_string($email);
+		//funcao de teste
+		function test_input($data)
+		{
+		   $data = trim($data);
+		   $data = stripslashes($data);
+		   $data = htmlspecialchars($data);
+		   return $data;
+		}
+
+		//definindo variáveis de erro.
+		$nameErr = $emailErr = $genderErr = $websiteErr = "";
+
+		if (empty($name)) {
+		    $nameErr = "Name is required";
+		    echo $nameErr;
+		} else {
+		    
+		}
+			
+
+
 		
 		if($pass1 == $pass2){
 				// tudo ok, pode cadastar.
@@ -12,12 +35,14 @@
 				// informacoes principais.
 
 				$datestamp = new DateTime();
-				$datestamp->getTimestamp();
+				// $time = time();
+				$datenovo = $datestamp->format('m/d/Y H:i:s');
+				echo $datenovo;
+				echo "\n";
 
+					$pass1 = mysql_real_escape_string($pass1);
 
-				$name = mysql_real_escape_string($_POST['name']);
-				$email = mysql_real_escape_string($email);
-				$pass1 = mysql_real_escape_string($pass1);
+			
 
 					// A higher "cost" is more secure but consumes more processing power
 					$cost = 10;
@@ -43,12 +68,13 @@
 				$mes = mysql_real_escape_string($_POST['mes']);
 				$dia = mysql_real_escape_string($_POST['dia']);
 			
-				$date = $dia . "-" . $mes . "-" . $ano;
+				$date = $dia . "/" . $mes . "/" . $ano;
 				echo $date;
+				// $newDate = date("d/m/Y H:i:s", strtotime($date));
 				
 				mysql_query(
 					"insert into usuarios (idusuarios, nome, email, password, data_nascimento, foto, create_time )
-					values ('','$name', '$email', '$pass1', str_to_date($date, '%d %m %Y'), NULL, NULL )"
+					values ('','$name', '$email', '$pass1', str_to_date('$date', '%d/%m/%Y' ), NULL, select current_timestamp)"
 					)or die(mysql_error());
 
 				// 	) or die(mysql_error());
@@ -60,8 +86,8 @@
 				}
 
 
-				header("Location: dashboard.php");
-				exit;
+				// header("Location: dashboard.php");
+				// exit;
 				// mysql_query(
 
 				// 	"insert into usuarios_interesses values ("
