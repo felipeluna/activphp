@@ -13,24 +13,30 @@ $( document ).ready(function() {
 	}
 	checker.onchange = changecbagree;
 
-	function showErroLogin(){
+	function showErroLogin(message){
+		$('.errologin').html(message);
 		$('.errologin').fadeIn('fast');
 	}
 
 	$(function(){
 			$("#loginForm").submit(function(){
-				$.ajax(
-					url: 'login_session.php',
-					type: 'POST',
-					data: $("#loginForm").serialize(),
-					success: function(data){
-							if(data != ''){
-									$('.errologin').html('E-mail e senha devem ser preenchidos');
-									$('.errologin').fadeIn('fast');
-							}
-						},
-					error: function(){
-						showErroLogin();
+				$.ajax({
+						url: 'login_session.php',
+						type: 'POST',
+						data: $("#loginForm").serialize(),
+						success: function(data){
+							
+								if(data != ''){
+									if(data == 'ok'){
+										showErroLogin('FEZ LOGIN DE BOUA');
+									}else{
+										showErroLogin('Login e senha não coicidem');
+									}
+								}else{
+									showErroLogin('E-mail e senha devem ser preenchidos');
+								}
+							},
+						ajaxError: function(){showErroLogin();}
 					}
 				);
 

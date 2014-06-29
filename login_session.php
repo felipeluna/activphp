@@ -1,7 +1,7 @@
 <?php
 	require('config.php');
-
-	if(isset($_POST['submit_login']) && !empty($_POST) ){
+	
+	if(isset($_POST) && !empty($_POST)){
 		$email = mysql_real_escape_string($_POST['email']);
 		$senha = $_POST['pass'];
 
@@ -22,8 +22,11 @@
 			$_SESSION['pass'] = $senha;
 			//header("Location: dashboard");
 			// exit();
+			echo "ok";
 		}else{
-			 throw new Exception('Login e senha nao coincidem');
+			echo "erro";
 		}
+	}else{
+		echo "";
 	}
 ?>
