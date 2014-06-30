@@ -17,7 +17,7 @@
 						<a href="#">Conta</a>
 					</li>
 					<li>
-						<a href="index.html">Sair</a>
+						<a href="unset_session.php">Sair</a>
 					</li>
 				</ul>
 			</div>
@@ -54,21 +54,18 @@
 		</div>
 		<div id="dir">
 			<?php
+				session_start();
+				
+				if(isset($_SESSION['email']))
+				{
+					echo"sessao aberta para";
+					echo $_SESSION['email'];
 
-				if(isset($_POST)){
-					echo "POST OK";
-
-					if(isset($_SESSION))
-					{
-						echo"sessao aberta";
-
-					}else{
-						echo"sem seção";
-						// header("Location: index.php");
-						// exit();
-					}
-				}
-			
+				}else{
+					// echo"sem seção";
+					header("Location: index.php");
+					exit();
+				}			
 
 			?>
 		</div>

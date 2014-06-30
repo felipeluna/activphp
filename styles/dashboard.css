@@ -55,7 +55,7 @@ html{
 	margin: 40px 10px;
 	position: absolute;
 	background-color: #eee;
-	display: none;
+	/*display: none;*/
 	-webkit-border-radius: 8px;
 	-moz-border-radius: 8px;
 	border-radius: 8px;
@@ -63,6 +63,7 @@ html{
 	padding: 0;
 	width: 50px;
 	padding: 10px;
+	z-index: 3;
 }
 #dashboard header .user a{
 	font-size: 13px;

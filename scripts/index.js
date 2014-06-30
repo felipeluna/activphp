@@ -11,6 +11,7 @@ $( document ).ready(function() {
 	        sendbtn.disabled = true;
 	    }
 	}
+
 	checker.onchange = changecbagree;
 
 	function showErroLogin(message){
@@ -33,11 +34,12 @@ $( document ).ready(function() {
 										showErroLogin('FEZ LOGIN DE BOUA');
 										window.location.replace('dashboard.php');
 									}else{
-										showErroLogin(data);
-										// showErroLogin('Ops! Ocorreu algum erro =(');
+										// showErroLogin(data);
+										showErroLogin('Ops! Ocorreu algum erro =(');
 									}
 								}else{
-									window.location.replace('dashboard.php');
+									//login ok
+									// window.location.replace('dashboard.php');
 								}
 							},
 						ajaxError: function(){showErroLogin('Ops! Ocorreu algum erro =( no ajax');}

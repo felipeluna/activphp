@@ -1,5 +1,12 @@
+<?php
+	session_start();
 
-
+	if(isset($_SESSION['email']))
+	{
+		header("Location: dashboard.php");
+		exit();
+	}
+?>
 <!DOCTYPE html>
 <html len="pt">
 <head>
@@ -26,7 +33,7 @@
 		</form>
 	</header>
 	<div id="main-container">
-			<form name="cadastro" action ="register.php" method="post">
+			<form name="cadastro" action ="register.php" method="post" id="cadastroForm">
 			<p>Cadastre-se, é grátis</p>
 			<div class="input-group">
 				<input type="text" name="name" placeholder="Nome"/>

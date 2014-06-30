@@ -21,7 +21,8 @@
 				session_start();
 				$_SESSION['email'] = $email;
 				$_SESSION['pass'] = $senha;
-				
+
+				echo "ok";
 			}else{
 				echo "erro";
 			}
