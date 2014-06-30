@@ -1,3 +1,11 @@
+.shadowButton{
+	-webkit-box-shadow: 1px 1px 2px 0px rgba(41,41,41,0.6);
+	-moz-box-shadow: 1px 1px 2px 0px rgba(41,41,41,0.6);
+	box-shadow: 1px 1px 2px 0px rgba(41,41,41,0.6);
+}
+#submit_cadastro_group{
+	display: initial;
+}
 input,select{
 	-webkit-border-radius: 6px;
 	-moz-border-radius: 6px;
@@ -17,6 +25,7 @@ input[name="submit_login"]{
 	outline: none;
 	color: #fff;
 	padding: 3px 4px;
+	cursor: pointer;
 }
 
 #home{
@@ -75,27 +84,40 @@ input[name="submit_login"]{
 }
 
 #home footer .block{
-	float: right;
-	width: 150px;
-	text-align: right;
+width: 150px;
+text-align: right;
+position: absolute;
+top: 10px;
+right: 5px;
+}
+
+#home footer .block a{
+	margin-right: 20px;
 }
 
 #home footer .logo{
 	width: 130px;
 }
 
-#home footer #busca{
+#home footer #interesses{
 	float: left;
 	margin-left: 430px;
 	color: #fff;
+	width: 420px;
 }
 
-#home footer #busca a{
+#home footer #interesses .interesse{
+float: left;
+width: 185px;
+margin: 3px;
+}
+
+#home footer #interesses .interesse a{
 	font-size: 15px;
 }
 
 
-#home footer #busca input[name="busca_atividade"]{
+#home footer #interesses input[name="busca_atividade"]{
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	border-radius: 10px;
@@ -109,6 +131,23 @@ input[name="submit_login"]{
 	color:#fff;
 	padding: 6px 10px;
 	width: 200px;
+}
+
+#home #cadastro_btn{
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	background-color: #ff6600;
+	border: none;
+	outline: none;
+	color: #fff;
+	padding: 3px 4px;
+	cursor: pointer;
+}
+
+#home #cadastro_btn:disabled{
+	background-color: #b07d5a;
+	color:#d7c6ba;
 }
 
 #home form[name="cadastro"] input[type="text"], #home form[name="cadastro"]  input[type="password"]{

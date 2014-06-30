@@ -13,7 +13,6 @@ html{
 	font-family: "Century Gothic";
 }
 
-
 #dashboard header, #dashboard footer{
 	background-image: url("../images/bg-footer-header.jpg");
 }
@@ -41,30 +40,54 @@ html{
 }
 
 #dashboard header .user{
-	margin-top: 5px;
+	margin: 8px 20px;
 	float: right;
 }
 
 #dashboard header .user img{
-	margin-right: 5px;
+	float: left;
 }
 
-#dashboard header .user ul{
+#dashboard header .user img.notificacoes{
+	margin: 10px;
+}
+
+
+#dashboard header .user ul#headeroptions{
 	right: 0;
-	top:0;
-	margin: 40px 10px;
+	top: 0;
+	margin: 46px 18px;
 	position: absolute;
 	background-color: #eee;
-	/*display: none;*/
+	display: none;
 	-webkit-border-radius: 8px;
 	-moz-border-radius: 8px;
 	border-radius: 8px;
 	list-style: none;
 	padding: 0;
 	width: 50px;
-	padding: 10px;
+	padding: 3px 5px;
 	z-index: 3;
+	text-decoration: none;
+	border
 }
+
+#dashboard .user .block{
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	background-color:#fff;
+	float: left;
+}
+#dashboard .user .block a.showheaderoptions{
+	background-image: url('../images/arownavy.png');
+	background-repeat: no-repeat;
+	background-position: 50% center;
+	width: 9px;
+	height: 35px;
+	float: left;
+}
+
 #dashboard header .user a{
 	font-size: 13px;
 	color: #999;
@@ -91,6 +114,11 @@ html{
 	width: 280px;
 	height: 100%;
 	position: absolute;
+}
+
+#dashboard #main-container #esq a{
+	color: #666;
+	text-decoration: none;
 }
 
 #dashboard #main-container #esq #perfil{
@@ -169,7 +197,7 @@ html{
 
 }
 
-/*/////////// DIR ///////////*/
+/*/////////// CONTENT ///////////*/
 
 #dashboard #main-container #content{
 	height: 100%;
@@ -178,8 +206,44 @@ html{
 	right: 0;
 	bottom: 0;
 	top: 0;
+	padding: 20px;
 }
 
+#dashboard #success{
+	line-height: 40px;
+	position: absolute;
+	top: 0;
+	left: 280px;
+	right: 0;
+	height: 40px;
+	background-color: #67e594;
+	display: none;
+	text-align: center;
+	color: #0d4b23;
+}
+
+#dashboard #notice{
+	line-height: 40px;
+	position: absolute;
+	top: 0;
+	left: 280px;
+	right: 0;
+	height: 40px;
+	background-color: #f9e857;
+	display: none;
+	text-align: center;
+	color: #b36729;
+}
+#dashboard #error{
+	position: absolute;
+	top: 0;
+	left: 280px;
+	right: 0;
+	height: 40px;
+	background-color: #67e594;
+	display: none;
+	line-height: 40px;
+}
 /**********/
 /* FOOTER */
 /**********/

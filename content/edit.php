@@ -9,14 +9,15 @@
 
 	<script type="text/javascript" src="scripts/edit.js"></script>
 
-	<form name="cadastro" action ="content/edit.php" method="post" id="editform">
-		<p>Editar informações;</p>
+	<form name="cadastro" action ="edit_submit.php" method="post" id="editform">
+		<h1>Editar informações</h1>
 		<div class="input-group">
+			<label for="nomeusuario">Nome: </label>
 			<?php
 			
 				$nomeantigo = $row_atual['nome'];
 
-				echo "<input type='text' name='name_novo'";
+				echo "<input type='text' name='name_novo' id='nomeusuario'";
 				echo "value='". $nomeantigo . "'/>
 			<br>
 			";
@@ -25,7 +26,7 @@
 			<!-- <input type="e-mail" name="email" placeholder="E-mail"/>
 		</br>
 		-->
-		<label class="grupo-input">Data de Nascimento</label>
+		<label >Data de Nascimento:</label>
 		<?php
 
 					$datanasceu = $row_atual['data_nascimento'];
@@ -77,7 +78,7 @@
 				?>
 	<select id="user_data_2i" name="mes">
 		<?php
-		
+
 			//====================================================================
 			// gera meses dinamicamente + seleciona o mes em que o cara nasceu. ==
 			//====================================================================
@@ -142,7 +143,7 @@
 	?>
 </div>
 <br>
-<label class="grupo-input">Atividades de interesse</label>
+<label class="grupo-input">Atividades de interesse:</label>
 <div class="input-group">
 <!-- PEGA INTERESSES DO BANCO  -->
 <?php
@@ -203,76 +204,11 @@ Jogos de Tabuleiro
 <br><!-- 
 <input type="password" name="pass1" placeholder="Senha de confirmação"/>
 <br> -->
-	
+<?php
+echo "<input type='hidden' name='email' value='";
+echo $email;
+echo "' />";
+?>
 <input type="submit" name="submit_edit" value="Editar" id="editar_btn" />
 </form>
 
-<?php
-		
-	//$usuario = $_SESSION['email'];
-
-//	if($usuario){
-		//usuario logado
-		
-		if(isset($_POST['submit_edit'])){
-			// novo
-			$novo_nome = $_POST['name_novo'];
-			$usuario_atual = mysql_query("select * from usuarios where email = '$email'");		
-			$row_atual = mysql_fetch_array($usuario_atual);
-			// echo $row['nome'] . " " . $row['data_nascimento'];
-
-
-
-			$id_atual = $row_atual['idusuarios'];
-			
-			//update nome'
-			mysql_query(" update usuarios set nome='$novo_nome' where email = '$email'");
-			
-//-----------				//--- teste ---
-			// $sqlCommand2 = "SELECT interesses_idinteresses FROM usuarios_interesses WHERE usuarios_idusuarios='$id_atual'";
-			// $query2 = mysql_query( $sqlCommand2) or die (mysql_error());
-			// while ($row = mysql_fetch_array($query2)) {
-			// 	echo 'entrou';
-			//     $selectedinteresses[] = $row['interesses_idinteresses'];
-			// }   
-
-
-			// print_r($selectedinteresses);
-//-----------			//--- teste ---
-
-
-
-	//	---
-			// datas
-
-			
-				$ano = mysql_real_escape_string($_POST['ano']);
-				$mes = mysql_real_escape_string($_POST['mes']);
-				$dia = mysql_real_escape_string($_POST['dia']);
-			
-				$datanova = $dia . "-" . $mes . "-" . $ano;
-				$datanova = (string)date('d/m/Y', strtotime($datanova));
-
-				mysql_query("update usuarios set data_nascimento=str_to_date('$datanova', '%d/%m/%Y' ) where email = '$email'");
-
-
-
-			//deleta interesses da tabela
-			mysql_query("delete from usuarios_interesses where usuarios_idusuarios = $id_atual");
-			// //insere de novo.
-			foreach($_POST['checkbox_novo'] as $interesse){
-				    mysql_query(
-							"insert into usuarios_interesses values ((select idusuarios from usuarios where email = '$email'), $interesse)"
-							) or die(mysql_error());
-			}
-
-
-		}
-
-
-	// }else{
-	// 	//usuario nao logado
-	// }
-
-
-?>

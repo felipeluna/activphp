@@ -15,6 +15,10 @@
 	<link href="styles/index.css" type="text/css" rel="stylesheet" />
 	<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script>
 	<script type="text/javascript" src="scripts/index.js"></script>
+
+	<link rel="shortcut icon" href="images/favicon_activfun.ico" type="image/x-icon">
+	<link rel="icon" href="images/favicon_activfun.ico" type="image/x-icon">
+
 </head>
 <body id="home">
 	<header>
@@ -28,7 +32,7 @@
 		<label class="errologin">Combinação de email e senha inválida</label>
 			<input type="text" name="email" placeholder="E-mail" /> 
 			<input type="password" name="pass" placeholder="Senha" /> 
-			<input type="submit" name="submit_login" value="Entrar"/></br>
+			<input type="submit" name="submit_login" value="Entrar" class="shadowButton" /></br>
 			<a href="#">Esqueci minha senha</a>
 		</form>
 	</header>
@@ -107,30 +111,32 @@
 				<input type="checkbox" name="checkbox[]" value ='5'>RPG/MMO <br />
 				<input type="checkbox" name="checkbox[]"  value ='6'>Jogos de Tabuleiro <br /> -->
 			</div>
-			<div class="input-group">
-				<input type="submit" name="submit_cadastro" value="Cadastrar" disabled="true" id="cadastro_btn" />
+			<div class="input-group" >
+				<div id="submit_cadastro_group">
+					<input type="submit" name="submit_cadastro" value="Cadastrar" disabled="true" id="cadastro_btn" class="shadowButton" />
+				</div>
 				<input type="checkbox" id="checkme"/>
 				<label id="concordo" for="checkme">Concordo com os <a href="#">Termos de uso</a></label>
 			</div>
 			</form>	
 	</div>
 	<footer>		
+		<div id="interesses">
+			<p>Encontre atividades que você gosta</p>
+			<input type="text" name="busca_atividade" value="Busca" /></br>
+			
+			<div class="interesse"><a href="#"><img width="15px" src="images/icons/atividades/football.png" alt="ICON"> Partidas de futebol</a></div>
+			<div class="interesse"><a href="#"><img width="15px" src="images/icons/atividades/basketball.png" alt="ICON"> Partidas de basquete</a></div>
+			<div class="interesse"><a href="#"><img width="15px" src="images/icons/atividades/volleyball.png" alt="ICON"> Partidas de volley</a></div>
+			<div class="interesse"><a href="#"><img width="15px" src="images/icons/atividades/bike.png" alt="ICON"> Passeios ciclisticos</a></div>
+			<div class="interesse"><a href="#"><img width="15px" src="images/icons/atividades/chess.png" alt="ICON">Partida de Chadrez </a></div>
+			<div class="interesse"><a href="#"><img width="15px" src="images/icons/atividades/rpg.png" alt="ICON"> Seções de RPG/MMO</a></div>
+		</div>
 		<div class="block">
 			<img class="logo" alt="Logomarca ActivFun Colorida" src="images/logo-color.png" /></br>
 			<a href="#">Contato</a></br>
 			<a href="#">Quem somos?</a></br>
 			<a href="#">Termos de uso</a>
-		</div>
-
-		<div id="busca">
-			<p>Encontre atividades que você gosta</p>
-			<input type="text" name="busca_atividade" value="Busca" /></br>
-			<a href="#"><img width="15px" src="images/icons/atividades/football.png" alt="ICON"> Partidas de futebol</a></br>
-			<a href="#"><img width="15px" src="images/icons/atividades/basketball.png" alt="ICON"> Partidas de basquete</a></br>
-			<a href="#"><img width="15px" src="images/icons/atividades/volleyball.png" alt="ICON"> Partidas de volley</a></br>
-			<a href="#"><img width="15px" src="images/icons/atividades/bike.png" alt="ICON"> Passeios ciclisticos</a></br>
-			<a href="#"><img width="15px" src="images/icons/atividades/chess.png" alt="ICON">Partida de Chadrez </a></br>
-			<a href="#"><img width="15px" src="images/icons/atividades/rpg.png" alt="ICON"> Seções de RPG/MMO</a></br>
 		</div>
 	</footer>
 </body>

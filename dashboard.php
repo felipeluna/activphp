@@ -20,6 +20,10 @@
 		<link href="styles/dashboard.css" type="text/css" rel="stylesheet" />
 		<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script>
 		<script type="text/javascript" src="scripts/dashboard.js"></script>
+
+		<link rel="shortcut icon" href="images/favicon_activfun.ico" type="image/x-icon">
+		<link rel="icon" href="images/favicon_activfun.ico" type="image/x-icon">
+
 	</head>
 	<body id="dashboard">
 		<header>
@@ -27,8 +31,11 @@
 
 			<div class="user">
 				<img class="notificacoes" src="images/notificacoes.png" />
-				<img class="foto" alt="Foto usuario" src="images/user-35x35.jpg" />
-				<ul>
+				<div class="block">
+					<img class="foto" alt="Foto usuario" src="images/user_default-35x35.png" />
+					<a class="showheaderoptions" href="#"></a>
+				<div>
+				<ul id="headeroptions">
 					<li>
 						<a href="#">Conta</a>
 					</li>
@@ -40,11 +47,27 @@
 
 		</header>
 		<div id="main-container">
+			<div id='success'></div>
+			<div id='notice'></div>
+			<div id='error'></div>
 		<div id="esq">
 			<div id="perfil">
-				<img class="foto" alt="Foto usuario" src="images/user-68x68.jpg" />
+
+				<?php
+					//carrega dados do usuario em variaveis para perfil
+					require('config.php');
+					$email = $_SESSION['email'];
+					$usuario_atual = mysql_query("select * from usuarios where email = '$email'");		
+					$row_atual = mysql_fetch_array($usuario_atual);
+				?>
+				<img class="foto" alt="Foto usuario" src="images/user_default-68x68.png" />
 				<div class="info">
-					<label class="nome">NOME USUÀRIO</label> </br>
+				<?php
+					echo "<label class='nome'>";
+					echo $row_atual['nome'];
+					echo "</label>";
+				?>
+					</br>
 					<img src="images/local_menor.png"/><label class="cidade">CIDADE</label></br>
 					<a href="edit">Editar perfil</a>
 				</div>

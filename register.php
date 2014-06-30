@@ -73,8 +73,8 @@
 				}
 
 
-				header("Location: dashboard.php");
-				exit;
+				// header("Location: dashboard.php");
+				// exit;
 				// mysql_query(
 
 				// 	"insert into usuarios_interesses values ("

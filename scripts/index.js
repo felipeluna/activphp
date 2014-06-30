@@ -1,5 +1,8 @@
 $( document ).ready(function() {
 
+	//initial
+	// window.history.pushState('object', 'Home - Activfun', 'home');
+
   	var checker = document.getElementById('checkme');
 	var sendbtn = document.getElementById('cadastro_btn');
 
@@ -31,7 +34,6 @@ $( document ).ready(function() {
 									if(data == 'falta'){
 										showErroLogin('E-mail e senha devem ser preenchidos');
 									}else if(data == 'ok'){
-										showErroLogin('FEZ LOGIN DE BOUA');
 										window.location.replace('dashboard.php');
 									}else{
 										// showErroLogin(data);
@@ -51,6 +53,11 @@ $( document ).ready(function() {
 			});
 	});
 
-
+	$('#submit_cadastro_group').click(function(){
+		var dis = $('#cadastro_btn').attr('disabled');
+		if(dis == 'disabled'){
+			alert('Você deve aceitar os termos de uso antes de registrar');
+		}
+	});
 
 });
