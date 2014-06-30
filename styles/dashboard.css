@@ -171,7 +171,7 @@ html{
 
 /*/////////// DIR ///////////*/
 
-#dashboard #main-container #dir{
+#dashboard #main-container #content{
 	height: 100%;
 	position: absolute;
 	left: 280px;
