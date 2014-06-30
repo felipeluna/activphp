@@ -28,8 +28,8 @@
 			<div id="perfil">
 				<img class="foto" alt="Foto usuario" src="images/user-68x68.jpg" />
 				<div class="info">
-					<label class="nome">Felipe Luna</label> </br>
-					<img src="images/local_menor.png"/><label class="cidade">Recife</label></br>
+					<label class="nome">NOME USUÀRIO</label> </br>
+					<img src="images/local_menor.png"/><label class="cidade">CIDADE</label></br>
 					<a href="iframes/editar_perfil.htm">Editar perfil</a>
 				</div>
 			</div>
@@ -53,7 +53,24 @@
 			</div>
 		</div>
 		<div id="dir">
+			<?php
+
+				if(isset($_POST)){
+					echo "POST OK";
+
+					if(isset($_SESSION))
+					{
+						echo"sessao aberta";
+
+					}else{
+						echo"sem seção";
+						// header("Location: index.php");
+						// exit();
+					}
+				}
 			
+
+			?>
 		</div>
 		</div>
 		<footer>			

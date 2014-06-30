@@ -21,9 +21,7 @@
 				session_start();
 				$_SESSION['email'] = $email;
 				$_SESSION['pass'] = $senha;
-				//header("Location: dashboard");
-				// exit();
-				echo "ok";
+				
 			}else{
 				echo "erro";
 			}

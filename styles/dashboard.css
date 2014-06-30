@@ -87,7 +87,7 @@ html{
 /*/////////// ESQ ///////////*/
 #dashboard #main-container #esq{
 	background-color: #e8e8e8;
-	width: 240px;
+	width: 280px;
 	height: 100%;
 	position: absolute;
 }
@@ -173,7 +173,7 @@ html{
 #dashboard #main-container #dir{
 	height: 100%;
 	position: absolute;
-	left: 240px;
+	left: 280px;
 	right: 0;
 	bottom: 0;
 	top: 0;

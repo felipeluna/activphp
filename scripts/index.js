@@ -27,19 +27,20 @@ $( document ).ready(function() {
 						success: function(data){
 
 								if(data != ''){
-									if(data = 'falta'){
+									if(data == 'falta'){
 										showErroLogin('E-mail e senha devem ser preenchidos');
 									}else if(data == 'ok'){
 										showErroLogin('FEZ LOGIN DE BOUA');
 										window.location.replace('dashboard.php');
 									}else{
-										showErroLogin('Login e senha não coicidem');
+										showErroLogin(data);
+										// showErroLogin('Ops! Ocorreu algum erro =(');
 									}
 								}else{
-									showErroLogin('Ops! Ocorreu algum erro');
+									window.location.replace('dashboard.php');
 								}
 							},
-						ajaxError: function(){showErroLogin();}
+						ajaxError: function(){showErroLogin('Ops! Ocorreu algum erro =( no ajax');}
 					}
 				);
 
