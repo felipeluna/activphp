@@ -15,9 +15,7 @@
 	<link href="styles/index.css" type="text/css" rel="stylesheet" />
 	<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script>
 	<script type="text/javascript" src="scripts/index.js"></script>
-	<script type="text/javascript" src="scripts/jquery.validate.js"></script>
-	<script type="text/javascript" src="scripts/validando.js"></script>
-	<script src="script/additional-methods.js" type="text/javascript" ></script>
+
 	<link rel="shortcut icon" href="images/favicon_activfun.ico" type="image/x-icon">
 	<link rel="icon" href="images/favicon_activfun.ico" type="image/x-icon">
 
@@ -42,14 +40,10 @@
 			<form name="cadastro" action ="register.php" method="post" id="cadastroForm">
 			<p>Cadastre-se, é grátis</p>
 			<div class="input-group">
-			<label for="name"></label>
-				<input type="text" name="name" placeholder="Nome" id="username"/>
-			<label for="email"></label>
-				<input type="e-mail" name="email" placeholder="E-mail" id="email"/></br>
-				<label for="pass1"></label>
-			<input type="password" name="pass1" placeholder="Senha" id="pass1"/>
-				<label for="pass1"></label>
-			<input type="password" name="pass2" placeholder="Confirmar senha" id="pass2"/></br>
+				<input type="text" name="name" placeholder="Nome"/>
+				<input type="e-mail" name="email" placeholder="E-mail"/></br>
+				<input type="password" name="pass1" placeholder="Senha"/>
+				<input type="password" name="pass2" placeholder="Confirmar senha"/></br>
 				<label class="grupo-input">Data de Nascimento</label>
 				<?php
 					#GERA OS Dias do mes
@@ -124,8 +118,6 @@
 				<input type="checkbox" id="checkme"/>
 				<label id="concordo" for="checkme">Concordo com os <a href="#">Termos de uso</a></label>
 			</div>
-
-			<!-- inserir messagens de erro. -->
 			</form>	
 	</div>
 	<footer>		

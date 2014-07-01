@@ -19,12 +19,12 @@
 		//definindo variáveis de erro.
 		$nameErr = $emailErr = $genderErr = $websiteErr = "";
 
-		if (empty($name)) {
-		    $nameErr = "Name is required";
-		    echo $nameErr;
-		} else{
+		// if (empty($name)) {
+		//     $nameErr = "Name is required";
+		//     echo $nameErr;
+		// } else{
 		    
-		}
+		// }
 		
 		if($pass1 == $pass2){
 				// tudo ok, pode cadastar.
