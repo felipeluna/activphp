@@ -29,7 +29,6 @@ $( document ).ready(function() {
 						type: 'POST',
 						data: $("#loginForm").serialize(),
 						success: function(data){
-
 								if(data != ''){
 									if(data == 'falta'){
 										showErroLogin('E-mail e senha devem ser preenchidos');
@@ -37,11 +36,11 @@ $( document ).ready(function() {
 										window.location.replace('dashboard.php');
 									}else{
 										// showErroLogin(data);
-										showErroLogin('Ops! Ocorreu algum erro =(');
+										showErroLogin('E-mail e/ou senha invalido');
 									}
 								}else{
 									//login ok
-									// window.location.replace('dashboard.php');
+									window.location.replace('dashboard.php');
 								}
 							},
 						ajaxError: function(){showErroLogin('Ops! Ocorreu algum erro =( no ajax');}

@@ -60,7 +60,10 @@
 					$usuario_atual = mysql_query("select * from usuarios where email = '$email'");		
 					$row_atual = mysql_fetch_array($usuario_atual);
 				?>
-				<img class="foto" alt="Foto usuario" src="images/user_default-68x68.png" />
+				<div class="container">
+					<a href="#" id="alterarFoto">Alterar foto</a>
+					<img class="foto" alt="Foto usuario" src="images/user_default-68x68.png" />
+				</div>
 				<div class="info">
 				<?php
 					echo "<label class='nome'>";

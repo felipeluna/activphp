@@ -7,12 +7,14 @@
 		$pass2 = $_POST['pass2'];
 		$name = mysql_real_escape_string($_POST['name']);
 		$email = mysql_real_escape_string($email);
+
 		//funcao de teste
 		function test_input($data)
 		{
 		   $data = trim($data);
 		   $data = stripslashes($data);
 		   $data = htmlspecialchars($data);
+		   
 		   return $data;
 		}
 

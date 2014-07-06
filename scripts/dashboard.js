@@ -40,6 +40,14 @@ function toTitleCase(str) {
 	$('#dashboard header .user .showheaderoptions').click(function(){
 		$('#headeroptions').toggle("fast");
 	});
+
+	$('#alterarFoto').parent().hover(function(){
+		$('#alterarFoto').fadeIn("fast");
+	});
+
+	$('#alterarFoto').parent().mouseleave(function(){
+		$('#alterarFoto').fadeOut("fast");
+	});
 });
 
 	function showSuccess(msg){

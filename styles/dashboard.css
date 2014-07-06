@@ -119,6 +119,7 @@ html{
 #dashboard #main-container #esq a{
 	color: #666;
 	text-decoration: none;
+	font-size: 13px;
 }
 
 #dashboard #main-container #esq #perfil{
@@ -127,11 +128,39 @@ html{
 	float: left;
 }
 
-#dashboard #main-container #esq #perfil .foto{
+#dashboard #main-container #esq #perfil #alterarFoto{
+
+	-webkit-border-bottom-right-radius: 12px;
+	-webkit-border-bottom-left-radius: 12px;
+	-moz-border-radius-bottomright: 12px;
+	-moz-border-radius-bottomleft: 12px;
+	border-bottom-right-radius: 12px;
+	border-bottom-left-radius: 12px;
+	display: none;
+	position: absolute;
+	top: 73px;
+	font-size: 10px;
+	background-color: rgba(180,180,180, 0.7);
+	width: 68px;
+	text-align: center;
+	cursor: pointer;
+}
+
+#dashboard #main-container #esq #perfil .container{
 	-webkit-border-radius: 12px;
 	-moz-border-radius: 12px;
 	border-radius: 12px;
 	margin: 20px;
+	float: left;
+}
+
+#dashboard #main-container #esq #perfil .container a{
+}
+
+#dashboard #main-container #esq #perfil .foto{
+	-webkit-border-radius: 12px;
+	-moz-border-radius: 12px;
+	border-radius: 12px;
 }
 
 #dashboard #main-container #esq #perfil div.info{
