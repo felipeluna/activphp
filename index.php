@@ -13,8 +13,11 @@
 <head>
 	<meta charset="utf-8"/>
 		<title>ActivFun - Home</title>
+<!-- CSS -->
 	<link href="styles/general.css" type="text/css" rel="stylesheet" />
 	<link href="styles/index.css" type="text/css" rel="stylesheet" />
+
+<!-- JAVASCRIPTS -->
 	<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script>
 	<script type="text/javascript" src="scripts/index.js"></script>
 	<!--  <script type="text/javascript" src="scripts/jquery.validate.js"></script>

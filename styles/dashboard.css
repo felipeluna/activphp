@@ -10,7 +10,9 @@
 	margin: 0px;
 	font-family: "Century Gothic";
 }
-
+#dashboard #alterarFotoForm{
+	position: absolute;
+}
 #dashboard header, #dashboard footer{
 	background-image: url("../images/bg-footer-header.jpg");
 }

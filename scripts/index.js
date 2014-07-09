@@ -50,6 +50,7 @@ $( document ).ready(function() {
 						// dataType:"json",
 						success: function(data){
 							data = data.trim();
+							alert(data);
 								if(data == "login.negado"){
 									showErroLogin('E-mail e/ou senha inválidos');
 									$("#loginForm input[name='email'],#loginForm input[name='pass']").addClass("input-error");
@@ -86,7 +87,6 @@ $( document ).ready(function() {
 						// dataType: "json",
 						success: function(data){
 								data = data.trim();
-
 								if(data == "cadastro.ok"){
 									window.location.replace('dashboard.php');
 								}else if(data == "cadastro.senhasNaoCoincidem"){
@@ -102,7 +102,6 @@ $( document ).ready(function() {
 						ajaxError: function(){showErroLogin('Ops! Ocorreu algum erro =( no ajax');}
 					}
 				);
-
 
 				return false;
 			});

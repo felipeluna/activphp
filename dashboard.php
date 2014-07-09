@@ -19,8 +19,10 @@
 		<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
 		<title>ActivFun - Dashboard</title>
 		<link href="styles/dashboard.css" type="text/css" rel="stylesheet" />
+		<link href="styles/imgareaselect/imgareaselect-default.css" type="text/css" rel="stylesheet" />
+		
 		<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script>
-		<script type="text/javascript" src="scripts/dashboard.js"></script>
+		<script type="text/javascript" src="scripts/dashboard.js"></script>		
 
 		<link rel="shortcut icon" href="images/favicon_activfun.ico" type="image/x-icon">
 		<link rel="icon" href="images/favicon_activfun.ico" type="image/x-icon">
@@ -63,7 +65,7 @@
 				?>
 				<div class="container">
 					<a href="#" id="alterarFoto">Alterar foto</a>
-					<img class="foto" alt="Foto usuario" src="images/user_default-68x68.png" />
+					<img  class="foto" alt="Foto usuario" src="images/user_default-68x68.png" />
 				</div>
 				<div class="info">
 				<?php
@@ -79,7 +81,7 @@
 			<div id="menu">				
 				<ul>
 					<li>
-						<div> <img alt="icone" src="images/atividades.png"/> </div> <a href="atividades">atividades</a>
+						<div> <img alt="icone" src="images/atividades.png"/> </div> <a href="mapa">atividades</a>
 					</li>
 					<li>
 						<div> <img alt="icone" src="images/amigos.png"/> </div> <a href="amigos">amigos</a>

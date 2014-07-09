@@ -6,7 +6,6 @@ function toTitleCase(str) {
     });
 }
 
-
 	//initial
 	$('#content').load('content/mapa.php');
 	// window.history.pushState('object', 'Atividades', 'Atividades');
@@ -15,6 +14,14 @@ function toTitleCase(str) {
 	//handle clicks
 	$('#perfil .info a').click(function(){
 		$('#content').load('content/edit.php');
+		// window.history.pushState('object', 'Editar Perfil', 'editar');
+
+		$('#menu ul li a').parent().removeClass('selected');
+		return false;
+	});
+
+	$('#alterarFoto').click(function(){
+		$('#content').load('content/alterar_foto.php');
 		// window.history.pushState('object', 'Editar Perfil', 'editar');
 
 		$('#menu ul li a').parent().removeClass('selected');
@@ -79,3 +86,4 @@ function toTitleCase(str) {
 		    	}, 8000
 		    );
 	}
+

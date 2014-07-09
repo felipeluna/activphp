@@ -78,6 +78,10 @@
 							) or die(mysql_error()." erro ao inserir interesses do usuario");
 				}
 
+				session_start();
+				$_SESSION['email'] = $email;
+				$_SESSION['pass'] = $pass1;
+
 				echo "cadastro.ok";
 				// header("Location: dashboard.php");
 				// exit;
