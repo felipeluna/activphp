@@ -16,6 +16,7 @@
 <html  len="pt">
 	<head>
 		<meta charset="utf-8"/>
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
 		<title>ActivFun - Dashboard</title>
 		<link href="styles/dashboard.css" type="text/css" rel="stylesheet" />
 		<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script>

@@ -1,6 +1,4 @@
-html{
-	height: 100%
-}
+
 
 #dashboard footer a, #dashboard header a{
 	color: #dedede;
@@ -26,6 +24,7 @@ html{
 	width: 100%;
 	position: absolute;
 	top: 0;
+	z-index: 3;
 }
 
 #dashboard header img.logo{
@@ -67,7 +66,7 @@ html{
 	padding: 0;
 	width: 50px;
 	padding: 3px 5px;
-	z-index: 3;
+	z-index: 4;
 	text-decoration: none;
 	border
 }
@@ -234,8 +233,9 @@ html{
 	left: 280px;
 	right: 0;
 	bottom: 0;
-	top: 0;
+	top: -40px;
 	padding: 20px;
+	z-index: 2;
 }
 
 #dashboard #success{
@@ -269,7 +269,7 @@ html{
 	left: 280px;
 	right: 0;
 	height: 40px;
-	background-color: #67e594;
+	background-color: #F77E80;
 	display: none;
 	line-height: 40px;
 }
@@ -293,4 +293,15 @@ html{
 	font-size: 10px;
 	margin: 15px;
 	float: left;
+}
+
+#dashboard	#map-canvas {
+	position: absolute !important;
+	bottom: 55px;
+	top: 94px;
+	right: 20px;
+	left: 20px;
+	background-image: url('../images/loading.gif');
+	background-position: center center;
+	background-repeat: no-repeat;
 }

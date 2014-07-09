@@ -7,39 +7,37 @@
 		exit();
 	}
 ?>
+
 <!DOCTYPE html>
 <html len="pt">
 <head>
 	<meta charset="utf-8"/>
 		<title>ActivFun - Home</title>
+	<link href="styles/general.css" type="text/css" rel="stylesheet" />
 	<link href="styles/index.css" type="text/css" rel="stylesheet" />
 	<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script>
 	<script type="text/javascript" src="scripts/index.js"></script>
-	<script type="text/javascript" src="scripts/jquery.validate.js"></script>
+	<!--  <script type="text/javascript" src="scripts/jquery.validate.js"></script>
 	<script type="text/javascript" src="scripts/validando.js"></script>
-	<script src="script/additional-methods.js" type="text/javascript" ></script>
+	<script type="text/javascript" src="scripts/additional-methods.js"></script> -->
 	<link rel="shortcut icon" href="images/favicon_activfun.ico" type="image/x-icon">
 	<link rel="icon" href="images/favicon_activfun.ico" type="image/x-icon">
 
 </head>
 <body id="home">
 	<header>
-		<img class="logo" alt="Logomarca ActivFun Branca" src="images/logo-branca.png" />
-		<!-- 
-		<?php
-			// require('login_session.php');
-		?> -->
-		
+		<img class="logo" alt="Logomarca ActivFun Branca" src="images/logo-branca.png" />		
 		<form name="login" action="" method="post" id="loginForm">
-		<label class="errologin">Combinação de email e senha inválida</label>
+			<label class="errologin">Combinação de email e senha inválida</label>
 			<input type="text" name="email" placeholder="E-mail" /> 
 			<input type="password" name="pass" placeholder="Senha" /> 
 			<input type="submit" name="submit_login" value="Entrar" class="shadowButton" /></br>
 			<a href="#">Esqueci minha senha</a>
 		</form>
 	</header>
+	<div id="error"></div>
 	<div id="main-container">
-			<form name="cadastro" action ="register.php" method="post" id="cadastroForm">
+		<form name="cadastro" onsubmit="return validaCadastro(this)" action ="" method="post" id="cadastroForm">
 			<p>Cadastre-se, é grátis</p>
 			<div class="input-group">
 			<label for="name"></label>
@@ -55,6 +53,9 @@
 					#GERA OS Dias do mes
 					$startyear = 1;
 					echo "<select id='user_data_3i' name='dia' >";
+						echo "<option>";
+						echo "Dia";
+						echo "</option>";
 					for ($i=0; $i < 31; $i++){
 						echo "<option>";
 						echo $startyear++;
@@ -64,6 +65,7 @@
 				?>
 
 				<select id="user_data_2i" name="mes">
+					<option value="0">Mês</option>
 					<option value="1">Janeiro</option>
 					<option value="2">Fevereiro</option>
 					<option value="3">Março</option>
@@ -82,6 +84,9 @@
 					#GERA OS ANOS para q só permita +18
 					$startyear = date("Y") - 18;
 					echo "<select id='user_data_1i' name='ano' >";
+					echo "<option>";
+						echo "Ano";
+						echo "</option>";
 					for ($i=0; $i < 80; $i++){
 						echo "<option>";
 						echo $startyear--;
@@ -126,19 +131,39 @@
 			</div>
 
 			<!-- inserir messagens de erro. -->
-			</form>	
+		</form>	
 	</div>
 	<footer>		
 		<div id="interesses">
 			<p>Encontre atividades que você gosta</p>
-			<input type="text" name="busca_atividade" value="Busca" /></br>
+
+			<form name="busca">
+				<input type="text" name="campo_busca" placeholder="Busca" id="inputBusca270px" />
+				<input type="submit" name="buscar" value="" id="btnBusca270px" />
+			</form></br>
 			
-			<div class="interesse"><a href="#"><img width="15px" src="images/icons/atividades/football.png" alt="ICON"> Partidas de futebol</a></div>
+			<?php
+				$result = mysql_query(
+					"SELECT idinteresses, descricao FROM interesses;"
+					)or die(mysql_error("Ops, ocorreu algum erro =("));
+
+				while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+					$descricao = $row['descricao'];
+					$idinteresses = $row['idinteresses'];
+					echo "<div class='interesse'><a href='#'><img width='15px' src='images/icons/atividades/";
+					echo $idinteresses;
+					echo ".png' alt='ICON'>";
+					echo $descricao;
+					echo "</a></div>";
+				}				
+			?>
+
+			<!-- <div class="interesse"><a href="#"><img width="15px" src="images/icons/atividades/football.png" alt="ICON"> Partidas de futebol</a></div>
 			<div class="interesse"><a href="#"><img width="15px" src="images/icons/atividades/basketball.png" alt="ICON"> Partidas de basquete</a></div>
 			<div class="interesse"><a href="#"><img width="15px" src="images/icons/atividades/volleyball.png" alt="ICON"> Partidas de volley</a></div>
 			<div class="interesse"><a href="#"><img width="15px" src="images/icons/atividades/bike.png" alt="ICON"> Passeios ciclisticos</a></div>
 			<div class="interesse"><a href="#"><img width="15px" src="images/icons/atividades/chess.png" alt="ICON">Partida de Chadrez </a></div>
-			<div class="interesse"><a href="#"><img width="15px" src="images/icons/atividades/rpg.png" alt="ICON"> Seções de RPG/MMO</a></div>
+			<div class="interesse"><a href="#"><img width="15px" src="images/icons/atividades/rpg.png" alt="ICON"> Seções de RPG/MMO</a></div> -->
 		</div>
 		<div class="block">
 			<img class="logo" alt="Logomarca ActivFun Colorida" src="images/logo-color.png" /></br>

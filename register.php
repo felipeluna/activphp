@@ -1,6 +1,7 @@
 	<?php 
 	require('config.php');
-	if(isset($_POST['submit_cadastro'])){
+
+	if(isset($_POST) && !empty($_POST)){
 		//http://alias.io/2010/01/store-passwords-safely-with-php-and-mysql/
 		$email = $_POST['email'];
 		$pass1 = $_POST['pass1'];
@@ -27,8 +28,13 @@
 		// } else{
 		    
 		// }
-		
-		if($pass1 == $pass2){
+		if(
+			$email != "" &&
+			$pass1 != "" &&
+			$pass2 != "" &&
+			$name != ""
+		){
+			if($pass1 == $pass2){
 				// tudo ok, pode cadastar.
 				// verificação de cadastro.
 				// informacoes principais.
@@ -64,31 +70,28 @@
 				
 				mysql_query(
 					"insert into usuarios values ('','$name', '$email', '$pass1', '$salt', str_to_date('$date', '%d/%m/%Y' ), NULL, SYSDATE())"
-					)or die(mysql_error()." erro no insert usuarios");
+					)or die(mysql_error());
 
-				// 	) or die(mysql_error());
-				
 				foreach($_POST['checkbox'] as $interesse){
 				    mysql_query(
 							"insert into usuarios_interesses values ((select idusuarios from usuarios where email = '$email'), $interesse)"
 							) or die(mysql_error()." erro ao inserir interesses do usuario");
 				}
 
-
+				echo "cadastro.ok";
 				// header("Location: dashboard.php");
 				// exit;
 				// mysql_query(
 
 				// 	"insert into usuarios_interesses values ("
 				// 	);
-
-
+			}else{
+				echo "cadastro.senhasNaoCoincidem";
+			}
 		}else{
-			echo "SENHAS NAO COINCIDEM";
+			echo "cadastro.faltaCampos";
 		}
-	}else{
-		
-		echo "Nao veio do submit";
-		
+	}else{		
+		echo "Ops! Você não pode acessar esta página";
 	}
 ?>

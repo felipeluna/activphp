@@ -1,0 +1,75 @@
+input,select{
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	outline-color: #ff6700;
+	border-style: solid;
+	border-color: #a9a9a9;
+	border-width: 1px;
+}
+
+body{
+	padding: 0px;
+	margin: 0px;
+	font-family: "Century Gothic";
+}
+
+header, footer{
+	background-image: url("../images/bg-footer-header.jpg");
+}
+header a, footer a{
+	color: #dedede;
+}
+
+.input-error{
+	border-style: solid;
+	border-color: #ED585A;
+	border-width: 2px;
+}
+.shadowButton{
+	-webkit-box-shadow: 1px 1px 2px 0px rgba(41,41,41,0.6);
+	-moz-box-shadow: 1px 1px 2px 0px rgba(41,41,41,0.6);
+	box-shadow: 1px 1px 2px 0px rgba(41,41,41,0.6);
+}
+
+.errologin{
+	color:red;
+	background-color: #f0f187;
+	display: none;
+	padding: 2px 5px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	margin-right:5px; 
+}
+
+/*header #inputBusca270px{
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	background-color: #134167;
+	outline-color: #3989cb;
+	border: 0;
+	font-size: 30px;
+	text-transform: uppercase;
+	color:#fff;
+	padding: 6px 10px;
+	width: 400px;
+}
+
+header #btnBusca270px{
+	position: absolute;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	background-color: #20649e;
+	outline: 0;
+	border: none;
+	background-image: url('../images/lupa-29x23.png');
+	background-position: center center;
+	background-repeat: no-repeat;
+	width: 40px;
+	height: 40px;
+	margin-left: -45px;
+	margin-top: 6px;
+}*/

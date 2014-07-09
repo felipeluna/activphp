@@ -1,19 +1,5 @@
-.shadowButton{
-	-webkit-box-shadow: 1px 1px 2px 0px rgba(41,41,41,0.6);
-	-moz-box-shadow: 1px 1px 2px 0px rgba(41,41,41,0.6);
-	box-shadow: 1px 1px 2px 0px rgba(41,41,41,0.6);
-}
 #submit_cadastro_group{
 	display: initial;
-}
-input,select{
-	-webkit-border-radius: 6px;
-	-moz-border-radius: 6px;
-	border-radius: 6px;
-	outline-color: #ff6700;
-	border-style: solid;
-	border-color: #a9a9a9;
-	border-width: 1px;
 }
 
 input[name="submit_login"]{
@@ -29,18 +15,23 @@ input[name="submit_login"]{
 }
 
 #home{
-	padding: 0px;
-	margin: 0px;
-	font-family: "Century Gothic";
 	background-image: url("../images/bg-theme-basket.jpg");
+}
+
+#home #error{
+	text-align: center;
+	position: absolute;
+	top: 50px;
+	left: 0;
+	right: 0;
+	height: 40px;
+	background-color: #F77E80;
+	display: none;
+	line-height: 40px;
 }
 
 #home a{
 	color: #dedede;
-}
-
-#home header, #home footer{
-	background-image: url("../images/bg-footer-header.jpg");
 }
 
 #home header{
@@ -117,23 +108,10 @@ margin: 3px;
 }
 
 
-#home footer #interesses input[name="busca_atividade"]{
-	-webkit-border-radius: 10px;
-	-moz-border-radius: 10px;
-	border-radius: 10px;
 
-
-	background-color: #134167;
-	outline-color: #3989cb;
-	border: 0;
-	font-size: 20px;
-	text-transform: uppercase;
-	color:#fff;
-	padding: 6px 10px;
-	width: 200px;
-}
 
 #home #cadastro_btn{
+	
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	border-radius: 3px;
@@ -192,13 +170,33 @@ margin: 3px;
 #home  form[name="submit_cadastro"]{
 }
 
-#home .errologin{
-	color:red;
-	background-color: #f0f187;
-	display: none;
-	padding: 2px 5px;
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	border-radius: 3px;
-	margin-right:5px; 
+#home #inputBusca270px{
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	background-color: #134167;
+	outline-color: #3989cb;
+	border: 0;
+	font-size: 30px;
+	text-transform: uppercase;
+	color:#fff;
+	padding: 6px 10px;
+	width: 270px;
+}
+
+#home #btnBusca270px{
+	position: absolute;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	background-color: #20649e;
+	outline: 0;
+	border: none;
+	background-image: url('../images/lupa-29x23.png');
+	background-position: center center;
+	background-repeat: no-repeat;
+	width: 40px;
+	height: 40px;
+	margin-left: -45px;
+	margin-top: 6px;
 }

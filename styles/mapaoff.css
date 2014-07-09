@@ -1,0 +1,152 @@
+
+#mapa-off form[name="busca"]{
+	width: 295px;
+	float: left;
+	position: absolute;
+	left: 250px;
+	top: 9px;
+}
+
+#mapa-off header{
+	height: 70px;
+	width: 100%;
+	vertical-align: top;
+	background-image: url("../images/bg-footer-header.jpg");
+}
+
+#mapa-off form[name="login"] a {
+	font-size: 12px;
+	margin-left: 165px;
+	color: #dedede;
+}
+
+#mapa-off header .logo{
+	float:left;
+	margin: 10px 30px;
+	width: 130px;
+}
+
+#mapa-off form[name="login"]{
+	position: absolute;
+	right: 10px;
+	margin: 15px;
+}
+
+#mapa-off #inputBusca270px{
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	background-color: #134167;
+	outline-color: #3989cb;
+	border: 0;
+	font-size: 30px;
+	text-transform: uppercase;
+	color:#fff;
+	padding: 6px 10px;
+	width: 270px;
+	position: absolute;
+	z-index: 4;
+}
+
+#mapa-off #btnBusca270px{
+	position: absolute;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	background-color: #20649e;
+	outline: 0;
+	border: none;
+	background-image: url('../images/lupa-29x23.png');
+	background-position: center center;
+	background-repeat: no-repeat;
+	width: 40px;
+	height: 40px;
+	margin-left: 245px;
+	margin-top: 5px;
+	z-index: 4;
+}
+
+#mapa-off #result{
+	-webkit-border-bottom-right-radius: 10px;
+	-webkit-border-bottom-left-radius: 10px;
+	-moz-border-radius-bottomright: 10px;
+	-moz-border-radius-bottomleft: 10px;
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	z-index: 3;
+	position: absolute;
+	width: 290px;
+	background-color: #1d4c73;
+	margin-top: -10px;
+	padding-top: 10px;
+	top: 50px;
+}
+
+#mapa-off .autocomplete-item{
+	width: 284px;
+	background-color: #20649e;
+	color: #fff;
+	margin: 3px;
+	vertical-align: middle;
+	line-height: 40px;
+}
+
+#mapa-off #result .autocomplete-item:last-of-type{
+-webkit-border-bottom-right-radius: 10px;
+-webkit-border-bottom-left-radius: 10px;
+-moz-border-radius-bottomright: 10px;
+-moz-border-radius-bottomleft: 10px;
+border-bottom-right-radius: 10px;
+border-bottom-left-radius: 10px;
+}
+
+#mapa-off .autocomplete-item span{
+
+}
+#mapa-off .autocomplete-item img{
+	width: 17px;
+	margin: 5px 5px;
+}
+
+
+#mapa-off footer{
+	height: 40px;
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+}
+
+#mapa-off footer img.logo{
+	margin:4px 10px;
+	float: left;
+}
+
+#mapa-off footer a{
+	font-size: 10px;
+	margin: 15px;
+	float: left;
+}
+
+#mapa-off #map-canvas{
+	position: absolute !important;
+	bottom: 40px;
+	top: 70px;
+	right: 0;
+	left: 0;
+	background-image: url('../images/loading.gif');
+	background-position: center center;
+	background-repeat: no-repeat;
+	z-index: 1;
+}
+
+input[name="submit_login"]{
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	background-color: #4385bd;
+	border: none;
+	outline: none;
+	color: #fff;
+	padding: 3px 4px;
+	cursor: pointer;
+}

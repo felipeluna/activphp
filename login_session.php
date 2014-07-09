@@ -21,15 +21,15 @@
 				session_start();
 				$_SESSION['email'] = $email;
 				$_SESSION['pass'] = $senha;
-
-				echo "ok";
+				
+				echo "login.ok";
 			}else{
-				echo "erro";
+				echo"login.negado";//Login e/ou senha inválidos
 			}
 		}else{
-			echo "falta";
+			echo "login.faltaCampos";//falta login e/ou senha
 		}
 	}else{
-		echo "";
+		echo "Erro na chamada desta página :(";
 	}
 ?>
