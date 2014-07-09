@@ -95,14 +95,38 @@
 						echo $startyear--;
 						echo "</option>";
 					}
-					echo "</select>"
+					echo "</select>";
 				?>
 			</div>
+			<label class="grupo-input">Local</label>
+			<?php
+				require('config.php');
+				
+
+				$result = mysql_query(
+					"SELECT idestados, uf FROM estados;"
+				)or die(mysql_error("Ops, ocorreu algum erro =("));
+				
+				echo "<select name='uf'>";
+				echo "<option value='0' >Estado </option>";
+				while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+					echo "<option ";
+					echo "value='".$row['idestados']."' >";
+ 					echo $row['uf'];
+ 					echo "</option>";
+				}
+				echo "</select>";
+			?>
+
+			<select name="cidade" disabled="true" id="select-cidade">
+					<option value="0">Cidade</option>
+			</select>
+
 			<label class="grupo-input">Atividades de interesse</label>
 			<div class="input-group">
 			<!-- PEGA INTERESSES DO BANCO  -->
 			<?php
-				require('config.php');
+				
 
 				$result = mysql_query(
 					"SELECT idinteresses, descricao FROM interesses;"

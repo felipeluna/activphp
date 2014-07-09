@@ -76,7 +76,11 @@
 					
 					echo "</select>";
 				?>
+				</br>
+	<label>Local</label></br>
+	>>COLOCAR LOCAL<<</br>
 	<select id="user_data_2i" name="mes">
+
 		<?php
 
 			//====================================================================

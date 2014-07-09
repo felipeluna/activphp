@@ -60,6 +60,11 @@
 					$email = $_SESSION['email'];
 					$usuario_atual = mysql_query("select * from usuarios where email = '$email'");		
 					$row_atual = mysql_fetch_array($usuario_atual);
+
+					$cidade = $row_atual['cidades_idcidades'];
+					$cidade = mysql_query("select cidade from cidades where idcidades = '$cidade'");		
+					$cidade = mysql_fetch_array($cidade);
+
 				?>
 				<div class="container">
 					<a href="#" id="alterarFoto">Alterar foto</a>
@@ -72,7 +77,7 @@
 					echo "</label>";
 				?>
 					</br>
-					<img src="images/local_menor.png"/><label class="cidade">CIDADE</label></br>
+					<img src="images/local_menor.png"/><label class="cidade"><?php echo $cidade['cidade']; ?></label></br>
 					<a href="edit">Editar perfil</a>
 				</div>
 			</div>

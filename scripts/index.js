@@ -1,9 +1,25 @@
-function validaCadastro(form){
+﻿function validaCadastro(form){
 		window.form = form;
 		return false;
 	}
 
 $( document ).ready(function() {
+
+	$("select[name='uf']").change(function(){
+		$.ajax({
+			url: 'loadcidades.php',
+			type: 'POST',
+			data: $("select[name='uf']").serialize(),
+			success: function(data){
+				$("select[name='cidade']").html(data);
+				var s = document.getElementById('select-cidade');
+				s.disabled = false;
+			},
+			error: function(){
+				alert('Erro ao carregar cidades');
+			}
+			});
+	});
 
 	//initial
 	// window.history.pushState('object', 'Home - Activfun', 'home');
@@ -50,7 +66,7 @@ $( document ).ready(function() {
 						// dataType:"json",
 						success: function(data){
 							data = data.trim();
-							alert(data);
+							
 								if(data == "login.negado"){
 									showErroLogin('E-mail e/ou senha inválidos');
 									$("#loginForm input[name='email'],#loginForm input[name='pass']").addClass("input-error");
@@ -87,6 +103,7 @@ $( document ).ready(function() {
 						// dataType: "json",
 						success: function(data){
 								data = data.trim();
+								alert(data);
 								if(data == "cadastro.ok"){
 									window.location.replace('dashboard.php');
 								}else if(data == "cadastro.senhasNaoCoincidem"){

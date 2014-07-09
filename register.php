@@ -9,6 +9,7 @@
 		$name = mysql_real_escape_string($_POST['name']);
 		$email = mysql_real_escape_string($email);
 
+
 		//funcao de teste
 		function test_input($data)
 		{
@@ -68,13 +69,20 @@
 			
 				$date = $dia . "/" . $mes . "/" . $ano;
 				
+				//LOCAL
+				$uf = $_POST['uf'];
+				$cidade = $_POST['cidade'];
+
+				
+				
+
 				mysql_query(
-					"insert into usuarios values ('','$name', '$email', '$pass1', '$salt', str_to_date('$date', '%d/%m/%Y' ), NULL, SYSDATE())"
+					"insert into usuarios values ('','$name', '$email', '$pass1', '$salt', str_to_date('$date', '%d/%m/%Y' ), NULL, SYSDATE(), $cidade);"
 					)or die(mysql_error());
 
 				foreach($_POST['checkbox'] as $interesse){
 				    mysql_query(
-							"insert into usuarios_interesses values ((select idusuarios from usuarios where email = '$email'), $interesse)"
+							"insert into usuarios_interesses values ((select idusuarios from usuarios where email = '$email'), $interesse);"
 							) or die(mysql_error()." erro ao inserir interesses do usuario");
 				}
 
