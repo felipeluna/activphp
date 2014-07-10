@@ -64,10 +64,9 @@
 
 		$cidade = mysql_query("select cidade from `cidades` where idcidades = {$_POST['cidade']}") or die (mysql_error());
 		$cidade = mysql_fetch_array($cidade);
-		$cidade = $cidade['cidade'];
+		$cidade = utf8_encode($cidade['cidade']);
 		$info = array ("nome"=>"$novo_nome", "cidade"=>"$cidade");
 		echo json_encode($info);
-
 		}
 	// }else{
 	// 	//usuario nao logado

@@ -13,7 +13,7 @@
 		while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
 			echo "<option ";
 			echo "value='".$row['idcidades']."' >";
-				echo $row['cidade'];
+				echo utf8_encode($row['cidade']);
 				echo "</option>";
 		}
 		// echo "</select>";

@@ -9,8 +9,7 @@
 					// echo"sem seção";
 					header("Location: index.php");
 					exit();
-				}			
-
+				}
 			?>
 <!DOCTYPE html>
 <html  len="pt">
@@ -53,7 +52,7 @@
 			<div id='error'></div>
 		<div id="esq">
 			<div id="perfil">
-
+			
 				<?php
 					//carrega dados do usuario em variaveis para perfil
 					require('config.php');
@@ -77,7 +76,7 @@
 					echo "</label>";
 				?>
 					</br>
-					<img src="images/local_menor.png"/><label class="cidade"><?php echo $cidade['cidade']; ?></label></br>
+					<img src="images/local_menor.png"/><label class="cidade"><?php echo utf8_encode($cidade['cidade']); ?></label></br>
 					<a href="edit">Editar perfil</a>
 				</div>
 			</div>

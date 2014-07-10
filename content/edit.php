@@ -179,7 +179,7 @@
 								echo " selected ";
 							}
 							echo " >";
-							echo $row['cidade'];
+							echo utf8_encode($row['cidade']);
 							echo "</option>";
 						}
 
@@ -224,7 +224,7 @@
 					}
 
 					echo "<label for='cb$idinteresses'>";
- 					echo $row['descricao'];
+ 					echo utf8_encode($row['descricao']);
  					echo "</label><br />";
 				}				
 			?>

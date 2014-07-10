@@ -22,6 +22,7 @@ $(function(){
 				$.ajax({
 						url: 'edit_submit.php',
 						type: 'POST',
+						encoding:"UTF-8",
 						data: $("#editform").serialize(),
 						dataType: 'json',
 						success: function(data){
@@ -30,7 +31,7 @@ $(function(){
 								$(".info .cidade").html(data.cidade);
 							},
 						error: function(data){
-							showError(data);	
+							showError('Erro: '.data);	
 						},
 						ajaxError: function(){
 							showError('Ops! Ocorreu algum erro =(');
