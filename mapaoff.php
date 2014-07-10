@@ -28,10 +28,12 @@
 <body id="mapa-off">
 	<header>
 		<img class="logo" alt="Logomarca ActivFun Branca" src="images/logo-branca.png" />
-		<form name="busca">
-				<input type="text" name="campo_busca" placeholder="Busca" id="inputBusca270px" />
+		<form name="busca" >
+				<input type="text" name="campo_busca" placeholder="Busca" id="inputBusca270px" class="search" />
 				<input type="submit" name="buscar" value="" id="btnBusca270px" />
-				<div id="result"></div>
+				<div id="result">
+					
+				</div>
 		</form>
 
 		<form name="login" action="" method="post" id="loginForm">

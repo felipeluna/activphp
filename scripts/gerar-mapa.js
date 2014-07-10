@@ -2,32 +2,16 @@
 	//variavel q conterá omapa
 	var map;
 
-	// //variavel de estilizar o mapa
-	// var MY_MAPTYPE_ID = 'custom_style';
+	//adiciona mensagem ao marker do mapa quando clicado
+	function attachMessage(marker, message) {
+	  var infowindow = new google.maps.InfoWindow({
+	    content: message
+	  });
 
-	// //estilizando mapa
-	// var featureOpts = [
-	//     {
-	//       stylers: [
-	//         { hue: '#890000' },
-	//         { visibility: 'simplified' },
-	//         { gamma: 0.5 },
-	//         { weight: 0.5 }
-	//       ]
-	//     },
-	//     {
-	//       elementType: 'labels',
-	//       stylers: [
-	//         { visibility: 'off' }
-	//       ]
-	//     },
-	//     {
-	//       featureType: 'water',
-	//       stylers: [
-	//         { color: '#890000' }
-	//       ]
-	//     }
-	//   ];
+	  google.maps.event.addListener(marker, 'click', function() {
+	    infowindow.open(marker.get('map'), marker);
+	  });
+	}
 
 	function initialize() {
   		var mapOptions = {
@@ -37,15 +21,31 @@
   		map = new google.maps.Map(document.getElementById('map-canvas'),mapOptions);
 
 	  	// Try HTML5 geolocation
-	  	if(navigator.geolocation) {
+	  	if(navigator.geolocation){
 	    	navigator.geolocation.getCurrentPosition(function(position) {
 	     		var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
-		    	var infowindow = new google.maps.InfoWindow({
-	        		map: map,
-	        		position: pos,
-	        		content: 'Você está aqui'});
-		    	map.setCenter(pos);
+		    	// var infowindow = new google.maps.InfoWindow({
+	      //   		map: map,
+	      //   		position: pos,
+	      //   		content: 'Você está aqui'});
+		    	// map.setCenter(pos);
+
+		    	///////////////BEGIN - PINO do usuario NO MAPA
+		    		var image = 'images/user-pin.png';
+					var marker = new google.maps.Marker({
+				      position: pos,
+				      map: map,
+				      icon: image,
+				      title: 'Hello World!'
+				  });
+					attachMessage(marker, "Você está aqui!");
+				  map.setCenter(pos);
+		    	///////////////END - PINO do usuario NO MAPA
+
+
+
+
 	    	},
 	    	function() {
 	      		handleNoGeolocation(true);

@@ -1,10 +1,10 @@
 $(document).ready(function(){
 	
-	$("#inputBusca270px").keyup(function()
-	{ 
-		var searchid = $(this).val();
+	function ajaxAutocomplete(element){
+
+		var searchid = $(element).val();
 		var dataString = 'search='+ searchid;
-		if(searchid!='')
+		if(true)
 		{
 		    $.ajax({
 		    type: "POST",
@@ -16,12 +16,32 @@ $(document).ready(function(){
 			    }
 		    });
 		}return false;    
+	}
+
+	$("#inputBusca270px").keyup(function()
+	{ 
+		ajaxAutocomplete($(this));
 	});
 
-	$("#result").on("click", function(e){ 
+	$("#inputBusca270px").focus(function()
+	{ 
+		ajaxAutocomplete($(this));
+	});
+
+
+	$("#result").on("click", function(e){
+
 	    var $clicked = $(e.target);
-	    var $name = $clicked.find('.name').html();
-	    var decoded = $("<div/>").html($name).text();
+
+	    var $name
+	    
+	    if($clicked.attr('class') == 'name'){
+	    	$name = $clicked.html();
+	    }else{
+	    	$name = $clicked.find('.name').html();	
+	    }
+
+	    var decoded = $("#inputBusca270px").html($name).text();
 	    $('#inputBusca270px').val(decoded);
 	});
 
