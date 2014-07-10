@@ -32,7 +32,6 @@ $(function(){
 					}
 				);
 
-
 				return false;
 			});
 	});
@@ -46,12 +45,14 @@ $( document ).ready(function() {
 			type: 'POST',
 			data: $("select[name='uf']").serialize(),
 			success: function(data){
-				alert("HWERASDF 7X1");
+				alert(data);
 				$("select[name='cidade']").html(data);
 			},
 			error: function(){
 				alert('Erro ao carregar cidades');
 			}
 			});
+
+		return false;
 	});
 });

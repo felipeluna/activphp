@@ -149,11 +149,10 @@
 				// echo "<option value='0' >Estado </option>";
 				while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
 					echo "<option ";
-					echo "value='".$estado['idestados']. "'";
+					echo "value='".$row['idestados']."' ";
 					if($row['idestados'] == $estado['idestados']){
 						echo "selected ";
 					}
-
 					echo ">"; // fecha tag de option
  					echo $row['uf'];
  					echo "</option>";
