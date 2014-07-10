@@ -23,9 +23,15 @@ $(function(){
 						url: 'edit_submit.php',
 						type: 'POST',
 						data: $("#editform").serialize(),
+						dataType: 'json',
 						success: function(data){
 								showSuccess("Dados alterados com sucesso! =D");
+								$(".info .nome").html(data.nome);
+								$(".info .cidade").html(data.cidade);
 							},
+						error: function(data){
+							showError(data);	
+						},
 						ajaxError: function(){
 							showError('Ops! Ocorreu algum erro =(');
 						}

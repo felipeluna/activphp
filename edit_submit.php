@@ -47,6 +47,9 @@
 				mysql_query("update usuarios set data_nascimento=str_to_date('$datanova', '%d/%m/%Y' ) where email = '$email'");
 
 
+				//update cidade e pá.
+				mysql_query("update usuarios set cidades_idcidades = {$_POST['cidade']} where email = '$email'");
+
 
 			//deleta interesses da tabela
 			mysql_query("delete from usuarios_interesses where usuarios_idusuarios = $id_atual");
@@ -58,9 +61,14 @@
 			}
 
 
+
+		$cidade = mysql_query("select cidade from `cidades` where idcidades = {$_POST['cidade']}") or die (mysql_error());
+		$cidade = mysql_fetch_array($cidade);
+		$cidade = $cidade['cidade'];
+		$info = array ("nome"=>"$novo_nome", "cidade"=>"$cidade");
+		echo json_encode($info);
+
 		}
-
-
 	// }else{
 	// 	//usuario nao logado
 	// }
