@@ -41,7 +41,7 @@
 				  });
 					attachMessage(marker, "Você está aqui!");
 				  map.setCenter(pos);
-		    	///////////////END - PINO do usuario NO MAPA
+		    	///////////////END - PINO do usuario NO MAPA - END
 
 
 
@@ -81,4 +81,4 @@
   		document.body.appendChild(script);
 	}
 
-	$(document).ready(loadScript())
+	$(document).ready(loadScript());
