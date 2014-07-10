@@ -1,0 +1,88 @@
+#atividades #tabs{
+	border-bottom-style: solid;
+	border-bottom-color: #ddd;
+	border-width: 1px;
+	vertical-align: middle;
+}
+#atividades #tabs a.tabSelected{
+	/*bottom*/
+	border-bottom-style: solid;
+	border-bottom-color: #fff;
+	border-width: 1px;
+	/*top*/
+	border-top-style: solid;
+	border-top-color: #ddd;
+	/*right*/
+	border-right-style: solid;
+	border-right-color: #ddd;
+	/*left*/
+	border-left-style: solid;
+	border-left-color: #ddd;
+
+	color:#222;
+	background-color: #fff;
+	padding: 6px;
+}
+
+#atividades #tabs a{
+	text-decoration: none;
+	color: #999;
+	line-height: 30px;
+	background-color: #eee;
+	padding: 5px;
+
+	border-bottom-style: solid;
+	border-bottom-color: #ddd;
+	border-bottom-width: 1px;
+}
+
+#minhas-atividades td{
+	padding: 6px 10px;
+
+}
+
+#minhas-atividades tbody tr:hover td{
+
+	/*outline-style: solid;
+	outline-width: 2px;
+	outline-color: #ddd;*/
+	cursor: pointer;
+	background-color: #abd0f6;
+}
+
+#minhas-atividades td.atividade{
+	background-color: #ebebeb;
+	cursor: pointer;
+}
+
+#minhas-atividades .atividade .title{
+	text-transform: uppercase;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+#minhas-atividades thead td{
+	text-transform: uppercase;
+	font-size: 14px;	
+	color: #999;
+	/*font-weight: bold;*/
+}
+
+#minhas-atividades .quando-onde{
+	background-color: #f7f7f7;
+}
+
+#minhas-atividades .detalhes{
+	background-color: #ebebeb;
+}
+
+#atividades-content	#map-canvas {
+	position: absolute !important;
+	bottom: 55px;
+	top: 145px;
+	right: 20px;
+	left: 20px;
+	background-image: url('../images/loading.gif');
+	background-position: center center;
+	background-repeat: no-repeat;
+}

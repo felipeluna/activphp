@@ -7,7 +7,7 @@ function toTitleCase(str) {
 }
 
 	//initial
-	$('#content').load('content/mapa.php');
+	$('#content').load('content/atividades.php');
 	// window.history.pushState('object', 'Atividades', 'Atividades');
 	$("#menu ul li a[href='atividades']").parent().addClass('selected');
 

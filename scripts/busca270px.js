@@ -1,7 +1,3 @@
-function showErroLogin(message){
-		$('.errologin').html(message);
-		$('.errologin').fadeIn('fast');
-	}
 	
 $(document).ready(function(){
 			$("#loginForm").submit(function(){

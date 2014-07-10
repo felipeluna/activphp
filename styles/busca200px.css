@@ -1,0 +1,93 @@
+#busca200px{
+	width: 220px;
+	float: left;
+	position: absolute;
+	left: 250px;
+	top: 5px;
+}
+
+#busca200px #inputBusca270px{
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	background-color: #134167;
+	outline-color: #3989cb;
+	border: 0;
+	font-size: 20px;
+	text-transform: uppercase;
+	color:#fff;
+	padding: 6px 10px;
+	width: 200px;
+	position: absolute;
+	z-index: 4;
+}
+
+#busca200px #btnBusca270px{
+	position: absolute;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	background-color: #20649e;
+	outline: 0;
+	border: none;
+	background-image: url('../images/lupa-18x14.png');
+	background-position: center center;
+	background-repeat: no-repeat;
+	width: 28px;
+	height: 28px;
+	margin-left: 188px;
+	margin-top: 6px;
+	z-index: 4;
+}
+
+#busca200px #result{
+	-webkit-border-bottom-right-radius: 10px;
+	-webkit-border-bottom-left-radius: 10px;
+	-moz-border-radius-bottom-right: 10px;
+	-moz-border-radius-bottom-left: 10px;
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	z-index: 3;
+	position: absolute;
+	width: 220px;
+	background-color: #1d4c73;
+	margin-top: -10px;
+	padding-top: 10px;
+	top: 38px;
+}
+
+#busca200px .autocomplete-item{
+	width: 214px;
+	background-color: #20649e;
+	color: #fff;
+	margin: 3px;
+	vertical-align: middle;
+	line-height: 40px;
+	cursor: pointer;
+}
+#busca200px .autocomplete-item-group{
+	width: 284px;
+	background-color: transparent;
+	color: #fff;
+	margin: 3px;
+	vertical-align: middle;
+	line-height: 30px;
+	cursor: pointer;
+}
+#busca200px .autocomplete-item:hover{
+	background-color: #256dab;	
+}
+
+#busca200px #result .autocomplete-item:last-of-type{
+-webkit-border-bottom-right-radius: 10px;
+-webkit-border-bottom-left-radius: 10px;
+-moz-border-radius-bottomright: 10px;
+-moz-border-radius-bottomleft: 10px;
+border-bottom-right-radius: 10px;
+border-bottom-left-radius: 10px;
+}
+
+#busca200px .autocomplete-item img{
+	width: 17px;
+	margin: 5px 5px;
+}

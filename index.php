@@ -20,6 +20,7 @@
 <!-- JAVASCRIPTS -->
 	<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script>
 	<script type="text/javascript" src="scripts/index.js"></script>
+	<script type="text/javascript" src="scripts/login.js"></script>
 	<!--  <script type="text/javascript" src="scripts/jquery.validate.js"></script>
 	<script type="text/javascript" src="scripts/validando.js"></script>
 	<script type="text/javascript" src="scripts/additional-methods.js"></script> -->
@@ -180,7 +181,7 @@
 					echo "<div class='interesse'><a href='#'><img width='15px' src='images/icons/atividades/";
 					echo $idinteresses;
 					echo ".png' alt='ICON'>";
-					echo $descricao;
+					echo utf8_encode($descricao);
 					echo "</a></div>";
 				}				
 			?>

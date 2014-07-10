@@ -29,6 +29,11 @@
 		<header>
 			<img class="logo" alt="Logomarca ActivFun Branca" src="images/logo-branca-dashboard.png" />
 
+			<link href="styles/busca200px.css" type="text/css" rel="stylesheet" />
+			<?php
+				include 'busca200px.php';
+			?>
+
 			<div class="user">
 				<img class="notificacoes" src="images/notificacoes.png" />
 				<div class="block">
@@ -70,11 +75,11 @@
 					<img  class="foto" alt="Foto usuario" src="images/user_default-68x68.png" />
 				</div>
 				<div class="info">
-				<?php
-					echo "<label class='nome'>";
-					echo $row_atual['nome'];
-					echo "</label>";
-				?>
+					<?php
+						echo "<label class='nome'>";
+						echo $row_atual['nome'];
+						echo "</label>";
+					?>
 					</br>
 					<img src="images/local_menor.png"/><label class="cidade"><?php echo utf8_encode($cidade['cidade']); ?></label></br>
 					<a href="edit">Editar perfil</a>
@@ -83,7 +88,7 @@
 			<div id="menu">				
 				<ul>
 					<li>
-						<div> <img alt="icone" src="images/atividades.png"/> </div> <a href="mapa">atividades</a>
+						<div> <img alt="icone" src="images/atividades.png"/> </div> <a href="atividades">atividades</a>
 					</li>
 					<li>
 						<div> <img alt="icone" src="images/amigos.png"/> </div> <a href="amigos">amigos</a>
