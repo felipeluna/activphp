@@ -45,7 +45,6 @@ $( document ).ready(function() {
 			type: 'POST',
 			data: $("select[name='uf']").serialize(),
 			success: function(data){
-				alert(data);
 				$("select[name='cidade']").html(data);
 			},
 			error: function(){
