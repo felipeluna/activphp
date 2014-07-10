@@ -36,3 +36,22 @@ $(function(){
 				return false;
 			});
 	});
+
+$( document ).ready(function() {
+
+	$("select[name='uf']").change(function(){
+		// 
+		$.ajax({
+			url: 'loadcidades.php',
+			type: 'POST',
+			data: $("select[name='uf']").serialize(),
+			success: function(data){
+				alert("HWERASDF 7X1");
+				$("select[name='cidade']").html(data);
+			},
+			error: function(){
+				alert('Erro ao carregar cidades');
+			}
+			});
+	});
+});

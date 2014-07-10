@@ -1,6 +1,6 @@
 <?php
 
-	mysql_connect("localhost", "root","pacoca porco pombo");
+	mysql_connect("localhost", "root","");
 	mysql_select_db("activfun");
 
 	function cript($pass, $salt){

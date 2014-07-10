@@ -5,10 +5,10 @@
 				$email = $_SESSION['email'];
 				$usuario_atual = mysql_query("select * from usuarios where email = '$email'");		
 				$row_atual = mysql_fetch_array($usuario_atual);
+
 ?>
 
 	<script type="text/javascript" src="scripts/edit.js"></script>
-
 	<form name="cadastro" action ="edit_submit.php" method="post" id="editform">
 		<h1>Editar informações</h1>
 		<div class="input-group">
@@ -76,10 +76,8 @@
 					
 					echo "</select>";
 				?>
-				</br>
-	<label>Local</label></br>
-	>>COLOCAR LOCAL<<</br>
-	<select id="user_data_2i" name="mes">
+				
+		<select id="user_data_2i" name="mes">
 
 		<?php
 
@@ -91,7 +89,7 @@
 			$mesnasceu = date('m', $time);
 			$mesnasceu = (string)$mesnasceu;
 
-			for ($i=0; $i <12 ; $i++) { 
+			for ($i=0; $i < 12 ; $i++) { 
 				if($i < 10){
 					$d = "0".$i;
 				}else{
@@ -113,18 +111,6 @@
 			}
 		?>
 
-	<!-- 	<option value="01">Janeiro</option>
-		<option value="02">Fevereiro</option>
-		<option value="03">Março</option>
-		<option value="04">Abril</option>
-		<option value="05">Maio</option>
-		<option value="06">Junho</option>
-		<option value="07">Julho</option>
-		<option value="08">Agosto</option>
-		<option value="09">Setembro</option>
-		<option value="10">Outubro</option>
-		<option value="11">Novembro</option>
-		<option value="12">Dezembro</option> -->
 	</select>
 
 	<?php
@@ -146,6 +132,64 @@
 		echo "</select>";
 	?>
 </div>
+<br>
+<!-- local -->
+<label class="grupo-input">Local</label>
+			<?php
+				
+				$id_cidades_idcidades = $row_atual['cidades_idcidades'];
+				$estado1 = mysql_query("select uf, idestados from `estados` where idestados = (select idestado from `cidades` where idcidades =" . $id_cidades_idcidades . ");");
+				$estado = mysql_fetch_array($estado1);
+				// echo $estado['uf'];
+				$result = mysql_query(
+					"SELECT idestados, uf FROM estados;"
+				)or die(mysql_error("Ops, ocorreu algum erro =("));
+				
+				echo "<select name='uf'>";
+				// echo "<option value='0' >Estado </option>";
+				while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+					echo "<option ";
+					echo "value='".$estado['idestados']. "'";
+					if($row['idestados'] == $estado['idestados']){
+						echo "selected ";
+					}
+
+					echo ">"; // fecha tag de option
+ 					echo $row['uf'];
+ 					echo "</option>";
+				}
+				echo "</select>";
+			?>
+
+			<select name="cidade" id="select-cidade">
+
+						
+					<?php
+
+						$estado_do_cara = $estado['idestados']; // id do estado do cara.
+
+						$cidade_do_cara = mysql_query("select cidade from cidades where idcidades = {$id_cidades_idcidades}"); //nome da cidade.
+
+						// todas as cidades desse estado.
+						$result = mysql_query("select idcidades, cidade, idestado from `cidades` where idestado = {$estado_do_cara}")or die(mysql_error("Ops, ocorreu algum erro =("));
+						
+						while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+							echo "<option ";
+							echo "value = '{$row['idcidades']}'";
+							if($row['idcidades'] == $id_cidades_idcidades){
+								echo " selected ";
+							}
+							echo " >";
+							echo $row['cidade'];
+							echo "</option>";
+						}
+
+						// <option value = 'asdfasdf' selected > asdfasdfafsd </option>
+					?>
+			</select>
+
+
+
 <br>
 <label class="grupo-input">Atividades de interesse:</label>
 <div class="input-group">
