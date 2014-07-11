@@ -3,15 +3,16 @@
 	session_start();
 
 	require('../config.php');
-	$idusuarios = $_SESSION['idusuarios'];
+	$idusuario = $_SESSION['idusuario'];
+
 	if(isset($_POST['submit_atividade']) && !empty($_POST)){
-		$nomeAtividade = $_POST['nome-atividade'];
-		$descricaoAtividade = $_POST['descricao-atividade'];
-		$idEnderecoAtividade = $_POST['endereco'];
-		$cep = $_POST['cep'];
+		$titulo = $_POST['titulo'];
+		$descricao = $_POST['descricao'];
+		$endereco = $_POST['endereco'];
 		$dataInicio = $_POST['data'];
-		$atividade = $_POST['atividade'];
-		$publicasqn = $_POST['evento'];
+		$duracao = $_POST['duracao'];
+		$idinteresse = $_POST['idinteresse'];
+		$visibilidade = $_POST['visibilidade'];
 		// echo $nomeAtividade ."<br>";
 		// echo $descricaoAtividade ."<br>";
 		// echo $idEnderecoAtividade ."<br>";
@@ -21,11 +22,9 @@
 		// echo $atividade;
 		// echo $publicasqn;
 
+		mysql_query("INSERT INTO `atividades`VALUES ('','{$titulo}','{$descricao}',str_to_date('{$dataInicio}', '%d/%m/%Y' ),time_format({$duracao}, '%H %I'),'{$idEnderecoAtividade}','3999.0','8888.0','{$visibilidade}','{$idusuario}','{$idinteresse}')");	
 
-		mysql_query("INSERT INTO `atividades`(`idAtividades`, `titulo`, `descricao`, `data_inicio`, `data_fim`, `endereco`, `latitude`, `longitude`, `publica_privada`, `usuarios_idusuarios`, `Interesses_idInteresses`) VALUES ('','{$nomeAtividade}','{$descricaoAtividade}','{$dataInicio}','faltaimplementar','{$idEnderecoAtividade}','falta','falta','{$publicasqn}','{$idusuarios}','{$atividade}')");	
-
-		echo "cheque seu db";
-		
+		echo "cheque seu db";		
 	}
 
 
