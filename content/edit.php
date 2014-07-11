@@ -2,8 +2,8 @@
 				session_start();
 
 				require('../config.php');
-				$email = $_SESSION['email'];
-				$usuario_atual = mysql_query("select * from usuarios where email = '$email'");		
+				$idusuarios = $_SESSION['idusuarios'];
+				$usuario_atual = mysql_query("select * from usuarios where idusuarios = $idusuarios");		
 				$row_atual = mysql_fetch_array($usuario_atual);
 
 ?>
@@ -195,12 +195,13 @@
 <!-- PEGA INTERESSES DO BANCO  -->
 <?php
 				//===========
-				$usuario_atual = mysql_query("select * from usuarios where email = '$email'");		
+				$usuario_atual = mysql_query("select * from usuarios where idusuarios = $idusuarios");		
 				$row_atual = mysql_fetch_array($usuario_atual);
 				$id_atual = $row_atual['idusuarios'];
 
+				$selectedinteresses = array();
 
-				$sqlCommand2 = "SELECT interesses_idinteresses FROM usuarios_interesses WHERE usuarios_idusuarios='$id_atual'";
+				$sqlCommand2 = "SELECT interesses_idinteresses FROM usuarios_interesses WHERE usuarios_idusuarios= $id_atual";
 				$query2 = mysql_query( $sqlCommand2) or die (mysql_error());
 				while ($row = mysql_fetch_array($query2)) {
 					//echo 'entrou';
@@ -252,8 +253,8 @@ Jogos de Tabuleiro
 <input type="password" name="pass1" placeholder="Senha de confirmação"/>
 <br> -->
 <?php
-echo "<input type='hidden' name='email' value='";
-echo $email;
+echo "<input type='hidden' name='idusuarios' value='";
+echo $idusuarios;
 echo "' />";
 ?>
 <input type="submit" name="submit_edit" value="Editar" id="editar_btn" />

@@ -237,7 +237,21 @@
 	bottom: 40px;
 	top: 0px;
 	padding: 20px;
+	z-index: 1;
+	/*min-height: 400px;*/
+}
+
+#dashboard #main-container #content-temp{
+	/*height: 100%;*/
+	position: absolute;
+	left: 280px;
+	right: 0;
+	bottom: 40px;
+	top: 0px;
+	padding: 20px;
 	z-index: 2;
+	display: none;
+	background-color: #fff;
 	/*min-height: 400px;*/
 }
 

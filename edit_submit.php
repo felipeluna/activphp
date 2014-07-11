@@ -6,9 +6,9 @@
 		//usuario logado
 		if(isset($_POST['name_novo'])){
 			// novo
-			$email = $_POST['email'];
+			$idusuarios = $_POST['idusuarios'];
 			$novo_nome = $_POST['name_novo'];
-			$usuario_atual = mysql_query("select * from usuarios where email = '$email'");		
+			$usuario_atual = mysql_query("select * from usuarios where idusuarios = $idusuarios");		
 			$row_atual = mysql_fetch_array($usuario_atual);
 			// echo $row['nome'] . " " . $row['data_nascimento'];
 
@@ -17,7 +17,7 @@
 			$id_atual = $row_atual['idusuarios'];
 			
 			//update nome'
-			mysql_query(" update usuarios set nome='$novo_nome' where email = '$email'");
+			mysql_query(" update usuarios set nome='$novo_nome' where idusuarios = $idusuarios");
 			
 //-----------				//--- teste ---
 			// $sqlCommand2 = "SELECT interesses_idinteresses FROM usuarios_interesses WHERE usuarios_idusuarios='$id_atual'";
@@ -44,11 +44,11 @@
 				$datanova = $dia . "-" . $mes . "-" . $ano;
 				$datanova = (string)date('d/m/Y', strtotime($datanova));
 
-				mysql_query("update usuarios set data_nascimento=str_to_date('$datanova', '%d/%m/%Y' ) where email = '$email'");
+				mysql_query("update usuarios set data_nascimento=str_to_date('$datanova', '%d/%m/%Y' ) where idusuarios = $id_atual ");
 
 
 				//update cidade e pá.
-				mysql_query("update usuarios set cidades_idcidades = {$_POST['cidade']} where email = '$email'");
+				mysql_query("update usuarios set cidades_idcidades = {$_POST['cidade']} where idusuarios = $id_atual");
 
 
 			//deleta interesses da tabela
@@ -56,7 +56,7 @@
 			// //insere de novo.
 			foreach($_POST['checkbox_novo'] as $interesse){
 				    mysql_query(
-							"insert into usuarios_interesses values ((select idusuarios from usuarios where email = '$email'), $interesse)"
+							"insert into usuarios_interesses values ((select idusuarios from usuarios where idusuarios = $id_atual), $interesse)"
 							) or die(mysql_error());
 			}
 

@@ -62,8 +62,8 @@
 				<?php
 					//carrega dados do usuario em variaveis para perfil
 					require('config.php');
-					$email = $_SESSION['email'];
-					$usuario_atual = mysql_query("select * from usuarios where email = '$email'");		
+					$idusuarios = $_SESSION['idusuarios'];
+					$usuario_atual = mysql_query("select * from usuarios where idusuarios = $idusuarios ");
 					$row_atual = mysql_fetch_array($usuario_atual);
 
 					$cidade = $row_atual['cidades_idcidades'];
@@ -103,6 +103,8 @@
 				</ul>
 
 			</div>
+		</div>
+		<div id="content-temp">
 		</div>
 		<div id="content">
 		</div>

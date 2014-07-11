@@ -41,8 +41,9 @@
 			$q= mysql_real_escape_string($search);
 
 			session_start();
-			$email = $_SESSION['email'];
-			$sql_res= mysql_query("select idusuarios, nome from usuarios where nome like '%$q%' and email != '$email' order by idusuarios") or die(mysql_error());
+			$idusuarios = $_SESSION['idusuarios'];
+			
+			$sql_res= mysql_query("select idusuarios, nome from usuarios where nome like '%$q%' and idusuarios <> ".$idusuarios." order by idusuarios") or die(mysql_error());
 			
 			//identifica categoria
 			echo "<div class='autocomplete-item-group'>";
@@ -52,13 +53,15 @@
 			while($row=mysql_fetch_array($sql_res))
 			{
 				$nome =$row['nome'];
+				$id =$row['idusuarios'];
 				$b_nome ='<strong>'.$q.'</strong>';
 				$final_nome = str_ireplace($q, $b_nome, $nome);
 
 				echo "<div class='autocomplete-item' >";
 				echo "<img class='foto' src='images/user_default-35x35.png' />";
+				echo "<input type='hidden' class='idusuarios' value='$id' />";
 				echo "<span class='name'>";
-				echo utf8_encode($final_nome);
+				echo $final_nome;
 				echo "</span></div>";
 
 			}

@@ -1,10 +1,30 @@
+function loadContentTemp(pageTemp, p_id){
+	
+
+   $.ajax({
+	    type: "POST",
+	    url: "content-temp/search_result.php",
+	    data: {id: p_id},
+	    dataType: 'html',
+	    cache: false,
+	    success: function(page){
+		    	$('#content-temp').html(page);
+		    },
+		error: function(req, status, error) {
+				alert("Erro: "+req.responseText+"; Status: "+status+"; Error: "+error);
+				}
+	});
+
+	$('#content-temp').fadeIn('fast');
+}
+
 $(document).ready(function(){
 	
 	function ajaxAutocomplete(element){
 
 		var searchid = $(element).val();
 		var filtro = $("select[name='filtro']").val();
-		var jsondata = new Object();//"{'search' : '"+searchid+"' , 'filtro' : '"+filtro+"'}";
+		// var jsondata = new Object();//"{'search' : '"+searchid+"' , 'filtro' : '"+filtro+"'}";
 		// jsondata = jQuery.parseJSON(jsondata);
 		// jsondata.search = searchid;
 		// jsondata.filtro = filtro;
@@ -12,8 +32,6 @@ $(document).ready(function(){
 		// jsondata = jQuery.parseJSON(jsondata);
 		// jsondata = JSON.stringify(jsondata);
 		
-		if(true)
-		{
 		    $.ajax({
 		    type: "POST",
 		    url: "busca_interesses.php",
@@ -27,7 +45,7 @@ $(document).ready(function(){
 					alert("Erro: "+req.responseText+"; Status: "+status+"; Error: "+error);
    				}
 		    });
-		}return false;    
+		return false;    
 	}
 
 	$("#inputBusca270px").keyup(function()
@@ -38,7 +56,7 @@ $(document).ready(function(){
 	$("#inputBusca270px").focus(function()
 	{ 
 		var filtro = $("select[name='filtro']").val();
-		// alert(filtro);
+
 		if(filtro == 'atividades'){
 			ajaxAutocomplete($(this));
 		}
@@ -49,7 +67,7 @@ $(document).ready(function(){
 
 	    var $clicked = $(e.target);
 
-	    var $name
+	    var $name;
 	    
 	    if($clicked.attr('class') == 'name'){
 	    	$name = $clicked.html();
@@ -57,13 +75,22 @@ $(document).ready(function(){
 	    	$name = $clicked.find('.name').html();	
 	    }
 
+	    id = $clicked.find('.idusuarios').val();
+
 	    var decoded = $("#inputBusca270px").html($name).text();
 	    $('#inputBusca270px').val(decoded);
+
+	    alert("id: "+id);
+	    //teste
+
+
+	    loadContentTemp('search_result', id);
 	});
 
 	$(document).on("click", function(e) { 
 		var $clicked = $(e.target);
 		if (! $clicked.hasClass("search")){
+			$("#result").html("");
 		    $("#result").fadeOut(); 
     	}
 	});

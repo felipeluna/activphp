@@ -31,7 +31,7 @@ $(function(){
 								$(".info .cidade").html(data.cidade);
 							},
 						error: function(data){
-							showError('Erro: '.data);	
+							showError('Erro>>>>>>>>>>>>>>>>>>>>>>>>>>>>>: '.data);	
 						},
 						ajaxError: function(){
 							showError('Ops! Ocorreu algum erro =(');
