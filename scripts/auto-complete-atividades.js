@@ -71,6 +71,7 @@ $(document).ready(function(){
 	    
 	    if($clicked.attr('class') == 'name'){
 	    	$name = $clicked.html();
+	    	$clicked = $clicked.parent();
 	    }else{
 	    	$name = $clicked.find('.name').html();	
 	    }

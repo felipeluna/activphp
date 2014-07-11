@@ -10,6 +10,7 @@
 		$descricao = $_POST['descricao'];
 		$endereco = $_POST['endereco'];
 		$dataInicio = $_POST['data'];
+		$hora = $_POST['hora'];
 		$duracao = $_POST['duracao'];
 		$idinteresse = $_POST['idinteresse'];
 		$visibilidade = $_POST['visibilidade'];
@@ -21,8 +22,31 @@
 		// echo $idusuario ." <br>";
 		// echo $atividade;
 		// echo $publicasqn;
+		
 
-		mysql_query("INSERT INTO `atividades`VALUES ('','{$titulo}','{$descricao}',str_to_date('{$dataInicio}', '%d/%m/%Y' ),time_format({$duracao}, '%H %I'),'{$idEnderecoAtividade}','3999.0','8888.0','{$visibilidade}','{$idusuario}','{$idinteresse}')");	
+		if($visibilidade == 'public'){
+			$visibilidade = true;
+		}else{
+			$visibilidade = false;
+		}
+
+		$dataInicio .= " ".$hora;
+		// echo "data+hora: ".$dataInicio;
+
+		// STR_TO_DATE('5/15/2012 8:06:26', '%c/%e/%Y %r')
+		mysql_query("INSERT INTO `atividades` VALUES
+			('',
+				'{$titulo}',
+				'{$descricao}',
+				 -- concat('{$dataInicio}',' ','{$hora}') as date,
+				str_to_date('{$dataInicio}', '%d/%m/%Y %T' ),
+				time('{$duracao}'),
+				'{$endereco}',
+				'3999.0',
+				'8888.0',
+				{$visibilidade},
+				'{$idusuario}',
+				'{$idinteresse}');") or die(mysql_error());	
 
 		echo "cheque seu db";		
 	}

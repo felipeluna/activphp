@@ -30,7 +30,6 @@
 		<header>
 			<img class="logo" alt="Logomarca ActivFun Branca" src="images/logo-branca-dashboard.png" />
 
-			<link href="styles/busca200px.css" type="text/css" rel="stylesheet" />
 			<?php
 				include 'busca200px.php';
 			?>

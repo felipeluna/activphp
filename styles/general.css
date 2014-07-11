@@ -8,6 +8,10 @@ input,select{
 	border-width: 1px;
 }
 
+body, html{
+	overflow: hidden;
+}
+
 body{
 	padding: 0px;
 	margin: 0px;
