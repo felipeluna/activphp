@@ -1,5 +1,6 @@
-<link href="styles/atividades.css" type="text/css" rel="stylesheet" />	
+<link href="styles/atividades.css" type="text/css" rel="stylesheet" />
 <script type="text/javascript" src="scripts/atividades.js"></script>
+
 <div id="atividades">
 	<h1>Atividades</h1>
 

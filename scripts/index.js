@@ -111,7 +111,8 @@ $( document ).ready(function() {
 								}
 							},
 						error:function(){
-							showError("Fuuuuu!");
+							alert("Error: "+data);
+							showError("Ops! Ocorreu um Erro. =(");
 						},
 						ajaxError: function(){showErroLogin('Ops! Ocorreu algum erro =( no ajax');}
 					}

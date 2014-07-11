@@ -8,18 +8,19 @@
 		if($email != "" && $senha !=""){
 			$senha = mysql_real_escape_string($senha);
 
-			$sql = mysql_query("SELECT salt FROM usuarios WHERE email = '$email';");
+			$sql = mysql_query("SELECT idusuarios, salt FROM usuarios WHERE email = '$email';");
 
 			$row = mysql_fetch_array($sql, MYSQL_ASSOC);
 
 			$senha = cript($senha, $row['salt']);
+			$idusuarios = $row['idusuarios'];
 
 			$sql = mysql_query("SELECT email, password FROM usuarios WHERE email = '$email' AND password='$senha';");
 			$row = mysql_num_rows($sql);
 
 			if($row > 0){
 				session_start();
-				$_SESSION['email'] = $email;
+				$_SESSION['idusuarios'] = $idusuarios;
 				$_SESSION['pass'] = $senha;
 				
 				echo "login.ok";

@@ -1,3 +1,7 @@
+#atividades{
+	/*margin: 20px;*/
+}
+
 #atividades #tabs{
 	border-bottom-style: solid;
 	border-bottom-color: #ddd;
@@ -78,7 +82,7 @@
 
 #atividades-content	#map-canvas {
 	position: absolute !important;
-	bottom: 55px;
+	bottom: 15px;
 	top: 145px;
 	right: 20px;
 	left: 20px;

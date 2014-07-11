@@ -5,6 +5,12 @@
 <form name="busca" id="busca200px">
 		<input type="text" name="campo_busca" placeholder="Busca" id="inputBusca270px" class="search" />
 		<input type="submit" name="buscar" value="" id="btnBusca270px" />
+		<div id="filtro">
+			<select name="filtro" >
+						<option value="atividades">Atividades</option>
+						<option value="pessoas">Pessoas</option>
+			</select>
+		</div>
 		<div id="result">			
 		</div>
 </form>

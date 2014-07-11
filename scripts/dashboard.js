@@ -36,6 +36,12 @@ function toTitleCase(str) {
 		$('#menu ul li a').parent().removeClass('selected');
 
 		$(this).parent().addClass('selected');
+
+		if(page == 'atividades'){
+			$("option[value='atividades']").attr('selected','selected');
+		}else if(page == 'amigos'){	
+			$("option[value='pessoas']").attr('selected','selected');
+		}
    		//This is where we update the address bar with the 'url' parameter
     	// window.history.pushState('object', toTitleCase(page), page);
  

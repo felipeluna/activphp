@@ -2,8 +2,42 @@
 	width: 220px;
 	float: left;
 	position: absolute;
-	left: 250px;
+	left: 280px;
 	top: 5px;
+}
+
+/*#busca200px #btnFiltro{
+	position: absolute;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	background-color: #8c8c8c;
+	background-image: url('../images/filtro-18x20.png');
+	background-position: center center;
+	background-repeat: no-repeat;
+	width: 28px;
+	height: 28px;
+	margin-left: 224px;
+	margin-top: 6px;
+	z-index: 4;
+	cursor: pointer;
+}*/
+
+#busca200px #filtro{
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	background-color: #174a74;
+	position: absolute;
+	margin-left: 202px;
+	margin-top: 2px;
+	z-index: 3;
+	padding-top: 6px;
+	padding-bottom: 6px;
+	padding-left: 21px;
+	padding-right: 6px;
+}
+#busca200px select[name="filtro"]{	
 }
 
 #busca200px #inputBusca270px{
@@ -81,8 +115,8 @@
 #busca200px #result .autocomplete-item:last-of-type{
 -webkit-border-bottom-right-radius: 10px;
 -webkit-border-bottom-left-radius: 10px;
--moz-border-radius-bottomright: 10px;
--moz-border-radius-bottomleft: 10px;
+-moz-border-radius-bottom-right: 10px;
+-moz-border-radius-bottom-left: 10px;
 border-bottom-right-radius: 10px;
 border-bottom-left-radius: 10px;
 }
@@ -90,4 +124,12 @@ border-bottom-left-radius: 10px;
 #busca200px .autocomplete-item img{
 	width: 17px;
 	margin: 5px 5px;
+}
+
+#busca200px .autocomplete-item img.foto{
+	width: 35px;
+	margin: 5px 5px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
 }

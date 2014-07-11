@@ -86,8 +86,12 @@
 							) or die(mysql_error()." erro ao inserir interesses do usuario");
 				}
 
+				$idusuarios = mysql_query("select idusuarios from usuarios where email = '$email'") or die(mysql_error());
+				$idusuarios = mysql_fetch_array($idusuarios, MYSQL_ASSOC);
+				$idusuarios = $idusuarios['idusuarios'];
+
 				session_start();
-				$_SESSION['email'] = $email;
+				$_SESSION['idusuarios'] = $idusuarios;
 				$_SESSION['pass'] = $pass1;
 
 				echo "cadastro.ok";

@@ -3,17 +3,29 @@ $(document).ready(function(){
 	function ajaxAutocomplete(element){
 
 		var searchid = $(element).val();
-		var dataString = 'search='+ searchid;
+		var filtro = $("select[name='filtro']").val();
+		var jsondata = new Object();//"{'search' : '"+searchid+"' , 'filtro' : '"+filtro+"'}";
+		// jsondata = jQuery.parseJSON(jsondata);
+		// jsondata.search = searchid;
+		// jsondata.filtro = filtro;
+		// alert(jsondata.filtro);
+		// jsondata = jQuery.parseJSON(jsondata);
+		// jsondata = JSON.stringify(jsondata);
+		
 		if(true)
 		{
 		    $.ajax({
 		    type: "POST",
 		    url: "busca_interesses.php",
-		    data: dataString,
+		    data: {search: searchid, filtro: filtro},
+		    dataType: 'html',
 		    cache: false,
 		    success: function(html){
 			    	$("#result").html(html).show();
-			    }
+			    },
+			error: function(req, status, error) {
+					alert("Erro: "+req.responseText+"; Status: "+status+"; Error: "+error);
+   				}
 		    });
 		}return false;    
 	}
@@ -25,7 +37,11 @@ $(document).ready(function(){
 
 	$("#inputBusca270px").focus(function()
 	{ 
-		ajaxAutocomplete($(this));
+		var filtro = $("select[name='filtro']").val();
+		// alert(filtro);
+		if(filtro == 'atividades'){
+			ajaxAutocomplete($(this));
+		}
 	});
 
 
