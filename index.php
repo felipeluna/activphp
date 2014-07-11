@@ -1,7 +1,7 @@
 <?php
 	session_start();
 
-	if(isset($_SESSION['idusuarios']))
+	if(isset($_SESSION['idusuario']))
 	{
 		header("Location: dashboard.php");
 		exit();
@@ -105,14 +105,14 @@
 				
 
 				$result = mysql_query(
-					"SELECT idestados, uf FROM estados;"
+					"SELECT idestado, uf FROM estados;"
 				)or die(mysql_error("Ops, ocorreu algum erro =("));
 				
 				echo "<select name='uf'>";
 				echo "<option value='0' >Estado </option>";
 				while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
 					echo "<option ";
-					echo "value='".$row['idestados']."' >";
+					echo "value='".$row['idestado']."' >";
  					echo $row['uf'];
  					echo "</option>";
 				}
@@ -130,14 +130,14 @@
 				
 
 				$result = mysql_query(
-					"SELECT idinteresses, descricao FROM interesses;"
+					"SELECT idinteresse, descricao FROM interesses;"
 					)or die(mysql_error("Ops, ocorreu algum erro =("));
 
 				while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
 					$descricao = $row['descricao'];
-					$idinteresses = $row['idinteresses'];
-					echo "<input type='checkbox' name='checkbox[]'  value ='$idinteresses' id='cb$idinteresses'>";
-					echo "<label for='cb$idinteresses'>";
+					$idinteresse = $row['idinteresse'];
+					echo "<input type='checkbox' name='checkbox[]'  value ='$idinteresse' id='cb$idinteresse'>";
+					echo "<label for='cb$idinteresse'>";
  					echo utf8_encode($row['descricao']);
  					echo "</label> <br />";
 				}				
@@ -172,14 +172,14 @@
 			
 			<?php
 				$result = mysql_query(
-					"SELECT idinteresses, descricao FROM interesses;"
+					"SELECT idinteresse, descricao FROM interesses;"
 					)or die(mysql_error("Ops, ocorreu algum erro =("));
 
 				while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
 					$descricao = $row['descricao'];
-					$idinteresses = $row['idinteresses'];
+					$idinteresse = $row['idinteresse'];
 					echo "<div class='interesse'><a href='#'><img width='15px' src='images/icons/atividades/";
-					echo $idinteresses;
+					echo $idinteresse;
 					echo ".png' alt='ICON'>";
 					echo utf8_encode($descricao);
 					echo "</a></div>";

@@ -2,8 +2,8 @@
 				session_start();
 
 				require('../config.php');
-				$idusuarios = $_SESSION['idusuarios'];
-				$usuario_atual = mysql_query("select * from usuarios where idusuarios = $idusuarios");		
+				$idusuario = $_SESSION['idusuario'];
+				$usuario_atual = mysql_query("select * from usuarios where idusuario = $idusuario");		
 				$row_atual = mysql_fetch_array($usuario_atual);
 
 ?>
@@ -137,20 +137,20 @@
 <label class="grupo-input">Local</label>
 			<?php
 				
-				$id_cidades_idcidades = $row_atual['cidades_idcidades'];
-				$estado1 = mysql_query("select uf, idestados from `estados` where idestados = (select idestado from `cidades` where idcidades =" . $id_cidades_idcidades . ");");
+				$id_idcidade = $row_atual['idcidade'];
+				$estado1 = mysql_query("select uf, idestado from `estados` where idestado = (select idestado from `cidades` where idcidade =" . $id_idcidade . ");");
 				$estado = mysql_fetch_array($estado1);
 				// echo $estado['uf'];
 				$result = mysql_query(
-					"SELECT idestados, uf FROM estados;"
+					"SELECT idestado, uf FROM estados;"
 				)or die(mysql_error("Ops, ocorreu algum erro =("));
 				
 				echo "<select name='uf'>";
 				// echo "<option value='0' >Estado </option>";
 				while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
 					echo "<option ";
-					echo "value='".$row['idestados']."' ";
-					if($row['idestados'] == $estado['idestados']){
+					echo "value='".$row['idestado']."' ";
+					if($row['idestado'] == $estado['idestado']){
 						echo "selected ";
 					}
 					echo ">"; // fecha tag de option
@@ -165,17 +165,17 @@
 						
 					<?php
 
-						$estado_do_cara = $estado['idestados']; // id do estado do cara.
+						$estado_do_cara = $estado['idestado']; // id do estado do cara.
 
-						$cidade_do_cara = mysql_query("select cidade from cidades where idcidades = {$id_cidades_idcidades}"); //nome da cidade.
+						$cidade_do_cara = mysql_query("select cidade from cidades where idcidade = {$id_idcidade}"); //nome da cidade.
 
 						// todas as cidades desse estado.
-						$result = mysql_query("select idcidades, cidade, idestado from `cidades` where idestado = {$estado_do_cara}")or die(mysql_error("Ops, ocorreu algum erro =("));
+						$result = mysql_query("select idcidade, cidade, idestado from `cidades` where idestado = {$estado_do_cara}")or die(mysql_error("Ops, ocorreu algum erro =("));
 						
 						while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
 							echo "<option ";
-							echo "value = '{$row['idcidades']}'";
-							if($row['idcidades'] == $id_cidades_idcidades){
+							echo "value = '{$row['idcidade']}'";
+							if($row['idcidade'] == $id_idcidade){
 								echo " selected ";
 							}
 							echo " >";
@@ -195,36 +195,36 @@
 <!-- PEGA INTERESSES DO BANCO  -->
 <?php
 				//===========
-				$usuario_atual = mysql_query("select * from usuarios where idusuarios = $idusuarios");		
+				$usuario_atual = mysql_query("select * from usuarios where idusuario = $idusuario");		
 				$row_atual = mysql_fetch_array($usuario_atual);
-				$id_atual = $row_atual['idusuarios'];
+				$id_atual = $row_atual['idusuario'];
 
 				$selectedinteresses = array();
 
-				$sqlCommand2 = "SELECT interesses_idinteresses FROM usuarios_interesses WHERE usuarios_idusuarios= $id_atual";
+				$sqlCommand2 = "SELECT idinteresse FROM usuarios_interesses WHERE usuarios_idusuario= $id_atual";
 				$query2 = mysql_query( $sqlCommand2) or die (mysql_error());
 				while ($row = mysql_fetch_array($query2)) {
 					//echo 'entrou';
-				    $selectedinteresses[] = $row['interesses_idinteresses'];
+				    $selectedinteresses[] = $row['idinteresse'];
 				}   
 
 				//============
 
 				$result = mysql_query(
-					"SELECT idinteresses, descricao FROM interesses;"
+					"SELECT idinteresse, descricao FROM interesses;"
 					)or die(mysql_error("Ops, ocorreu algum erro =("));
 
 				while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
 					$descricao = $row['descricao'];
-					$idinteresses = $row['idinteresses'];
-					echo "<input type='checkbox' name='checkbox_novo[]' value ='$idinteresses' id='cb$idinteresses'";
-					if(in_array($idinteresses, $selectedinteresses)){
+					$idinteresse = $row['idinteresse'];
+					echo "<input type='checkbox' name='checkbox_novo[]' value ='$idinteresse' id='cb$idinteresse'";
+					if(in_array($idinteresse, $selectedinteresses)){
 						echo "checked='true'>";
 					}else{
 						echo ">";
 					}
 
-					echo "<label for='cb$idinteresses'>";
+					echo "<label for='cb$idinteresse'>";
  					echo utf8_encode($row['descricao']);
  					echo "</label><br />";
 				}				
@@ -253,8 +253,8 @@ Jogos de Tabuleiro
 <input type="password" name="pass1" placeholder="Senha de confirmação"/>
 <br> -->
 <?php
-echo "<input type='hidden' name='idusuarios' value='";
-echo $idusuarios;
+echo "<input type='hidden' name='idusuario' value='";
+echo $idusuario;
 echo "' />";
 ?>
 <input type="submit" name="submit_edit" value="Editar" id="editar_btn" />

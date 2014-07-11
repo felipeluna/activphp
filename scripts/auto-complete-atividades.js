@@ -75,7 +75,7 @@ $(document).ready(function(){
 	    	$name = $clicked.find('.name').html();	
 	    }
 
-	    id = $clicked.find('.idusuarios').val();
+	    id = $clicked.find('.idusuario').val();
 
 	    var decoded = $("#inputBusca270px").html($name).text();
 	    $('#inputBusca270px').val(decoded);

@@ -1,7 +1,7 @@
 <?php
 				session_start();
 				
-				if(isset($_SESSION['idusuarios']))
+				if(isset($_SESSION['idusuario']))
 				{
 					//LOAD CONTENT
 
@@ -62,12 +62,12 @@
 				<?php
 					//carrega dados do usuario em variaveis para perfil
 					require('config.php');
-					$idusuarios = $_SESSION['idusuarios'];
-					$usuario_atual = mysql_query("select * from usuarios where idusuarios = $idusuarios ");
+					$idusuario = $_SESSION['idusuario'];
+					$usuario_atual = mysql_query("select * from usuarios where idusuario = $idusuario ");
 					$row_atual = mysql_fetch_array($usuario_atual);
 
-					$cidade = $row_atual['cidades_idcidades'];
-					$cidade = mysql_query("select cidade from cidades where idcidades = '$cidade'");		
+					$cidade = $row_atual['idcidade'];
+					$cidade = mysql_query("select cidade from cidades where idcidade = '$cidade'");		
 					$cidade = mysql_fetch_array($cidade);
 
 				?>

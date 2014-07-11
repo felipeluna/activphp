@@ -13,9 +13,9 @@
 			$sql_res;
 
 			if($q != ""){//se busca nao for vazia
-				$sql_res= mysql_query("select idInteresses, descricao from interesses where descricao like '%$q%' order by idInteresses") or die(mysql_error());
+				$sql_res= mysql_query("select idinteresse, descricao from interesses where descricao like '%$q%' order by idinteresse") or die(mysql_error());
 			}else{// se busca for vazia exibe todas categorias
-				$sql_res= mysql_query("select idInteresses, descricao from interesses order by idInteresses") or die(mysql_error());
+				$sql_res= mysql_query("select idinteresse, descricao from interesses order by idinteresse") or die(mysql_error());
 			}
 
 			//identifica categoria
@@ -31,7 +31,7 @@
 
 				echo "<div class='autocomplete-item'>";
 				echo "<img src='images/icons/atividades/";
-				echo $row['idInteresses'].".png' />";
+				echo $row['idinteresse'].".png' />";
 				echo "<span class='name'>";
 				echo utf8_encode($final_descricao);
 				echo "</span></div>";
@@ -41,9 +41,9 @@
 			$q= mysql_real_escape_string($search);
 
 			session_start();
-			$idusuarios = $_SESSION['idusuarios'];
+			$idusuario = $_SESSION['idusuario'];
 			
-			$sql_res= mysql_query("select idusuarios, nome from usuarios where nome like '%$q%' and idusuarios <> ".$idusuarios." order by idusuarios") or die(mysql_error());
+			$sql_res= mysql_query("select idusuario, nome from usuarios where nome like '%$q%' and idusuario <> ".$idusuario." order by idusuario") or die(mysql_error());
 			
 			//identifica categoria
 			echo "<div class='autocomplete-item-group'>";
@@ -53,13 +53,13 @@
 			while($row=mysql_fetch_array($sql_res))
 			{
 				$nome =$row['nome'];
-				$id =$row['idusuarios'];
+				$id =$row['idusuario'];
 				$b_nome ='<strong>'.$q.'</strong>';
 				$final_nome = str_ireplace($q, $b_nome, $nome);
 
 				echo "<div class='autocomplete-item' >";
 				echo "<img class='foto' src='images/user_default-35x35.png' />";
-				echo "<input type='hidden' class='idusuarios' value='$id' />";
+				echo "<input type='hidden' class='idusuario' value='$id' />";
 				echo "<span class='name'>";
 				echo $final_nome;
 				echo "</span></div>";

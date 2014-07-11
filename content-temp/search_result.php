@@ -14,7 +14,7 @@ $id = $_POST['id'];
 require('../config.php');
 
 //pega dados do usuario
-$sql_res= mysql_query("select * from usuarios where idusuarios = '$id' order by idusuarios") or die(mysql_error());
+$sql_res= mysql_query("select * from usuarios where idusuario = '$id' order by idusuario") or die(mysql_error());
 $row = mysql_fetch_array($sql_res);
 
 $nome = $row['nome'];
@@ -23,8 +23,8 @@ $page .= '<img src="images/user_default-35x35.png" >';// carregar foto
 $page .= '<label>'.$nome.'</label>';
 
 //pega cidade
-$cidade = $row['cidades_idcidades'];
-$sql_res= mysql_query("select cidade from cidades where idcidades = '$cidade'") or die(mysql_error());
+$cidade = $row['idcidade'];
+$sql_res= mysql_query("select cidade from cidades where idcidade = '$cidade'") or die(mysql_error());
 $row = mysql_fetch_array($sql_res);
 $cidade = $row['cidade'];
 

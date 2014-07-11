@@ -1,23 +1,22 @@
-<script src="styles/jquery-ui.min.js"></script>
-  	
-<script type="text/javascript" src="scripts/data.js"></script>
+ 	
+<script type="text/javascript" src="scripts/general.js"></script>
 
 </head>
 <body>
 	<br>
 	<form action="atividadescontent/cadastrar-atividade.php" name="criar-atividade-form" method="post">
-		<label for="nome-atividade"></label>
+		<label for="nome-atividade">Título da Atividade</label></br>
 		<input type="text" name="nome-atividade" placeholder="Nomeie sua atividade" id="id-atividade"/>
 		<br>
-		<label for="descricao-atividade"></label>
+		<label for="descricao-atividade">Descrição</label>
 		<textarea cols="30" rows="7" name="descricao-atividade" placeholder="Descreva sua atividade" id="id-descricao-atividade"/>
 		<br>
-		<label for="endereco"></label>
+		<label for="endereco">Endereço</label>
 		<input type="text" name="endereco" placeholder="Digite o Endereço" id="id-endereco-atividade"/>
 		<br>
 		<br>
 		<!-- <label for="data-inicio"></label> -->
-		<input type="text" name="data" id="datepicker"  />
+		<input type="text" name="data" placeholder="Data" class="data"  />
 		<br>
 		<label for="tempo-duracao"/>
 		<input type="text" name="tempo-duracao" placeholder="tempo de duração" />
@@ -37,14 +36,14 @@
 				
 				require('../config.php');
 				$result = mysql_query(
-					"SELECT idinteresses, descricao FROM interesses;"
+					"SELECT idinteresse, descricao FROM interesses;"
 					)or die(mysql_error("Ops, ocorreu algum erro =("));
 
 				while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
 					$descricao = $row['descricao'];
-					$idinteresses = $row['idinteresses'];
-					echo "<input type='radio' name='atividade'  value ='{$idinteresses}' id='cb{$idinteresses}'>";
-					echo "<label for='cb{$idinteresses}'>";
+					$idinteresse = $row['idinteresse'];
+					echo "<input type='radio' name='atividade'  value ='{$idinteresse}' id='cb{$idinteresse}'>";
+					echo "<label for='cb{$idinteresse}'>";
  					echo utf8_encode($row['descricao']);
  					echo "</label> <br />";
 				}				

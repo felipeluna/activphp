@@ -18,7 +18,7 @@
 		// echo $idEnderecoAtividade ."<br>";
 		// echo $cep ."<br>";
 		// echo $dataInicio ."<br>";
-		// echo $idusuarios ." <br>";
+		// echo $idusuario ." <br>";
 		// echo $atividade;
 		// echo $publicasqn;
 

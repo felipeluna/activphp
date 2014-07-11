@@ -79,19 +79,21 @@
 				mysql_query(
 					"insert into usuarios values ('','$name', '$email', '$pass1', '$salt', str_to_date('$date', '%d/%m/%Y' ), NULL, SYSDATE(), $cidade);"
 					)or die(mysql_error());
+				
+				$idusuario = mysql_query("select idusuario from usuarios where email = '$email'") or die(mysql_error());
+				$idusuario = mysql_fetch_array($idusuario, MYSQL_ASSOC);
+				$idusuario = $idusuario['idusuario'];
 
 				foreach($_POST['checkbox'] as $interesse){
+
 				    mysql_query(
-							"insert into usuarios_interesses values ((select idusuarios from usuarios where email = '$email'), $interesse);"
+							"insert into usuarios_interesses values ({$idusuario}, {$interesse});"
 							) or die(mysql_error()." erro ao inserir interesses do usuario");
 				}
 
-				$idusuarios = mysql_query("select idusuarios from usuarios where email = '$email'") or die(mysql_error());
-				$idusuarios = mysql_fetch_array($idusuarios, MYSQL_ASSOC);
-				$idusuarios = $idusuarios['idusuarios'];
-
+				
 				session_start();
-				$_SESSION['idusuarios'] = $idusuarios;
+				$_SESSION['idusuario'] = $idusuario;
 				$_SESSION['pass'] = $pass1;
 
 				echo "cadastro.ok";

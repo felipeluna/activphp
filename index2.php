@@ -91,14 +91,14 @@
 				require('config.php');
 
 				$result = mysql_query(
-					"SELECT idinteresses, descricao FROM interesses;"
+					"SELECT idinteresse, descricao FROM interesses;"
 					)or die(mysql_error("Ops, ocorreu algum erro =("));
 
 				while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
 					$descricao = $row['descricao'];
-					$idinteresses = $row['idinteresses'];
-					echo "<input type='checkbox' name='checkbox[]'  value ='$idinteresses' id='cb$idinteresses'>";
-					echo "<label for='cb$idinteresses'>";
+					$idinteresse = $row['idinteresse'];
+					echo "<input type='checkbox' name='checkbox[]'  value ='$idinteresse' id='cb$idinteresse'>";
+					echo "<label for='cb$idinteresse'>";
  					echo $row['descricao'];
  					echo "</label> <br />";
 				}				

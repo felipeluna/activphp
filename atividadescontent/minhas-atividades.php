@@ -19,12 +19,12 @@
 					$data ="dd/mm/yyyy";
 					$horainicio = "hh:mm";
 					$horafim = "hh:mm";
-					$idInteresses = '1';
+					$idinteresse = '1';
 
 					echo "<tr>";
 					echo "<td class='atividade'>";
 					echo "<span class='title'> $nomeatividade </span><br>";
-					echo "<img src='images/icons/atividades/{$idInteresses}laranja.png' alt='icon-categoria' />";
+					echo "<img src='images/icons/atividades/{$idinteresse}laranja.png' alt='icon-categoria' />";
 					echo "<span>Categoria</span>";
 					echo "</td>";
 					echo "<td class='quando-onde'>";
