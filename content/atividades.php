@@ -12,7 +12,8 @@
 	<div id="tabs">
 		<a href="minhas-atividades" class="tabSelected"> Minhas atividades </a>
 		<a href="atividades-que-vou">Atividades que vou</a>
-		<a href="mapa"> Mapa</a>
+		<a href="mapa">Mapa</a>
+		<a href="criar-atividade"> Criar Atividade </a>
 	</div>
 	<div id="atividades-content">
 
