@@ -5,50 +5,84 @@
 	require('../config.php');
 	$idusuario = $_SESSION['idusuario'];
 
-	if(isset($_POST['submit_atividade']) && !empty($_POST)){
+	if(isset($_POST) && !empty($_POST)){
 		$titulo = $_POST['titulo'];
 		$descricao = $_POST['descricao'];
 		$endereco = $_POST['endereco'];
 		$dataInicio = $_POST['data'];
 		$hora = $_POST['hora'];
 		$duracao = $_POST['duracao'];
-		$idinteresse = $_POST['idinteresse'];
-		$visibilidade = $_POST['visibilidade'];
-		// echo $nomeAtividade ."<br>";
-		// echo $descricaoAtividade ."<br>";
-		// echo $idEnderecoAtividade ."<br>";
-		// echo $cep ."<br>";
-		// echo $dataInicio ."<br>";
-		// echo $idusuario ." <br>";
-		// echo $atividade;
-		// echo $publicasqn;
-		
 
-		if($visibilidade == 'public'){
-			$visibilidade = 1;
+		//array para retornar erros dos campos
+		$fields = array();
+
+		//atribui valor se exitir varial (radiobutton)
+		$idinteresse;
+		if(isset($_POST['idinteresse'])){
+			$idinteresse = $_POST['idinteresse'];
 		}else{
-			$visibilidade = 0;
+			$fields['idinteresse'] = 'faltou';
+			$validated = false;
 		}
 
-		$dataInicio .= " ".$hora;
-		// echo "data+hora: ".$dataInicio;
+		//atribui valor se exitir varial (radiobutton)
+		$visibilidade;
+		if(isset($_POST['visibilidade'])){
 
-		// STR_TO_DATE('5/15/2012 8:06:26', '%c/%e/%Y %r')
-		mysql_query("INSERT INTO `atividades` VALUES
-			('',
-				'{$titulo}',
-				'{$descricao}',
-				 -- concat('{$dataInicio}',' ','{$hora}') as date,
-				str_to_date('{$dataInicio}', '%d/%m/%Y %T' ),
-				time('{$duracao}'),
-				'{$endereco}',
-				'3999.0',
-				'8888.0',
-				{$visibilidade},
-				'{$idusuario}',
-				'{$idinteresse}');") or die(mysql_error());	
+			$visibilidade = $_POST['visibilidade'];
 
-		echo "cheque seu db";		
+			if($visibilidade == 'public'){
+				$visibilidade = 1;
+			}else{
+				$visibilidade = 0;
+			}
+		}else{
+			$fields['visibilidade'] = 'faltou';
+			$validated = false;
+		}
+		
+		
+
+		$validated = true;
+
+		
+
+
+		//inicio validacao
+		foreach ($_POST as $key => $value){
+			// echo 'Key: '.$key;
+			// echo 'Value: '.$value.'<br>';
+			if($value == ''){
+				$fields[$key] = 'vazio';
+				$validated = false;
+			}
+		}
+
+		
+
+		if($validated){
+			$dataInicio .= " ".$hora;
+			// echo "data+hora: ".$dataInicio;
+
+			// STR_TO_DATE('5/15/2012 8:06:26', '%c/%e/%Y %r')
+			mysql_query("INSERT INTO `atividades` VALUES
+				('',
+					'{$titulo}',
+					'{$descricao}',
+					 -- concat('{$dataInicio}',' ','{$hora}') as date,
+					str_to_date('{$dataInicio}', '%d/%m/%Y %T' ),
+					time('{$duracao}'),
+					'{$endereco}',
+					'3999.0',
+					'8888.0',
+					{$visibilidade},
+					'{$idusuario}',
+					'{$idinteresse}');") or die(mysql_error());	
+
+			echo "atividade.ok";
+		}else{
+			echo json_encode($fields);
+		}
 	}
 
 

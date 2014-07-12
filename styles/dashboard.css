@@ -268,6 +268,7 @@ overflow: auto;
 	display: none;
 	text-align: center;
 	color: #0d4b23;
+	z-index: 2;
 }
 
 #dashboard #notice{
@@ -281,6 +282,7 @@ overflow: auto;
 	display: none;
 	text-align: center;
 	color: #b36729;
+	z-index: 2;
 }
 #dashboard #error{
 	position: absolute;
@@ -290,7 +292,9 @@ overflow: auto;
 	height: 40px;
 	background-color: #F77E80;
 	display: none;
+	text-align: center;
 	line-height: 40px;
+	z-index: 2;
 }
 /**********/
 /* FOOTER */

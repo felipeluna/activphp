@@ -29,7 +29,6 @@
 						$data = utf8_encode($row['datahora_inicio']);
 
 						// $res = $data->format('d/m/Y H:i:s');
-
 						$endereco = utf8_encode($row['endereco']);
 						$duracao = utf8_encode($row['duracao']);
 						$idinteresse = utf8_encode($row['idinteresse']);
@@ -42,7 +41,6 @@
 						//$categoria = mysql_fetch_array($cat['descricao']);
 
 						$isOwner = true;
-						// $isPublic = true;
 
 						if($visibilidade == 1){
 							$isPublic = true;
@@ -71,6 +69,11 @@
 							echo "<img src='images/private.png'  alt='icon-visibility' title='Atividade pública' />";
 						}
 						echo "</td>";
+						echo "<td>";
+						echo '<a class="deletar-atividade" title="Deletar atividade">';
+						echo '<img src="images/deletar-atividade.png" />';
+						echo '</a">';
+						echo "</td>"
 						echo "</tr>";
 					}		
 				?>

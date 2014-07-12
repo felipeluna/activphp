@@ -1,11 +1,12 @@
 
 <script type="text/javascript" src="scripts/jquery.mask.min.js"></script>
 <script type="text/javascript" src="scripts/general.js"></script>
+<script type="text/javascript" src="scripts/criar-atividade.js"></script>
 
 </head>
 <body>
 	<br>
-	<form action="atividadescontent/cadastrar-atividade.php" name="criar-atividade-form" method="post">
+	<form action="" name="criar-atividade-form" method="post">
 		<label for="nome-atividade">Título da Atividade:</label></br>
 		<input type="text" name="titulo" placeholder="Nomeie sua atividade" id="id-atividade"/>
 		<br>
