@@ -40,8 +40,7 @@ $(document).ready(function(){
 		    }else if($clicked.hasClass('interesse-item')){
 		    	id = $clicked.find('.idinteresse').val();
 		    	alert('Interesse id: '+id);
-		    }
-		    
+		    }		    
 		});
 	}
 
