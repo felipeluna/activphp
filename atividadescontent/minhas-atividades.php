@@ -12,39 +12,67 @@
 			<tbody>
 				<?php
 
-					$isOwner = true;
-					$isPublic = true;
-					$nomeatividade = "Pelada do pelé malandro";
-					$endereco = "Rua do cara que mora naquela rua lá, 459";
-					$data ="dd/mm/yyyy";
-					$horainicio = "hh:mm";
-					$horafim = "hh:mm";
-					$idinteresse = '1';
+					session_start();
+					
+					require('../config.php');
 
-					echo "<tr>";
-					echo "<td class='atividade'>";
-					echo "<span class='title'> $nomeatividade </span><br>";
-					echo "<img src='images/icons/atividades/{$idinteresse}laranja.png' alt='icon-categoria' />";
-					echo "<span>Categoria</span>";
-					echo "</td>";
-					echo "<td class='quando-onde'>";
-					echo "<img src='images/local.png' alt='icon-local' />";
-					echo "<span>{$endereco}</span><br>";
-					echo "<img src='images/relogio.png'  alt='icon-data-hora' />";
-					echo "<span>{$data}, das {$horainicio} as {$horafim} </span>";
-					echo "</td>";
-					echo "<td class='detalhes'>";
-					if($isOwner){
-						echo "<img src='images/amigos.png'  alt='icon-ownership' title='Dono da atividade' /><br>";
-					}
+					$idusuario = $_SESSION['idusuario'];
 
-					if($isPublic){
-						echo "<img src='images/public.png'  alt='icon-visibility' title='Atividade pública' />";
-					}else{
-						echo "<img src='images/private.png'  alt='icon-visibility' title='Atividade pública' />";
-					}
-					echo "</td>";
-					echo "</tr>";
+
+					$result = mysql_query("select * from `atividades` where idusuario = {$idusuario}") or die(mysql_error());
+
+					
+					while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+						
+						$nomeatividade = utf8_encode($row['titulo']);
+						$descricao = utf8_encode($row['descricao']);
+						$data = utf8_encode($row['datahora_inicio']);
+
+						// $res = $data->format('d/m/Y H:i:s');
+
+						$endereco = utf8_encode($row['endereco']);
+						$duracao = utf8_encode($row['duracao']);
+						$idinteresse = utf8_encode($row['idinteresse']);
+						$visibilidade = utf8_encode($row['visibilidade']);
+
+						$cat = mysql_query("select descricao from interesses where idinteresse = {$idinteresse}");
+						$cat = mysql_fetch_array($cat);
+						$categoria = utf8_encode($cat['descricao']);
+
+						//$categoria = mysql_fetch_array($cat['descricao']);
+
+						$isOwner = true;
+						// $isPublic = true;
+
+						if($visibilidade == 1){
+							$isPublic = true;
+						}else{
+							$isPublic = false;
+						}
+						echo "<tr>";
+						echo "<td class='atividade'>";
+						echo "<span class='title'> $nomeatividade </span><br>";
+						// echo "<img src='images/icons/atividades/{$idinteresse}laranja.png' alt='icon-categoria' />";
+						echo "<span>{$categoria}</span>";
+						echo "</td>";
+						echo "<td class='quando-onde'>";
+						echo "<img src='images/local.png' alt='icon-local' />";
+						echo "<span>{$endereco}</span><br>";
+						echo "<img src='images/relogio.png'  alt='icon-data-hora' />";
+						echo "<span>{$data}, com duracao de {$duracao} </span>";
+						echo "</td>";
+						echo "<td class='detalhes'>";
+						if($isOwner){
+							echo "<img src='images/amigos.png'  alt='icon-ownership' title='Dono da atividade' /><br>";
+						}
+						if($isPublic){
+							echo "<img src='images/public.png'  alt='icon-visibility' title='Atividade pública' />";
+						}else{
+							echo "<img src='images/private.png'  alt='icon-visibility' title='Atividade pública' />";
+						}
+						echo "</td>";
+						echo "</tr>";
+					}		
 				?>
 			</tbody>
 		</table>
