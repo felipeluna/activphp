@@ -24,7 +24,7 @@
 					
 					while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
 						
-						$nomeatividade = utf8_encode($row['titulo']);
+						$nomeatividade = $row['titulo'];
 						$descricao = utf8_encode($row['descricao']);
 						$data = utf8_encode($row['datahora_inicio']);
 
