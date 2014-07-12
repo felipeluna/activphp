@@ -28,11 +28,13 @@
 						$titulo =$row['titulo'];
 						$b_titulo ='<strong>'.$q.'</strong>';
 						$final_titulo = str_ireplace($q, $b_titulo, $titulo);
-
-						echo "<div class='autocomplete-item'>";
+						$id = $row['idatividade'];
+						
+						echo "<div class='autocomplete-item atividade-item'>";
 						echo "<img src='images/icons/atividades/";
 						echo $row['idinteresse'].".png' />";
-						echo "<span class='title'>";
+						echo "<input type='hidden' class='idatividade' value='$id' />";
+						echo "<span class='name'>";
 						echo $final_titulo;
 						echo "</span></div>";
 
@@ -56,10 +58,12 @@
 					$descricao =$row['descricao'];
 					$b_descricao ='<strong>'.$q.'</strong>';
 					$final_descricao = str_ireplace($q, $b_descricao, $descricao);
+					$id = $row['idinteresse'];
 
-					echo "<div class='autocomplete-item'>";
+					echo "<div class='autocomplete-item interesse-item'>";
 					echo "<img src='images/icons/atividades/";
-					echo $row['idinteresse'].".png' />";
+					echo $id.".png' />";
+					echo "<input type='hidden' class='idinteresse' value='$id' />";
 					echo "<span class='name'>";
 					echo utf8_encode($final_descricao);
 					echo "</span></div>";
@@ -85,7 +89,7 @@
 				$b_nome ='<strong>'.$q.'</strong>';
 				$final_nome = str_ireplace($q, $b_nome, $nome);
 
-				echo "<div class='autocomplete-item' >";
+				echo "<div class='autocomplete-item pessoa-item' >";
 				echo "<img class='foto' src='images/user_default-35x35.png' />";
 				echo "<input type='hidden' class='idusuario' value='$id' />";
 				echo "<span class='name'>";

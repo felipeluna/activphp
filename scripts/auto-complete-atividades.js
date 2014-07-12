@@ -20,6 +20,34 @@ function loadContentTemp(pageTemp, p_id){
 
 $(document).ready(function(){
 	
+	function setclick(){
+		$('.pessoa-item, .atividade-item, .interesse-item').click(function(){
+
+			var $clicked = $(e.target);
+
+			clickedclass = $(this).attr('class');
+
+		    var $name = $clicked.find('.name').html();
+		    
+		    var decoded = $("#inputBusca270px").html($name).text();
+		    $('#inputBusca270px').val(decoded);
+
+
+		    if(clickedclass == 'pessoa-item'){
+		    	id = $clicked.find('.idusuario');
+				loadContentTemp('user_profile', id);
+		    }else if(clickedclass == 'atividade-item'){
+				id = $clicked.find('.idatividade');
+				alert('Atividade id: '+id);
+				// loadContentTemp('user_profile', id);
+		    }else if(clickedclass == 'interesse-item'){
+		    	id = $clicked.find('.idinteresse');
+		    	alert('Interesse id: '+id);
+		    }
+		    
+		});
+	}
+
 	function ajaxAutocomplete(element){
 
 		var searchid = $(element).val();
@@ -40,6 +68,7 @@ $(document).ready(function(){
 		    cache: false,
 		    success: function(html){
 			    	$("#result").html(html).show();
+			    	setclick();
 			    },
 			error: function(req, status, error) {
 					alert("Erro: "+req.responseText+"; Status: "+status+"; Error: "+error);
@@ -63,38 +92,39 @@ $(document).ready(function(){
 	});
 
 
-	$("#result").on("click", function(e){
 
-	    var $clicked = $(e.target);
+	// $("#result .autocomplete-item").on("click", function(e){
 
-	    var $name;
+	//     var $clicked = $(e.target);
+
+	//     var $name;
 	    
-	    if($clicked.attr('class') == 'name'){
-	    	$name = $clicked.html();
-	    	$clicked = $clicked.parent();
-	    }else{
-	    	$name = $clicked.find('.name').html();	
-	    }
+	//     if($clicked.attr('class') == 'name'){
+	//     	$name = $clicked.html();
+	//     	$clicked = $clicked.parent();
+	//     }else{
+	//     	$name = $clicked.find('.name').html();	
+	//     }
 
+	//     var decoded = $("#inputBusca270px").html($name).text();
+	//     $('#inputBusca270px').val(decoded);
+
+	//     id = $clicked.find('.idusuario');
+	//     alert("id: "+id);
+	//     //teste
+
+	// 	if(id){
+	// 		loadContentTemp('user_profile', id);
+	// 	}else{
+	// 		loadContentTemp('atividade_view', id);
+	// 	}
 	    
-
-	    var decoded = $("#inputBusca270px").html($name).text();
-	    $('#inputBusca270px').val(decoded);
-
-	    alert("id: "+id);
-	    //teste
-
-		id = $clicked.find('.idusuario');
-		if(id){
-			loadContentTemp('user_profile', id);
-		}else{
-			loadContentTemp('atividade_view', id);
-		}
-	    
-	});
+	// });
 
 	$(document).on("click", function(e) { 
+
 		var $clicked = $(e.target);
+
 		if (! $clicked.hasClass("search")){
 			$("#result").html("");
 		    $("#result").fadeOut(); 
