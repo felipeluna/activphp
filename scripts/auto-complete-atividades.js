@@ -21,27 +21,24 @@ function loadContentTemp(pageTemp, p_id){
 $(document).ready(function(){
 	
 	function setclick(){
-		$('.pessoa-item, .atividade-item, .interesse-item').click(function(){
+		$('.autocomplete-item').click(function(){
 
-			var $clicked = $(e.target);
-
-			clickedclass = $(this).attr('class');
+			var $clicked = $(this);
 
 		    var $name = $clicked.find('.name').html();
 		    
 		    var decoded = $("#inputBusca270px").html($name).text();
 		    $('#inputBusca270px').val(decoded);
 
-
-		    if(clickedclass == 'pessoa-item'){
-		    	id = $clicked.find('.idusuario');
+		    if($clicked.hasClass('pessoa-item')){
+		    	id = $clicked.find('.idusuario').val();
 				loadContentTemp('user_profile', id);
-		    }else if(clickedclass == 'atividade-item'){
-				id = $clicked.find('.idatividade');
+		    }else if($clicked.hasClass('atividade-item')){
+				id = $clicked.find('.idatividade').val();
 				alert('Atividade id: '+id);
 				// loadContentTemp('user_profile', id);
-		    }else if(clickedclass == 'interesse-item'){
-		    	id = $clicked.find('.idinteresse');
+		    }else if($clicked.hasClass('interesse-item')){
+		    	id = $clicked.find('.idinteresse').val();
 		    	alert('Interesse id: '+id);
 		    }
 		    
