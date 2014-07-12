@@ -10,32 +10,60 @@
 		if($filtro == 'atividades'){
 			$q= mysql_real_escape_string($search);
 
-			$sql_res;
+			$sql_interesses;
 
 			if($q != ""){//se busca nao for vazia
-				$sql_res= mysql_query("select idinteresse, descricao from interesses where descricao like '%$q%' order by idinteresse") or die(mysql_error());
+				$sql_interesses= mysql_query("select idinteresse, descricao from interesses where descricao like '%$q%' order by idinteresse") or die(mysql_error());
+
+				$sql_atividades= mysql_query("select idatividade, titulo, endereco, idinteresse from atividades where descricao like '%$q%' order by idinteresse") or die(mysql_error());				
+
+				if(mysql_num_rows($sql_atividades)){
+					//imprime atividades
+					echo "<div class='autocomplete-item-group'>";
+					echo "Atividades";
+					echo "</div>";
+					
+					while($row=mysql_fetch_array($sql_atividades))
+					{
+						$titulo =$row['titulo'];
+						$b_titulo ='<strong>'.$q.'</strong>';
+						$final_titulo = str_ireplace($q, $b_titulo, $titulo);
+
+						echo "<div class='autocomplete-item'>";
+						echo "<img src='images/icons/atividades/";
+						echo $row['idinteresse'].".png' />";
+						echo "<span class='title'>";
+						echo $final_titulo;
+						echo "</span></div>";
+
+					}
+				}
+
 			}else{// se busca for vazia exibe todas categorias
-				$sql_res= mysql_query("select idinteresse, descricao from interesses order by idinteresse") or die(mysql_error());
+				$sql_interesses= mysql_query("select idinteresse, descricao from interesses order by idinteresse") or die(mysql_error());
 			}
 
-			//identifica categoria
-			echo "<div class='autocomplete-item-group'>";
-			echo "Categorias";
-			echo "</div>";
 			
-			while($row=mysql_fetch_array($sql_res))
-			{
-				$descricao =$row['descricao'];
-				$b_descricao ='<strong>'.$q.'</strong>';
-				$final_descricao = str_ireplace($q, $b_descricao, $descricao);
+			//imprime categorias com match
+			if(mysql_num_rows($sql_interesses)){
+				echo "<div class='autocomplete-item-group'>";
+				echo "Categorias";
+				echo "</div>";
 
-				echo "<div class='autocomplete-item'>";
-				echo "<img src='images/icons/atividades/";
-				echo $row['idinteresse'].".png' />";
-				echo "<span class='name'>";
-				echo utf8_encode($final_descricao);
-				echo "</span></div>";
+			
+				while($row=mysql_fetch_array($sql_interesses))
+				{
+					$descricao =$row['descricao'];
+					$b_descricao ='<strong>'.$q.'</strong>';
+					$final_descricao = str_ireplace($q, $b_descricao, $descricao);
 
+					echo "<div class='autocomplete-item'>";
+					echo "<img src='images/icons/atividades/";
+					echo $row['idinteresse'].".png' />";
+					echo "<span class='name'>";
+					echo utf8_encode($final_descricao);
+					echo "</span></div>";
+				}
 			}
 		}elseif($filtro == 'pessoas'){
 			$q= mysql_real_escape_string($search);

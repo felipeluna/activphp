@@ -3,7 +3,7 @@ function loadContentTemp(pageTemp, p_id){
 
    $.ajax({
 	    type: "POST",
-	    url: "content-temp/search_result.php",
+	    url: "content-temp/"+pageTemp+".php",
 	    data: {id: p_id},
 	    dataType: 'html',
 	    cache: false,
@@ -45,7 +45,7 @@ $(document).ready(function(){
 					alert("Erro: "+req.responseText+"; Status: "+status+"; Error: "+error);
    				}
 		    });
-		return false;    
+		return false;
 	}
 
 	$("#inputBusca270px").keyup(function()
@@ -76,7 +76,7 @@ $(document).ready(function(){
 	    	$name = $clicked.find('.name').html();	
 	    }
 
-	    id = $clicked.find('.idusuario').val();
+	    
 
 	    var decoded = $("#inputBusca270px").html($name).text();
 	    $('#inputBusca270px').val(decoded);
@@ -84,8 +84,13 @@ $(document).ready(function(){
 	    alert("id: "+id);
 	    //teste
 
-
-	    loadContentTemp('search_result', id);
+		id = $clicked.find('.idusuario');
+		if(id){
+			loadContentTemp('user_profile', id);
+		}else{
+			loadContentTemp('atividade_view', id);
+		}
+	    
 	});
 
 	$(document).on("click", function(e) { 

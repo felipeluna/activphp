@@ -1,5 +1,5 @@
 #busca200px{
-	width: 220px;
+	width: 300px;
 	float: left;
 	position: absolute;
 	left: 280px;
@@ -51,7 +51,7 @@
 	text-transform: uppercase;
 	color:#fff;
 	padding: 6px 10px;
-	width: 200px;
+	width: 300px;
 	position: absolute;
 	z-index: 4;
 }
@@ -69,7 +69,7 @@
 	background-repeat: no-repeat;
 	width: 28px;
 	height: 28px;
-	margin-left: 188px;
+	margin-left: 287px;
 	margin-top: 6px;
 	z-index: 4;
 }
@@ -83,7 +83,7 @@
 	border-bottom-left-radius: 10px;
 	z-index: 3;
 	position: absolute;
-	width: 220px;
+	width: 320px;
 	background-color: #1d4c73;
 	margin-top: -10px;
 	padding-top: 10px;
@@ -91,7 +91,7 @@
 }
 
 #busca200px .autocomplete-item{
-	width: 214px;
+	width: 314px;
 	background-color: #20649e;
 	color: #fff;
 	margin: 3px;
