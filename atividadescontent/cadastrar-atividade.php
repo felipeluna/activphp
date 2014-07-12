@@ -25,9 +25,9 @@
 		
 
 		if($visibilidade == 'public'){
-			$visibilidade = true;
+			$visibilidade = 1;
 		}else{
-			$visibilidade = false;
+			$visibilidade = 0;
 		}
 
 		$dataInicio .= " ".$hora;
