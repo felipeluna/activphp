@@ -57,7 +57,7 @@ $(document).ready(function(){
 		
 		    $.ajax({
 		    type: "POST",
-		    url: "busca_autocomplete.php",
+		    url: "submit/busca_autocomplete.php",
 		    data: {search: searchid, filtro: filtro},
 		    dataType: 'html',
 		    cache: false,

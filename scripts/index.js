@@ -39,34 +39,6 @@ $( document ).ready(function() {
 
 	$(".data").mask("99/99/9999");
 
-		// $("#loginForm").submit(function(){
-		// 	$.ajax({
-		// 			url: 'login_session.php',
-		// 			type: 'POST',
-		// 			data: $("#loginForm").serialize(),
-		// 			// dataType:"json",
-		// 			success: function(data){
-		// 				data = data.trim();
-						
-		// 					if(data == "login.negado"){
-		// 						showErroLogin('E-mail e/ou senha inválidos');
-		// 						$("#loginForm input[name='email'],#loginForm input[name='pass']").addClass("input-error");
-		// 					}else if(data == "login.faltaCampos"){
-		// 						showErroLogin('E-mail e senha devem ser preenchidos');
-		// 						$("#loginForm input[name='email'],#loginForm input[name='pass']").addClass("input-error");
-		// 					}else if(data == "login.ok"){
-		// 						window.location.replace('dashboard.php');
-		// 					}
-		// 				},
-		// 			error: function(req, status, error) {
-		// 					alert("Erro: "+req.responseText+"; Status: "+status+"; Error: "+error);
-		// 				},
-		// 			ajaxError: function(){showErroLogin('Ops! Ocorreu algum erro =( no ajax');}
-		// 		}
-		// 	);
-		// 	return false;
-		// });
-
 	$('#submit_cadastro_group').click(function(){
 		var dis = $('#cadastro_btn').attr('disabled');
 		if(dis == 'disabled'){
@@ -88,13 +60,13 @@ $( document ).ready(function() {
 
 	$("#cadastroForm").submit(function(){
 		$.ajax({
-				url: 'register.php',
+				url: 'submit/cadastro_submit.php',
 				type: 'POST',
 				data: $("#cadastroForm").serialize(),
 				// dataType: "json",
 				success: function(data){
 						data = data.trim();
-						alert(data);
+						
 						if(data == "cadastro.ok"){
 							window.location.replace('dashboard.php');
 						}else if(data == "cadastro.senhasNaoCoincidem"){
@@ -104,9 +76,8 @@ $( document ).ready(function() {
 							showError("Todos os campos devem ser preenchidos");
 						}
 					},
-				error:function(){
-					alert("Error: "+data);
-					showError("Ops! Ocorreu um Erro. =(");
+				error:function(data){
+					showError("Ops! Ocorreu um Erro. =(, descrição do erro: "+data);
 				},
 				ajaxError: function(){showErroLogin('Ops! Ocorreu algum erro =( no ajax');}
 			}

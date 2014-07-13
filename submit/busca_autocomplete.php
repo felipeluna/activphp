@@ -1,7 +1,7 @@
 <?php
 	if($_POST){
 
-		require('config.php');
+		require('../config.php');
 		// $json = $_POST['json'];
 		$search = $_POST['search'];
 		$filtro = $_POST['filtro'];

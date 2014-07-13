@@ -9,7 +9,7 @@
 ?>
 
 	<script type="text/javascript" src="scripts/edit.js"></script>
-	<form name="cadastro" action ="edit_submit.php" method="post" id="editform">
+	<form name="cadastro" action ="" method="post" id="editform">
 		<h1>Editar informações</h1>
 		<div class="input-group">
 			<label for="nomeusuario">Nome: </label>

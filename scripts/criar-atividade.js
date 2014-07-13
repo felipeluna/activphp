@@ -5,7 +5,7 @@ $( document ).ready(function() {
 	$("form[name='criar-atividade-form']").submit(function(){
 		// 
 		$.ajax({
-			url: 'atividadescontent/cadastrar-atividade.php',
+			url: 'submit/atividade_submit.php',
 			type: 'POST',
 			dataType: 'html',
 			data: $(this).serialize(),

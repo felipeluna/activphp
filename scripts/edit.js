@@ -13,7 +13,7 @@ $( document ).ready(function() {
 		$('input[name="submit_edit"]').val('Carregando');
 
 		$.ajax({
-				url: 'edit_submit.php',
+				url: 'submit/editar_submit.php',
 				type: 'POST',
 				encoding:"UTF-8",
 				data: $("#editform").serialize(),

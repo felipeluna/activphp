@@ -1,5 +1,5 @@
 <?php
-	require('config.php');
+	require('../config.php');
 	
 	if(isset($_POST) && !empty($_POST)){
 		$email = mysql_real_escape_string($_POST['email']);

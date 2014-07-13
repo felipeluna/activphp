@@ -11,7 +11,7 @@ function showError(msg){
 $(document).ready(function(){
 			$("#loginForm").submit(function(){
 				$.ajax({
-						url: 'login_session.php',
+						url: 'submit/login_session.php',
 						type: 'POST',
 						data: $("#loginForm").serialize(),
 						// dataType:"json",
