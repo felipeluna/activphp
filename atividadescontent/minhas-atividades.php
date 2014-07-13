@@ -29,7 +29,7 @@
 						$data = utf8_encode($row['datahora_inicio']);
 
 						// $res = $data->format('d/m/Y H:i:s');
-						$endereco = utf8_encode($row['endereco']);
+						$endereco = $row['endereco'];
 						$duracao = utf8_encode($row['duracao']);
 						$idinteresse = utf8_encode($row['idinteresse']);
 						$visibilidade = utf8_encode($row['visibilidade']);
@@ -53,7 +53,7 @@
 						//coluna de nome e categoria
 						echo "<td class='atividade'>";
 						echo "<span class='title'> $nomeatividade </span><br>";
-						echo "<img src='images/icons/atividades/{$idinteresse}.png' alt='icon-categoria' />";
+						echo "<img src='images/icons/atividades/{$idinteresse}laranja.png' alt='icon-categoria' />";
 						echo "<span>{$categoria}</span>";
 						echo "</td>";
 						//Coluna de local e hora
