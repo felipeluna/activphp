@@ -1,5 +1,7 @@
 $( document ).ready(function() {
 
+	$(".data").mask("99/99/9999");
+	
 	$("form[name='criar-atividade-form']").submit(function(){
 		// 
 		$.ajax({

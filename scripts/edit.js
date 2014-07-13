@@ -1,4 +1,6 @@
 $( document ).ready(function() {
+	
+	$(".data").mask("99/99/9999");
 
 	function enableEditButton(){
 		$('input[name="submit_edit"]').prop('disabled',false);

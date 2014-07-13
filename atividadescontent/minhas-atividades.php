@@ -21,7 +21,7 @@
 
 					$result = mysql_query("select * from `atividades` where idusuario = {$idusuario}") or die(mysql_error());
 
-					
+					if(mysql_num_rows($result)> 0){
 					while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
 						
 						$nomeatividade = $row['titulo'];
@@ -89,7 +89,15 @@
 						echo "</td>";
 						//fim da linha da tabela
 						echo "</tr>";
-					}		
+					}
+				}else{// nenhuma atividade
+						echo "<tr id='nenhuma-atividade' >";
+						//coluna de nome e categoria
+						echo "<td class='atividade' colspan='6'>";
+						echo "Nenhuma atividade criada, crie sua primeira atividade";
+						echo "</td>";
+						echo "</tr>";
+				}
 				?>
 			</tbody>
 		</table>

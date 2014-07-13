@@ -74,34 +74,44 @@ $( document ).ready(function() {
 		}
 	});
 
-	$(function(){
-			$("#cadastroForm").submit(function(){
-				$.ajax({
-						url: 'register.php',
-						type: 'POST',
-						data: $("#cadastroForm").serialize(),
-						// dataType: "json",
-						success: function(data){
-								data = data.trim();
-								alert(data);
-								if(data == "cadastro.ok"){
-									window.location.replace('dashboard.php');
-								}else if(data == "cadastro.senhasNaoCoincidem"){
-									showError("As senhas fornecidas não coincidem");
-									$("#cadastro input[name='pass1'], #cadastro input[name='pass2']").addClass("input-error");
-								}else if(data == "cadastro.faltaCampos"){
-									showError("Todos os campos devem ser preenchidos");
-								}
-							},
-						error:function(){
-							alert("Error: "+data);
-							showError("Ops! Ocorreu um Erro. =(");
-						},
-						ajaxError: function(){showErroLogin('Ops! Ocorreu algum erro =( no ajax');}
-					}
-				);
 
-				return false;
-			});
+	// $("#cadastroForm").validate({
+	// 		rules:{
+
+	// 		},
+	// 		messages:{
+
+	// 		}
+	// 	});
+
+	$(".data").mask("99/99/9999");
+
+	$("#cadastroForm").submit(function(){
+		$.ajax({
+				url: 'register.php',
+				type: 'POST',
+				data: $("#cadastroForm").serialize(),
+				// dataType: "json",
+				success: function(data){
+						data = data.trim();
+						alert(data);
+						if(data == "cadastro.ok"){
+							window.location.replace('dashboard.php');
+						}else if(data == "cadastro.senhasNaoCoincidem"){
+							showError("As senhas fornecidas não coincidem");
+							$("#cadastro input[name='pass1'], #cadastro input[name='pass2']").addClass("input-error");
+						}else if(data == "cadastro.faltaCampos"){
+							showError("Todos os campos devem ser preenchidos");
+						}
+					},
+				error:function(){
+					alert("Error: "+data);
+					showError("Ops! Ocorreu um Erro. =(");
+				},
+				ajaxError: function(){showErroLogin('Ops! Ocorreu algum erro =( no ajax');}
+			}
+		);
+
+		return false;
 	});
 });

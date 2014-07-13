@@ -63,11 +63,12 @@
 				//echo $pass1;
 				
 				//data
-				$ano = mysql_real_escape_string($_POST['ano']);
-				$mes = mysql_real_escape_string($_POST['mes']);
-				$dia = mysql_real_escape_string($_POST['dia']);
+				// $ano = mysql_real_escape_string($_POST['ano']);
+				// $mes = mysql_real_escape_string($_POST['mes']);
+				// $dia = mysql_real_escape_string($_POST['dia']);
 			
-				$date = $dia . "/" . $mes . "/" . $ano;
+				// $date = $dia . "/" . $mes . "/" . $ano;
+				$date = $_POST['data'];
 				
 				//LOCAL
 				$uf = $_POST['uf'];

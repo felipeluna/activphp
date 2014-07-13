@@ -37,12 +37,12 @@
 			// datas
 
 			
-				$ano = mysql_real_escape_string($_POST['ano']);
-				$mes = mysql_real_escape_string($_POST['mes']);
-				$dia = mysql_real_escape_string($_POST['dia']);
+				// $ano = mysql_real_escape_string($_POST['ano']);
+				// $mes = mysql_real_escape_string($_POST['mes']);
+				// $dia = mysql_real_escape_string($_POST['dia']);
 			
-				$datanova = $dia . "-" . $mes . "-" . $ano;
-				$datanova = (string)date('d/m/Y', strtotime($datanova));
+				$datanova = mysql_real_escape_string($_POST['data']);
+				// $datanova = (string)date('d/m/Y', strtotime($datanova));
 
 				mysql_query("update usuarios set data_nascimento=str_to_date('$datanova', '%d/%m/%Y' ) where idusuario = $id_atual ");
 

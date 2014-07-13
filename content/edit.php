@@ -26,115 +26,22 @@
 			<!-- <input type="e-mail" name="email" placeholder="E-mail"/>
 		</br>
 		-->
-		<label >Data de Nascimento:</label>
+		<label for="data-nascimento">Data de Nascimento:</label>
+		
 		<?php
 
-					$datanasceu = $row_atual['data_nascimento'];
+			$datanasceu = $row_atual['data_nascimento'];
+			$datanasceu = date("d/m/Y", strtotime($datanasceu));
+
+			echo '<input type="text" name="data" placeholder="Data" class="data" id="data-nascimento"';
+			echo 'value="'.$datanasceu.'"/>';	
+
 				
-
-						
-					$time = strtotime($datanasceu);
-					// $anonasceu = date('Y', $time);
-					
-					$dianasceu = date('d', $time);
-				
-					// $mesnasceu = date('m', $time);
-
-					// echo $dianasceu . "-" . $mesnasceu . "-" . $anonasceu;
-
-					#GERA OS Dias do mes
-				
-					echo "<select id='user_data_3i' name='dia' >";
-					for ($i=1; $i< 32; $i++){
-
-						echo "<option ";
-						if($i < 10){
-							
-
-							$diaa = "0".$i;
-							$dianasceu2 = (string)$dianasceu;
-							if($dianasceu2 == $diaa){
-								echo "selected='selected'>";
-							}else{
-								echo ">";
-
-							}
-							echo $diaa;
-						}else{
-							$dianasceu2 = (string)$dianasceu;
-							if($dianasceu2 == $i){
-								echo "selected='selected'>";
-							}else{							
-							echo ">";
-							
-							}
-							echo $i;
-						}
-						
-						echo "</option>";
-						}
-					
-					echo "</select>";
-				?>
-				
-		<select id="user_data_2i" name="mes">
-
-		<?php
-
-			//====================================================================
-			// gera meses dinamicamente + seleciona o mes em que o cara nasceu. ==
-			//====================================================================
-
-			$meses = Array('Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro');
-			$mesnasceu = date('m', $time);
-			$mesnasceu = (string)$mesnasceu;
-
-			for ($i=0; $i < 12 ; $i++) { 
-				if($i < 10){
-					$d = "0".$i;
-				}else{
-					$d = $i;
-				}
-				echo "<option value='" . $d . "' ";
-
-				if($mesnasceu == $d){
-
-					// vai ter selected
-					echo "selected='selected'>";
-				}else{
-
-					//naovai ter
-					echo ">";
-				}
-				//imprimir mes
-				echo $meses[$i]."</option>";
-			}
-		?>
-
-	</select>
-
-	<?php
-		#GERA OS ANOS para q só permita +18
-		$anonasceu = date('Y', $time);
-		$anonasceu = (string)$anonasceu;
-		$startyear = date("Y") - 18;
-		echo "<select id='user_data_1i' name='ano'>";
-		for ($i=0; $i< 80; $i++){
-			echo "<option ";
-			if($startyear == $anonasceu){
-				echo "selected = 'selected'>";
-			}else{
-				echo ">";
-			}
-			echo $startyear--;
-			echo "</option>";
-		}
-		echo "</select>";
 	?>
 </div>
 <br>
 <!-- local -->
-<label class="grupo-input">Local</label>
+<label class="grupo-input">Local:</label>
 			<?php
 				
 				$id_idcidade = $row_atual['idcidade'];
