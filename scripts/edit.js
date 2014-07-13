@@ -1,49 +1,41 @@
+$( document ).ready(function() {
 
-// $("#editform").on('submit', function(){
-// 	var that = $(this),
-// 	url = that.attr('action'),
-// 	method = that.attr('method'),
-// 	data = {};
+	function enableEditButton(){
+		$('input[name="submit_edit"]').prop('disabled',false);
+		$('input[name="submit_edit"]').val('Editar');
+	}
 
-// 	that.find('name').each(function(index, value){
-// 		var that = $(this),
-// 		name = that.attr('name'),
-// 		value = that.val();
-		
-// 		data[name] = value;
-// 	});
-	
-// 	console.log(data);
+	$("#editform").submit(function(){
 
-// 	return false;
-// });
-$(function(){
-			$("#editform").submit(function(){
-				$.ajax({
-						url: 'edit_submit.php',
-						type: 'POST',
-						encoding:"UTF-8",
-						data: $("#editform").serialize(),
-						dataType: 'json',
-						success: function(data){
-								showSuccess("Dados alterados com sucesso! =D");
-								$(".info .nome").html(data.nome);
-								$(".info .cidade").html(data.cidade);
-							},
-						error: function(data){
-							showError('Erro>>>>>>>>>>>>>>>>>>>>>>>>>>>>>: '.data);	
-						},
-						ajaxError: function(){
-							showError('Ops! Ocorreu algum erro =(');
-						}
-					}
-				);
+		$('input[name="submit_edit"]').prop('disabled',true);
+		$('input[name="submit_edit"]').val('Carregando');
 
-				return false;
-			});
+		$.ajax({
+				url: 'edit_submit.php',
+				type: 'POST',
+				encoding:"UTF-8",
+				data: $("#editform").serialize(),
+				dataType: 'json',
+				success: function(data){				
+						showSuccess("Dados alterados com sucesso! =D", enableEditButton());
+						$(".info .nome").html(data.nome);
+						$(".info .cidade").html(data.cidade);
+					},
+				error: function(data){
+					alert('errro');
+					showError('Erro>>>>>>>>>: '.data);
+					enableEditButton();
+				},
+				ajaxError: function(){
+					showError('Ops! Ocorreu algum erro =(');
+					enableEditButton();
+				}
+			}
+		);
+
+		return false;
 	});
 
-$( document ).ready(function() {
 
 	$("select[name='uf']").change(function(){
 		// 

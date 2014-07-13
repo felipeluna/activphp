@@ -1,5 +1,7 @@
 $(document).ready(function(){
 
+	$(".data").mask("99/99/9999");
+	
 	$('#atividades-content').load('atividadescontent/minhas-atividades.php');
 	// window.history.pushState('object', 'Atividades', 'Atividades');
 	$("#tabs a[href='minhas-atividades']").addClass('tabSelected');

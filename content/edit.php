@@ -201,7 +201,7 @@
 
 				$selectedinteresses = array();
 
-				$sqlCommand2 = "SELECT idinteresse FROM usuarios_interesses WHERE usuarios_idusuario= $id_atual";
+				$sqlCommand2 = "SELECT idinteresse FROM usuarios_interesses WHERE idusuario= $id_atual";
 				$query2 = mysql_query( $sqlCommand2) or die (mysql_error());
 				while ($row = mysql_fetch_array($query2)) {
 					//echo 'entrou';

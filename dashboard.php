@@ -17,11 +17,15 @@
 		<meta charset="utf-8"/>
 		<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
 		<title>ActivFun - Dashboard</title>
+<!-- CSS -->
 		<link href="styles/general.css" type="text/css" rel="stylesheet" />
 		<link href="styles/dashboard.css" type="text/css" rel="stylesheet" />		
+<!-- SCRIPTS -->
 		<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script>
+		<script type="text/javascript" src="scripts/jquery.mask.min.js"></script>
+		<script type="text/javascript" src="scripts/general.js"></script>
 		<script type="text/javascript" src="scripts/dashboard.js"></script>		
-
+<!-- FAVICON -->
 		<link rel="shortcut icon" href="images/favicon_activfun.ico" type="image/x-icon">
 		<link rel="icon" href="images/favicon_activfun.ico" type="image/x-icon">
 

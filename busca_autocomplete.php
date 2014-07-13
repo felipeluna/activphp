@@ -13,18 +13,28 @@
 			$sql_interesses;
 
 			if($q != ""){//se busca nao for vazia
-				$sql_interesses= mysql_query("select idinteresse, descricao from interesses where descricao like '%$q%' order by idinteresse") or die(mysql_error());
+				$sql_interesses= mysql_query("select idinteresse, descricao from interesses where descricao like '%$q%' order by idinteresse" ) or die(mysql_error());
 
-				$sql_atividades= mysql_query("select idatividade, titulo, endereco, idinteresse from atividades where descricao like '%$q%' order by idinteresse") or die(mysql_error());				
+				//numero q limita renotrno de atividades
+				$limAtiv = 5;
+				$sql_atividades= mysql_query("select SQL_CALC_FOUND_ROWS idatividade, titulo, endereco, idinteresse from atividades where titulo like '%$q%' order by idinteresse limit ".$limAtiv) or die(mysql_error());				
+
+				//pega o total de valores retornados se houvesse limit
+				$totalSemLimit = mysql_query("SELECT FOUND_ROWS() as total;");
+				$totalSemLimit = mysql_fetch_array($totalSemLimit);
+				$totalSemLimit = $totalSemLimit['total'];
 
 				if(mysql_num_rows($sql_atividades)){
 					//imprime atividades
 					echo "<div class='autocomplete-item-group'>";
 					echo "Atividades";
 					echo "</div>";
-					
+
+					//conta linhas retornadas
 					while($row=mysql_fetch_array($sql_atividades))
 					{
+						//incrementa linhas retornadas
+						//dados de retorno da busca
 						$titulo =$row['titulo'];
 						$b_titulo ='<strong>'.$q.'</strong>';
 						$final_titulo = str_ireplace($q, $b_titulo, $titulo);
@@ -36,6 +46,14 @@
 						echo "<input type='hidden' class='idatividade' value='$id' />";
 						echo "<span class='name'>";
 						echo $final_titulo;
+						echo "</span></div>";
+					}
+
+					if($totalSemLimit > $limAtiv){
+						echo "<div class='autocomplete-item atividade-item'>";
+						echo "<input type='hidden' class='idatividade' value='$id' />";
+						echo "<span class='name'>";
+						echo "Ver todas";
 						echo "</span></div>";
 
 					}
@@ -75,7 +93,7 @@
 			session_start();
 			$idusuario = $_SESSION['idusuario'];
 			
-			$sql_res= mysql_query("select idusuario, nome from usuarios where nome like '%$q%' and idusuario <> ".$idusuario." order by idusuario") or die(mysql_error());
+			$sql_res= mysql_query("select idusuario, nome from usuarios where nome like '%$q%' and idusuario <> ".$idusuario." order by idusuario limit 8") or die(mysql_error());
 			
 			//identifica categoria
 			echo "<div class='autocomplete-item-group'>";

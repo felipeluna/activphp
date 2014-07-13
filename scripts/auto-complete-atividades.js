@@ -1,5 +1,4 @@
-function loadContentTemp(pageTemp, p_id){
-	
+function loadContentTemp(pageTemp, p_id){	
 
    $.ajax({
 	    type: "POST",
@@ -58,7 +57,7 @@ $(document).ready(function(){
 		
 		    $.ajax({
 		    type: "POST",
-		    url: "busca_interesses.php",
+		    url: "busca_autocomplete.php",
 		    data: {search: searchid, filtro: filtro},
 		    dataType: 'html',
 		    cache: false,

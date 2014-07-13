@@ -72,6 +72,7 @@
 	margin-left: 287px;
 	margin-top: 6px;
 	z-index: 4;
+	cursor: pointer;
 }
 
 #busca200px #result{

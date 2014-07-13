@@ -52,7 +52,7 @@
 
 
 			//deleta interesses da tabela
-			mysql_query("delete from usuarios_interesses where usuarios_idusuario = $id_atual");
+			mysql_query("delete from usuarios_interesses where idusuario = $id_atual");
 			// //insere de novo.
 			foreach($_POST['checkbox_novo'] as $interesse){
 				    mysql_query(

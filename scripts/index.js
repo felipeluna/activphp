@@ -37,24 +37,7 @@ $( document ).ready(function() {
 	}
 	checker.onchange = changecbagree;
 
-	function showErroLogin(message){
-		$('.errologin').html(message);
-		$('.errologin').fadeIn('fast');
-	}
-
-	function showError(msg){
-			$('#error').slideDown('normal').fadeIn('normal');
-			$('#error').html(msg);
-			
-			// setTimeout(function () {
-		 //         $("#error").slideDown('slow').fadeOut('normal');
-		 //    	}, 8000
-		 //    );
-	}
-
-	function hideError(){
-		$("#error").slideDown('slow').fadeOut('normal');
-	}
+	$(".data").mask("99/99/9999");
 
 		// $("#loginForm").submit(function(){
 		// 	$.ajax({
