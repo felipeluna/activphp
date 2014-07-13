@@ -10,6 +10,7 @@
 		<input type="text" name="titulo" placeholder="Nome de sua atividade" id="id-atividade"/>
 		<br>
 		<label for="descricao-atividade">Descrição:</label></br>
+		<!-- <input cols="30" rows="7" name="descricao" placeholder="Descreva sua atividade" id="id-descricao-atividade"/> -->
 		<textarea cols="30" rows="7" name="descricao" placeholder="Descreva sua atividade" id="id-descricao-atividade"/>
 		<br>
 		<label for="endereco">Endereço:</label>

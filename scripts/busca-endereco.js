@@ -5,8 +5,8 @@ function initialize() {
   var markers = [];
 
  var mapOptions = {
-        zoom: 4,
-        center: new google.maps.LatLng(-10,-30)
+        zoom: 3,
+        center: new google.maps.LatLng(-13,-40)
       };
 
   map = new google.maps.Map(document.getElementById('map-canvas'),mapOptions);
@@ -91,4 +91,12 @@ function salveLocation(lat, lng){
 $(document).ready(function(){
   var functionname = 'initialize';
   $.getScript("http://maps.google.com/maps/api/js?key=AIzaSyBVZqVVZBg3ZgGEFB8Q4eaxiNnA4EPp3YA&libraries=places&sensor=false&callback="+functionname);
+
+  $('#id-endereco-atividade').keydown(function(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+      return false;
+    }
+  });
+
 });

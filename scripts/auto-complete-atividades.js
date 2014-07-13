@@ -34,7 +34,8 @@ $(document).ready(function(){
 				loadContentTemp('user_profile', id);
 		    }else if($clicked.hasClass('atividade-item')){
 				id = $clicked.find('.idatividade').val();
-				alert('Atividade id: '+id);
+				loadContentTemp('atividade_view', id);
+				// alert('Atividade id: '+id);
 				// loadContentTemp('user_profile', id);
 		    }else if($clicked.hasClass('interesse-item')){
 		    	id = $clicked.find('.idinteresse').val();
