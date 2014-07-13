@@ -16,9 +16,6 @@ $(document).ready(function(){
 
 		//nao da refresh na pagina
 		return false;
-
-		//ajax
-
 	});
 
 });

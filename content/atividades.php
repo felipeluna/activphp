@@ -21,10 +21,4 @@
 	<div id="atividades-content">
 
 	</div>
-
-
-	<!-- Mapa -->
-	<!--<script type="text/javascript" src="scripts/gerar-mapa.js"></script>
-	<div id="map-canvas" style="display:none;"></div>-->
-
 </div>

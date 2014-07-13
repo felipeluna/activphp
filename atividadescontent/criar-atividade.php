@@ -2,13 +2,12 @@
 <script type="text/javascript" src="scripts/jquery.mask.min.js"></script>
 <script type="text/javascript" src="scripts/general.js"></script>
 <script type="text/javascript" src="scripts/criar-atividade.js"></script>
+<script type="text/javascript" src="scripts/busca-endereco.js"></script>
 
-</head>
-<body>
-	<br>
+
 	<form action="" name="criar-atividade-form" method="post">
 		<label for="nome-atividade">Título da Atividade:</label></br>
-		<input type="text" name="titulo" placeholder="Nomeie sua atividade" id="id-atividade"/>
+		<input type="text" name="titulo" placeholder="Nome de sua atividade" id="id-atividade"/>
 		<br>
 		<label for="descricao-atividade">Descrição:</label></br>
 		<textarea cols="30" rows="7" name="descricao" placeholder="Descreva sua atividade" id="id-descricao-atividade"/>
@@ -16,6 +15,7 @@
 		<label for="endereco">Endereço:</label>
 		<input type="text" name="endereco" placeholder="Digite o Endereço" id="id-endereco-atividade"/>
 		<br>
+		<div id="map-canvas"></div>
 		<br>
 		<label for="data-inicio">Data:</label>
 		<input type="text" name="data" placeholder="Data" class="data" />
@@ -51,6 +51,7 @@
  					echo "</label> <br />";
 				}				
 			?>
-
+		<input type="hidden" name="lat" /> 
+		<input type="hidden" name="lng" /> 
 		<input type="submit" name="submit_atividade" />
 	</form>

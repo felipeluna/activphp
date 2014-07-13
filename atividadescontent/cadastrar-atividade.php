@@ -12,6 +12,8 @@
 		$dataInicio = $_POST['data'];
 		$hora = $_POST['hora'];
 		$duracao = $_POST['duracao'];
+		$lat = $_POST['lat'];
+		$lng = $_POST['lng'];
 
 		//array para retornar erros dos campos
 		$fields = array();
@@ -73,8 +75,8 @@
 					str_to_date('{$dataInicio}', '%d/%m/%Y %T' ),
 					time('{$duracao}'),
 					'{$endereco}',
-					'3999.0',
-					'8888.0',
+					'{$lat}',
+					'{$lng}',
 					{$visibilidade},
 					'{$idusuario}',
 					'{$idinteresse}');") or die(mysql_error());	

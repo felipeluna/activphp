@@ -25,13 +25,7 @@
 	    	navigator.geolocation.getCurrentPosition(function(position) {
 	     		var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
-		    	// var infowindow = new google.maps.InfoWindow({
-	      //   		map: map,
-	      //   		position: pos,
-	      //   		content: 'Você está aqui'});
-		    	// map.setCenter(pos);
-
-		    	///////////////BEGIN - PINO do usuario NO MAPA
+		       	///////////////BEGIN - PINO do usuario NO MAPA
 		    		var image = 'images/user-pin.png';
 					var marker = new google.maps.Marker({
 				      position: pos,
