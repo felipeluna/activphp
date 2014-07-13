@@ -51,12 +51,19 @@
 	outline-width: 2px;
 	outline-color: #ddd;*/
 	cursor: pointer;
-	background-color: #abd0f6;
+	background-color: #c8dceb;
 }
 
 #minhas-atividades td.atividade{
-	background-color: #ebebeb;
+	background-color: #ededed;
 	cursor: pointer;
+}
+
+#minhas-atividades td.atividade img{
+	width: 15px;
+	margin-right: 5px;
+	margin-top: 2px;
+
 }
 
 #minhas-atividades .atividade .title{
@@ -78,6 +85,19 @@
 
 #minhas-atividades .detalhes{
 	background-color: #ebebeb;
+}
+#minhas-atividades .deletar{
+	background-color: #efa8a9;
+}
+#minhas-atividades .deletar:hover{
+	background-color: #e6787a !important;
+}
+
+#minhas-atividades .editar{
+	background-color: #bed0e9;
+}
+#minhas-atividades .editar:hover{
+	background-color: #9cb3d2 !important;
 }
 
 #atividades-content	#map-canvas {
