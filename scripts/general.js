@@ -28,10 +28,10 @@
 			$('#error').slideDown('normal').fadeIn('normal');
 			$('#error').html(msg);
 			
-			// setTimeout(function () {
-		 //         $("#error").slideDown('slow').fadeOut('normal');
-		 //    	}, 8000
-		 //    );
+			setTimeout(function () {
+		         $("#error").slideDown('slow').fadeOut('normal');
+		    	}, 10000
+		    );
 	}
 
 	function hideError(){
