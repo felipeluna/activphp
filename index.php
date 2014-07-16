@@ -36,7 +36,7 @@
 	<header>
 		<img class="logo" alt="Logomarca ActivFun Branca" src="images/logo-branca.png" />		
 		<form name="login" action="submit/login_session.php" method="post" id="loginForm">
-			<label class="errologin">Combinação de email e senha inválida</label>
+			<label class="errologin"></label>
 			<input type="text" name="email" placeholder="E-mail" /> 
 			<input type="password" name="pass" placeholder="Senha" /> 
 			<input type="submit" name="submit_login" value="Entrar" class="shadowButton" /></br>
@@ -58,51 +58,6 @@
 			<input type="password" name="pass2" placeholder="Confirmar senha" id="pass2"/></br>
 				<label for="data-nascimento" class="grupo-input">Data de Nascimento</label>
 				<input type="text" name="data" placeholder="Data" class="data" id="data-nascimento" />
-				<?php
-					// #GERA OS Dias do mes
-					// $startyear = 1;
-					// echo "<select id='user_data_3i' name='dia' >";
-					// 	echo "<option>";
-					// 	echo "Dia";
-					// 	echo "</option>";
-					// for ($i=0; $i < 31; $i++){
-					// 	echo "<option>";
-					// 	echo $startyear++;
-					// 	echo "</option>";
-					// }
-					// echo "</select>"
-				?>
-
-				<!-- <select id="user_data_2i" name="mes">
-					<option value="0">Mês</option>
-					<option value="1">Janeiro</option>
-					<option value="2">Fevereiro</option>
-					<option value="3">Março</option>
-					<option value="4">Abril</option>
-					<option value="5">Maio</option>
-					<option selected="selected" value="6">Junho</option>
-					<option value="7">Julho</option>
-					<option value="8">Agosto</option>
-					<option value="9">Setembro</option>
-					<option value="10">Outubro</option>
-					<option value="11">Novembro</option>
-					<option value="12">Dezembro</option>
-				</select> -->
-
-				<?php
-					// #GERA OS ANOS para q só permita +18
-					// $startyear = date("Y") - 18;
-					// echo "<select id='user_data_1i' name='ano' >";
-					// echo "<option>";
-					// 	echo "Ano";
-					// 	echo "</option>";
-					// for ($i=0; $i < 80; $i++){
-					// 	echo "<option>";
-					// 	echo $startyear--;
-					// 	echo "</option>";
-					// }
-					// echo "</select>";
-				?>
 			</div>
 			<label class="grupo-input">Local</label>
 			<?php

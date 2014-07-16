@@ -1,13 +1,3 @@
-function validaCadastro(form){
-	var nome = $(form).find('input[name="nome"]').val();
-	var email = $(form).find('input[name="email"]').val();
-	var pass1 = $(form).find('input[name="pass1"]').val();
-	var pass2 = $(form).find('input[name="pass2"]').val();
-	alert(nome+email+pass1+pass2);
-
-	return false;
-}
-
 $(document).ready(function(){
 
 			//=============================
@@ -17,21 +7,45 @@ $(document).ready(function(){
 			var form = $("#cadastroForm");
 
 			var successFunction = function(data){
-				data = data.trim();
-				if(data == "cadastro.ok"){
-					window.location.replace('dashboard.php');
-				}else if(data == "cadastro.senhasNaoCoincidem"){
-					showError("As senhas fornecidas não coincidem");
-					$("#cadastro input[name='pass1'], #cadastro input[name='pass2']").addClass("input-error");
-				}else if(data == "cadastro.faltaCampos"){
-					showError("Todos os campos devem ser preenchidos");
+				//sem usar o parametro "data" por enquanto
+				window.location.replace('dashboard.php');
+			};
+
+			//regra personalizada: valor diferente - para campo cidade
+			$.validator.addMethod("valueNotEquals", function(value, element, arg){
+  				return arg != value;
+ 			}, "Value must not equal arg.");
+
+			$(form).validate({
+				//regras para os campos 
+				rules:{
+                	nome: { required: true },  
+                	email: { required: true, email: true },  
+                	pass1: { required: true },
+                	pass2: { required: true, equalTo: "$pass1" },
+                	data: { required: true, date: true},
+                	uf: {valueNotEquals: 0},
+                	cidade: {valueNotEquals: 0}
+				},
+
+				//mensagens para os campos 
+				messages: {
+					nome: { required: "Prencha seu nome"},  
+                	email: { required: "Prencha seu email" },  
+                	pass1: { required: "Este campo é obrigatório" },
+                	pass2: { required: "Este campo é obrigatório" , equalTo: "Sennhas não coincidem" },
+                	data: { required: "Campo obrigatório", date: "Data inválida"},
+                	uf: {valueNotEquals: "Selecione um estado"},
+                	cidade: {valueNotEquals: "Selecione uma cidade"}
+				},
+
+				//campo onde erros serão exibidos
+				// errorLabelContainer: $('.errologin'),
+				//função de submeter
+				submitHandler:function(){
+					ajaxValidated(form, successFunction);
+					return false;
 				}
-			};
-
-			var errorFunction = function(data){
-				showError("Ops! Ocorreu um Erro. =(, descrição do erro: "+data);
-			};
-
-			ajaxSubmitForm(form,successFunction,errorFunction)
+			});
 
 });

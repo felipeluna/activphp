@@ -4,27 +4,36 @@ $(document).ready(function(){
 			//LOGIN AJAX MODULE ========
 			//==========================
 
+			//dados de formulario
 			var form = $("#loginForm");
 
 			var successFunction = function(data){
-				data = data.trim();
-				if(data == 'login.ok'){
-					window.location.replace('dashboard.php');
-				}else if(data == "login.negado"){
-					showErroLogin('E-mail e/ou senha inválidos');
-					$("#loginForm input[name='email'],#loginForm input[name='pass']").addClass("input-error");
-				}else if(data == "login.faltaCampos"){
-					showErroLogin('E-mail e senha devem ser preenchidos');
-					$("#loginForm input[name='email'],#loginForm input[name='pass']").addClass("input-error");
-				}else{
-					showErroLogin('Ops! Ocorreu algum erro inesperado. Tente novamente mais tarde.');
+				//sem usar o parametro "data" por enquanto
+				window.location.replace('dashboard.php');
+			};
+
+			$(form).validate({
+				//regras para os campos 
+				rules:{
+                	email: { required: true, email: true },  
+                	pass: { required: true }
+				},
+
+				//mensagens para os campos 
+				messages: {
+					email: { required: 'Informe seu email.', email: 'Ops, informe um email válido' },
+                	pass: { required: 'Informe sua senha.' },
+
+				},
+
+				//campo onde erros serão exibidos
+				errorLabelContainer: $('.errologin'),
+				//função de submeter
+				submitHandler:function(){
+					ajaxValidated(form, successFunction);
+					return false;
 				}
-			};
-
-			var errorFunction = function(){
-
-			};
-
-			ajaxSubmitForm(form,successFunction,errorFunction)
+			});
+			// ajaxSubmitForm(form,successFunction,errorFunction)
 
 });

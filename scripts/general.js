@@ -63,3 +63,16 @@ function ajaxSubmitForm(form, successFunction, errorFunction){
 		return false;
 	});
 }
+
+function ajaxValidated(form, successFunction){
+	var v_url = $(form).attr('action');
+	var v_type = $(form).attr('method');
+	$.ajax({
+		url: v_url,
+		type: v_type,
+		dataType: 'html',
+		data: $(form).serialize(),
+		success: successFunction,
+		ajaxError: function(){showErroLogin('Ops! Ocorreu algum erro =( no ajax');}
+		});
+}
