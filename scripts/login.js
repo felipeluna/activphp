@@ -1,38 +1,30 @@
-function showError(msg){
-			$('#error').slideDown('normal').fadeIn('normal');
-			$('#error').html(msg);
-			
-			// setTimeout(function () {
-		 //         $("#error").slideDown('slow').fadeOut('normal');
-		 //    	}, 8000
-		 //    );
-	}
-
 $(document).ready(function(){
-			$("#loginForm").submit(function(){
-				$.ajax({
-						url: 'submit/login_session.php',
-						type: 'POST',
-						data: $("#loginForm").serialize(),
-						// dataType:"json",
-						success: function(data){
-							data = data.trim();
-								if(data == "login.negado"){
-									showErroLogin('E-mail e/ou senha inválidos');
-									$("#loginForm input[name='email'],#loginForm input[name='pass']").addClass("input-error");
-								}else if(data == "login.faltaCampos"){
-									showErroLogin('E-mail e senha devem ser preenchidos');
-									$("#loginForm input[name='email'],#loginForm input[name='pass']").addClass("input-error");
-								}else if(data == "login.ok"){
-									window.location.replace('dashboard.php');
-								}
-							},
-						error: function(req, status, error) {
-   							alert("Erro: "+req.responseText+"; Status: "+status+"; Error: "+error);
-   						},
-						ajaxError: function(){showErroLogin('Ops! Ocorreu algum erro =( no ajax');}
-					}
-				);
-				return false;
-			});
+
+			//==========================
+			//LOGIN AJAX MODULE ========
+			//==========================
+
+			var form = $("#loginForm");
+
+			var successFunction = function(data){
+				data = data.trim();
+				if(data == 'login.ok'){
+					window.location.replace('dashboard.php');
+				}else if(data == "login.negado"){
+					showErroLogin('E-mail e/ou senha inválidos');
+					$("#loginForm input[name='email'],#loginForm input[name='pass']").addClass("input-error");
+				}else if(data == "login.faltaCampos"){
+					showErroLogin('E-mail e senha devem ser preenchidos');
+					$("#loginForm input[name='email'],#loginForm input[name='pass']").addClass("input-error");
+				}else{
+					showErroLogin('Ops! Ocorreu algum erro inesperado. Tente novamente mais tarde.');
+				}
+			};
+
+			var errorFunction = function(){
+
+			};
+
+			ajaxSubmitForm(form,successFunction,errorFunction)
+
 });

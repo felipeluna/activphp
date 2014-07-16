@@ -6,7 +6,7 @@
 		$email = $_POST['email'];
 		$pass1 = $_POST['pass1'];
 		$pass2 = $_POST['pass2'];
-		$name = mysql_real_escape_string($_POST['name']);
+		$nome = mysql_real_escape_string($_POST['nome']);
 		$email = mysql_real_escape_string($email);
 
 
@@ -23,17 +23,11 @@
 		//definindo variáveis de erro.
 		$nameErr = $emailErr = $genderErr = $websiteErr = "";
 
-		// if (empty($name)) {
-		//     $nameErr = "Name is required";
-		//     echo $nameErr;
-		// } else{
-		    
-		// }
 		if(
 			$email != "" &&
 			$pass1 != "" &&
 			$pass2 != "" &&
-			$name != ""
+			$nome != ""
 		){
 			if($pass1 == $pass2){
 				// tudo ok, pode cadastar.
@@ -78,7 +72,7 @@
 				
 
 				mysql_query(
-					"insert into usuarios values ('','$name', '$email', '$pass1', '$salt', str_to_date('$date', '%d/%m/%Y' ), NULL, SYSDATE(), $cidade);"
+					"insert into usuarios values ('','$nome', '$email', '$pass1', '$salt', str_to_date('$date', '%d/%m/%Y' ), NULL, SYSDATE(), $cidade);"
 					)or die(mysql_error());
 				
 				$idusuario = mysql_query("select idusuario from usuarios where email = '$email'") or die(mysql_error());

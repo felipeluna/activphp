@@ -47,9 +47,19 @@
 		      }, 8000
 		    );
 	}
-
-$(document).ready(function(){
-	
-	// $(".data").mask("99/99/9999");
-
-});
+function ajaxSubmitForm(form, successFunction, errorFunction){
+	$(form).submit(function(){
+		var v_url = $(form).attr('action');
+		var v_type = $(form).attr('method');
+		$.ajax({
+			url: v_url,
+			type: v_type,
+			dataType: 'html',
+			data: $(form).serialize(),
+			success: successFunction,
+			error: errorFunction,
+			ajaxError: function(){showErroLogin('Ops! Ocorreu algum erro =( no ajax');}
+			});
+		return false;
+	});
+}

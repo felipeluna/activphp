@@ -22,6 +22,7 @@
 	<script type="text/javascript" src="scripts/jquery.mask.min.js"></script>
 	<script type="text/javascript" src="scripts/general.js"></script>
 	<script type="text/javascript" src="scripts/index.js"></script>
+	<script type="text/javascript" src="scripts/cadastro.js"></script>
 	<script type="text/javascript" src="scripts/login.js"></script>
 	<script type="text/javascript" src="scripts/jquery.validate.js"></script>
 	<!--<script type="text/javascript" src="scripts/validando.js"></script>-->
@@ -34,7 +35,7 @@
 <body id="home">
 	<header>
 		<img class="logo" alt="Logomarca ActivFun Branca" src="images/logo-branca.png" />		
-		<form name="login" action="" method="post" id="loginForm">
+		<form name="login" action="submit/login_session.php" method="post" id="loginForm">
 			<label class="errologin">Combinação de email e senha inválida</label>
 			<input type="text" name="email" placeholder="E-mail" /> 
 			<input type="password" name="pass" placeholder="Senha" /> 
@@ -44,11 +45,11 @@
 	</header>
 	<div id="error"></div>
 	<div id="main-container">
-		<form name="cadastro" onsubmit="return validaCadastro(this)" action ="" method="post" id="cadastroForm">
+		<form name="cadastro" action ="submit/cadastro_submit.php" method="post" id="cadastroForm">
 			<p>Cadastre-se, é grátis</p>
 			<div class="input-group">
-			<label for="name"></label>
-				<input type="text" name="name" placeholder="Nome" id="username"/>
+			<label for="username"></label>
+				<input type="text" name="nome" placeholder="Nome" id="username"/>
 			<label for="email"></label>
 				<input type="e-mail" name="email" placeholder="E-mail" id="email"/></br>
 				<label for="pass1"></label>

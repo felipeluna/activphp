@@ -1,8 +1,4 @@
-﻿function validaCadastro(form){
-		window.form = form;
-		return false;
-	}
-
+﻿
 $( document ).ready(function() {
 
 	$("select[name='uf']").change(function(){
@@ -58,31 +54,31 @@ $( document ).ready(function() {
 
 	$(".data").mask("99/99/9999");
 
-	$("#cadastroForm").submit(function(){
-		$.ajax({
-				url: 'submit/cadastro_submit.php',
-				type: 'POST',
-				data: $("#cadastroForm").serialize(),
-				// dataType: "json",
-				success: function(data){
-						data = data.trim();
+	// $("#cadastroForm").submit(function(){
+	// 	$.ajax({
+	// 			url: 'submit/cadastro_submit.php',
+	// 			type: 'POST',
+	// 			data: $("#cadastroForm").serialize(),
+	// 			// dataType: "json",
+	// 			success: function(data){
+	// 					data = data.trim();
 						
-						if(data == "cadastro.ok"){
-							window.location.replace('dashboard.php');
-						}else if(data == "cadastro.senhasNaoCoincidem"){
-							showError("As senhas fornecidas não coincidem");
-							$("#cadastro input[name='pass1'], #cadastro input[name='pass2']").addClass("input-error");
-						}else if(data == "cadastro.faltaCampos"){
-							showError("Todos os campos devem ser preenchidos");
-						}
-					},
-				error:function(data){
-					showError("Ops! Ocorreu um Erro. =(, descrição do erro: "+data);
-				},
-				ajaxError: function(){showErroLogin('Ops! Ocorreu algum erro =( no ajax');}
-			}
-		);
+	// 					if(data == "cadastro.ok"){
+	// 						window.location.replace('dashboard.php');
+	// 					}else if(data == "cadastro.senhasNaoCoincidem"){
+	// 						showError("As senhas fornecidas não coincidem");
+	// 						$("#cadastro input[name='pass1'], #cadastro input[name='pass2']").addClass("input-error");
+	// 					}else if(data == "cadastro.faltaCampos"){
+	// 						showError("Todos os campos devem ser preenchidos");
+	// 					}
+	// 				},
+	// 			error:function(data){
+	// 				showError("Ops! Ocorreu um Erro. =(, descrição do erro: "+data);
+	// 			},
+				
+	// 		}
+	// 	);
 
-		return false;
-	});
+	// 	return false;
+	// });
 });
