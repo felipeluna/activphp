@@ -48,13 +48,9 @@
 		<form name="cadastro" action ="submit/cadastro_submit.php" method="post" id="cadastroForm">
 			<p>Cadastre-se, é grátis</p>
 			<div class="input-group">
-			<label for="username"></label>
 				<input type="text" name="nome" placeholder="Nome" id="username"/>
-			<label for="email"></label>
 				<input type="e-mail" name="email" placeholder="E-mail" id="email"/></br>
-				<label for="pass1"></label>
 			<input type="password" name="pass1" placeholder="Senha" id="pass1"/>
-				<label for="pass1"></label>
 			<input type="password" name="pass2" placeholder="Confirmar senha" id="pass2"/></br>
 				<label for="data-nascimento" class="grupo-input">Data de Nascimento</label>
 				<input type="text" name="data" placeholder="Data" class="data" id="data-nascimento" />

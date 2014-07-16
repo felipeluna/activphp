@@ -22,7 +22,7 @@ $(document).ready(function(){
                 	nome: { required: true },  
                 	email: { required: true, email: true },  
                 	pass1: { required: true },
-                	pass2: { required: true, equalTo: "$pass1" },
+                	pass2: { required: true, equalTo: "#pass1" },
                 	data: { required: true, date: true},
                 	uf: {valueNotEquals: 0},
                 	cidade: {valueNotEquals: 0}
@@ -31,7 +31,7 @@ $(document).ready(function(){
 				//mensagens para os campos 
 				messages: {
 					nome: { required: "Prencha seu nome"},  
-                	email: { required: "Prencha seu email" },  
+                	email: { required: "Prencha seu email", email: "Digite um email válido" },  
                 	pass1: { required: "Este campo é obrigatório" },
                 	pass2: { required: "Este campo é obrigatório" , equalTo: "Sennhas não coincidem" },
                 	data: { required: "Campo obrigatório", date: "Data inválida"},
