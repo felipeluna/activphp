@@ -1,12 +1,12 @@
 
 <script type="text/javascript" src="scripts/jquery.mask.min.js"></script>
 <script type="text/javascript" src="scripts/criar-atividade.js"></script>
-<script type="text/javascript" src="scripts/criar-atividade.js"></script>
+<!-- <script type="text/javascript" src="scripts/criar-atividade.js"></script> -->
 <script type="text/javascript" src="scripts/busca-endereco.js"></script>
 
 
 <!-- CSS -->
-	<link href="styles/search_result.css" type="text/css" rel="stylesheet" />
+	<link href="styles/content-temp.css" type="text/css" rel="stylesheet" />
 
 <!-- JAVASCRIPT -->
 	<script src="scripts/content-temp.js" type="text/javascript"></script>	
@@ -62,5 +62,5 @@
 			?>
 		<input type="hidden" name="lat" /> 
 		<input type="hidden" name="lng" /> 
-		<input type="submit" name="submit_atividade" />
+		<input type="submit" name="submit_atividade" value="Criar atividade" class="btn-verde" />
 	</form>

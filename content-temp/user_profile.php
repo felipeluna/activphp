@@ -2,7 +2,7 @@
 
 $page ='
 <!-- CSS -->
-	<link href="styles/search_result.css" type="text/css" rel="stylesheet" />
+	<link href="styles/content-temp.css" type="text/css" rel="stylesheet" />
 
 <!-- JAVASCRIPT -->
 	<script src="scripts/content-temp.js" type="text/javascript"></script>
