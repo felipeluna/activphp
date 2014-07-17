@@ -5,7 +5,15 @@
 <script type="text/javascript" src="scripts/busca-endereco.js"></script>
 
 
-	<form action="submit/atividade_submit.php" name="criar-atividade-form" method="post">
+<!-- CSS -->
+	<link href="styles/search_result.css" type="text/css" rel="stylesheet" />
+
+<!-- JAVASCRIPT -->
+	<script src="scripts/content-temp.js" type="text/javascript"></script>	
+<a href="" class="x"></a>
+	<h1>Criar nova atividade</h1>
+
+	<form action="submit/atividade_submit.php" name="criar-atividade-form" method="post" id="form-criar-atividade">
 		<label for="nome-atividade">Título da Atividade:</label></br>
 		<input type="text" name="titulo" placeholder="Nome de sua atividade" id="id-atividade"/>
 		<br>

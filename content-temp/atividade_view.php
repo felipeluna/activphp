@@ -5,7 +5,7 @@ $page ='
 	<link href="styles/search_result.css" type="text/css" rel="stylesheet" />
 
 <!-- JAVASCRIPT -->
-	<script src="scripts/search_result.js" type="text/javascript"></script>
+	<script src="scripts/content-temp.js" type="text/javascript"></script>
 
 <a href="" class="x"></a>';
 

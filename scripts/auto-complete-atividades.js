@@ -1,22 +1,3 @@
-function loadContentTemp(pageTemp, p_id){	
-
-   $.ajax({
-	    type: "POST",
-	    url: "content-temp/"+pageTemp+".php",
-	    data: {id: p_id},
-	    dataType: 'html',
-	    cache: false,
-	    success: function(page){
-		    	$('#content-temp').html(page);
-		    },
-		error: function(req, status, error) {
-				alert("Erro: "+req.responseText+"; Status: "+status+"; Error: "+error);
-				}
-	});
-
-	$('#content-temp').fadeIn('fast');
-}
-
 $(document).ready(function(){
 	
 	function setclick(){

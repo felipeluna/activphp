@@ -103,7 +103,7 @@
 #atividades-content	.map-canvas {
 	position: absolute !important;
 	bottom: 15px;
-	top: 168px;
+	top: 215px;
 	right: 20px;
 	left: 20px;
 	background-image: url('../images/loading.gif');
@@ -111,11 +111,17 @@
 	background-repeat: no-repeat;
 }
 
-#atividades-content form[name="criar-atividade-form"] #map-canvas {
+#form-criar-atividade form[name="criar-atividade-form"] #map-canvas {
 	width: 400px;
 	height: 200px;
 	background-image: url('../images/loading.gif');
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-color: #efefef;
+}
+
+#container-btn-criar-atividade {
+	background-color: #dedede;
+	padding: 20px;
+
 }

@@ -1,6 +1,9 @@
 $(document).ready(function(){
 
-	
+	$('#btn-criar-atividade').click(function(){
+		loadContentTemp('criar-atividade-temp','');
+	});
+
 	$('#atividades-content').load('atividadescontent/minhas-atividades.php');
 	// window.history.pushState('object', 'Atividades', 'Atividades');
 	$("#tabs a[href='minhas-atividades']").addClass('tabSelected');
