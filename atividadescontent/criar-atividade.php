@@ -1,11 +1,11 @@
 
 <script type="text/javascript" src="scripts/jquery.mask.min.js"></script>
-<script type="text/javascript" src="scripts/general.js"></script>
+<script type="text/javascript" src="scripts/criar-atividade.js"></script>
 <script type="text/javascript" src="scripts/criar-atividade.js"></script>
 <script type="text/javascript" src="scripts/busca-endereco.js"></script>
 
 
-	<form action="" name="criar-atividade-form" method="post">
+	<form action="submit/atividade_submit.php" name="criar-atividade-form" method="post">
 		<label for="nome-atividade">Título da Atividade:</label></br>
 		<input type="text" name="titulo" placeholder="Nome de sua atividade" id="id-atividade"/>
 		<br>

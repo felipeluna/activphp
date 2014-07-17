@@ -20,11 +20,12 @@
 <!-- JAVASCRIPTS -->
 	<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script>
 	<script type="text/javascript" src="scripts/jquery.mask.min.js"></script>
+	<script type="text/javascript" src="scripts/jquery.validate.js"></script>
 	<script type="text/javascript" src="scripts/general.js"></script>
 	<script type="text/javascript" src="scripts/index.js"></script>
 	<script type="text/javascript" src="scripts/cadastro.js"></script>
 	<script type="text/javascript" src="scripts/login.js"></script>
-	<script type="text/javascript" src="scripts/jquery.validate.js"></script>
+	
 	<!--<script type="text/javascript" src="scripts/validando.js"></script>-->
 	<script type="text/javascript" src="scripts/additional-methods.min.js"></script>
 <!-- FAVICON  -->

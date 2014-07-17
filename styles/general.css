@@ -25,12 +25,12 @@ header a, footer a{
 	color: #dedede;
 }
 
-.input-error, input.error, select.error{
+.input-error, input.error, select.error, textarea.error, input[type='radio'].error, input[type='checkbox'].error{
 	border-style: solid;
 	border-color: #BF3939;
 	border-width: 2px;
 }
-label.error{
+#cadastroForm label.error, #atividades label.error{
 	-webkit-border-radius: 6px;
 	-moz-border-radius: 6px;
 	border-radius: 6px;
@@ -39,8 +39,8 @@ label.error{
 	border-color: #BF3939;
 	border-width: 2px;
 	background-color: #F27272;
-	margin-top: -25px;
 	padding: 3px 5px;
+	z-index: 1005;
 }
 
 .shadowButton{

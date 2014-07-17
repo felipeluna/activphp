@@ -1,21 +1,21 @@
 ﻿
 $( document ).ready(function() {
 
-	$("select[name='uf']").change(function(){
-		$.ajax({
-			url: 'loadcidades.php',
-			type: 'POST',
-			data: $("select[name='uf']").serialize(),
-			success: function(data){
-				$("select[name='cidade']").html(data);
-				var s = document.getElementById('select-cidade');
-				s.disabled = false;
-			},
-			error: function(){
-				alert('Erro ao carregar cidades');
-			}
-			});
-	});
+	// $("select[name='uf']").change(function(){
+	// 	$.ajax({
+	// 		url: 'loadcidades.php',
+	// 		type: 'POST',
+	// 		data: $("select[name='uf']").serialize(),
+	// 		success: function(data){
+	// 			$("select[name='cidade']").html(data);
+	// 			var s = document.getElementById('select-cidade');
+	// 			s.disabled = false;
+	// 		},
+	// 		error: function(){
+	// 			alert('Erro ao carregar cidades');
+	// 		}
+	// 		});
+	// });
 
 	//initial
 	// window.history.pushState('object', 'Home - Activfun', 'home');
@@ -42,43 +42,6 @@ $( document ).ready(function() {
 		}
 	});
 
-
-	// $("#cadastroForm").validate({
-	// 		rules:{
-
-	// 		},
-	// 		messages:{
-
-	// 		}
-	// 	});
-
 	$(".data").mask("99/99/9999");
 
-	// $("#cadastroForm").submit(function(){
-	// 	$.ajax({
-	// 			url: 'submit/cadastro_submit.php',
-	// 			type: 'POST',
-	// 			data: $("#cadastroForm").serialize(),
-	// 			// dataType: "json",
-	// 			success: function(data){
-	// 					data = data.trim();
-						
-	// 					if(data == "cadastro.ok"){
-	// 						window.location.replace('dashboard.php');
-	// 					}else if(data == "cadastro.senhasNaoCoincidem"){
-	// 						showError("As senhas fornecidas não coincidem");
-	// 						$("#cadastro input[name='pass1'], #cadastro input[name='pass2']").addClass("input-error");
-	// 					}else if(data == "cadastro.faltaCampos"){
-	// 						showError("Todos os campos devem ser preenchidos");
-	// 					}
-	// 				},
-	// 			error:function(data){
-	// 				showError("Ops! Ocorreu um Erro. =(, descrição do erro: "+data);
-	// 			},
-				
-	// 		}
-	// 	);
-
-	// 	return false;
-	// });
 });

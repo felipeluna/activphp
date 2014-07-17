@@ -8,8 +8,16 @@ $(document).ready(function(){
 			var form = $("#loginForm");
 
 			var successFunction = function(data){
-				//sem usar o parametro "data" por enquanto
-				window.location.replace('dashboard.php');
+				//tira espaços do inicio e fim
+				data = data.trim();
+
+				
+				if(data == 'login.ok'){
+					//se login foi ok
+					window.location.replace('dashboard.php');
+				}else if(data == 'login.negado'){
+					showErroLogin('Email e senha não coincidem');
+				}
 			};
 
 			$(form).validate({

@@ -42,27 +42,7 @@
 			$fields['visibilidade'] = 'faltou';
 			$validated = false;
 		}
-		
-		
 
-		$validated = true;
-
-		
-
-
-		//inicio validacao
-		foreach ($_POST as $key => $value){
-			// echo 'Key: '.$key;
-			// echo 'Value: '.$value.'<br>';
-			if($value == ''){
-				$fields[$key] = 'vazio';
-				$validated = false;
-			}
-		}
-
-		
-
-		if($validated){
 			$dataInicio .= " ".$hora;
 			// echo "data+hora: ".$dataInicio;
 
@@ -80,12 +60,5 @@
 					{$visibilidade},
 					'{$idusuario}',
 					'{$idinteresse}');") or die(mysql_error());	
-
-			echo "atividade.ok";
-		}else{
-			echo json_encode($fields);
-		}
 	}
-
-
 ?>

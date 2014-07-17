@@ -24,7 +24,10 @@
 		<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script>
 		<script type="text/javascript" src="scripts/jquery.mask.min.js"></script>
 		<script type="text/javascript" src="scripts/general.js"></script>
-		<script type="text/javascript" src="scripts/dashboard.js"></script>		
+		<script type="text/javascript" src="scripts/dashboard.js"></script>	
+		<script type="text/javascript" src="scripts/jquery.validate.js"></script>
+		<script type="text/javascript" src="scripts/additional-methods.min.js"></script>	
+
 <!-- FAVICON -->
 		<link rel="shortcut icon" href="images/favicon_activfun.ico" type="image/x-icon">
 		<link rel="icon" href="images/favicon_activfun.ico" type="image/x-icon">
