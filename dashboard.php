@@ -100,9 +100,9 @@
 					<li>
 						<div> <img alt="icone" src="images/amigos.png"/> </div> <a href="amigos">amigos</a>
 					</li>
-					<li>
+					<!-- <li>
 						<div> <img alt="icone" src="images/convites.png"/> </div> <a href="convites">convites</a>
-					</li>
+					</li> -->
 					<li>
 						<div> <img alt="icone" src="images/grupos.png"/> </div> <a href="grupos">grupos</a>
 					</li>

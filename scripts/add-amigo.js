@@ -4,19 +4,30 @@ function addAmigoForm(){
 	$('form[name="add-amigo"]').show();
 	$('form[name="cancel-amigo"]').hide();
 	$('form[name="rmv-amigo"]').hide();
+	$('form[name="responde-amigo"]').hide();
 }
 
 function cancelAmigoForm(){
 	$('form[name="add-amigo"]').hide();
 	$('form[name="cancel-amigo"]').show();
 	$('form[name="rmv-amigo"]').hide();
+	$('form[name="responde-amigo"]').hide();
 }
 
 function rmvAmigoForm(){
 	$('form[name="add-amigo"]').hide();
 	$('form[name="cancel-amigo"]').hide();
 	$('form[name="rmv-amigo"]').show();
+	$('form[name="responde-amigo"]').hide();
 }
+
+function respAmigoForm(){
+	$('form[name="add-amigo"]').hide();
+	$('form[name="cancel-amigo"]').hide();
+	$('form[name="rmv-amigo"]').hide();
+	$('form[name="responde-amigo"]').show();
+}
+
 
 $('form[name="add-amigo"]').submit(function(){
 
@@ -48,7 +59,7 @@ $('form[name="add-amigo"]').submit(function(){
 		 return false;
 	});
 
-	$('form[name="cancela-amigo"]').submit(function(){
+	$('form[name="cancel-amigo"]').submit(function(){
 
 		// alert('add amigo?');
 		var p_id = $('input[name="idamigo"]').val();
@@ -67,8 +78,8 @@ $('form[name="add-amigo"]').submit(function(){
 		    	}else if(data == 'amizade.naoexiste'){
 		    		showSuccess('Amizade já havia sido <strong>DESFEITA</strong>');
 		    		addAmigoForm();
-		    	}else{
-		    		showError('Ops! houver algum erro =/');
+		    	}else if(data == 'amizade.pedidoaceito' ){
+		    		showError('Ops! Parece que o pedido já foi aceito, deseja desfazer a amizade? <a href="#">SIM, DESFAZER AMIZADE</a>');
 		    	}
 		    },
 		error: function(req, status, error) {
@@ -86,7 +97,7 @@ $('form[name="add-amigo"]').submit(function(){
 
 		$.ajax({
 	    type: "POST",
-	    url: "submit/add-amigo.php",
+	    url: "submit/rmv-amigo.php",
 	    data: {id: p_id},
 	    dataType: 'html',
 	    cache: false,

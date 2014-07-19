@@ -53,50 +53,95 @@ $sql_amizade_responde = mysql_query("select * from amigos
 						idusuario_responde = $id_s)
 						") or die(mysql_error()." erro: check amizade");
 
-$conviteaceito = mysql_fetch_array($sql_amizade, MYSQL_ASSOC);
-$conviteaceito = $conviteaceito['statusconvite'];
+
 
 $addAmigo = '';
 $cancelAmigo = '';
 $rmvAmigo = '';
+$respAmigo = '';
 
-if(mysql_num_rows($sql_amizade) == 0 && !$conviteaceito){
-	//add amigo
-	$addAmigo .= '<form name="add-amigo" method="post">';
+	//SOLICITANTE
+	if(mysql_num_rows($sql_amizade_solicita)>0){
 
-	//cancel amigo
-	$cancelAmigo .= '<form name="cancel-amigo" method="post" class="hidden">';
+		$conviteaceito = mysql_fetch_array($sql_amizade_solicita, MYSQL_ASSOC);
+		$conviteaceito = $conviteaceito['statusconvite'];		
 
-	//rmv amigo
-	$rmvAmigo .= '<form name="rmv-amigo" method="post" class="hidden">';
+		//add amigo
+		$addAmigo .= '<form name="add-amigo" method="post" class="hidden">';
+		//responde amizade
+		$respAmigo = '<form name="responde-amigo" method="post" class="hidden">';
 
-}elseif(mysql_num_rows($sql_amizade) > 0){
-	//add amigo
-	$addAmigo .= '<form name="add-amigo" method="post" class="hidden">';
-	
-	if($conviteaceito){
-		$rmvAmigo .= '<form name="rmv-amigo" method="post" >';	
-		$cancelAmigo .= '<form name="cancel-amigo" method="post" clss="hidden">';		
+		if($conviteaceito){
+			//convite enviado foi aceito
+			$cancelAmigo .= '<form name="cancel-amigo" method="post" class="hidden" >';
+			$rmvAmigo .= '<form name="rmv-amigo" method="post" >';
+		}else{
+			//convite não aceito
+			$cancelAmigo .= '<form name="cancel-amigo" method="post">';
+			$rmvAmigo .= '<form name="rmv-amigo" method="post" class="hidden" >';
+		}
+
+	}elseif( mysql_num_rows($sql_amizade_responde)>0 ){
+		//RECEBEU CONVITE
+
+		$conviteaceito = mysql_fetch_array($sql_amizade_responde, MYSQL_ASSOC);
+		$conviteaceito = $conviteaceito['statusconvite'];
+
+		//add amigo
+		$addAmigo .= '<form name="add-amigo" method="post" class="hidden">';
+		$cancelAmigo .= '<form name="cancel-amigo" method="post" class="hidden" >';
+
+		if($conviteaceito){
+			//convite enviado foi aceito
+			//responde amizade
+			$respAmigo = '<form name="responde-amigo" method="post" class="hidden">';
+			//desfazr amizade
+			$rmvAmigo .= '<form name="rmv-amigo" method="post" >';
+		}else{
+			//convite não aceito
+			//responde amizade
+			$respAmigo = '<form name="responde-amigo" method="post" >';
+			//desfazr amizade
+			$rmvAmigo .= '<form name="rmv-amigo" method="post" class="hidden" >';
+		}
+
 	}else{
-		$rmvAmigo .= '<form name="rmv-amigo" method="post" class="hidden">';
-		$cancelAmigo .= '<form name="cancel-amigo" method="post">';	
+		//NAO ENVIOU NEM RECEBEU CONVITE
+
+		//solicita amizade
+		$addAmigo .= '<form name="add-amigo" method="post">';
+
+		//responde amizade
+		$respAmigo = '<form name="responde-amigo" method="post" class="hidden" >';
+
+		//cancel
+		$cancelAmigo .= '<form name="cancel-amigo" method="post" class="hidden" >';
+
+		//desfaz amizade
+		$rmvAmigo .= '<form name="rmv-amigo" method="post" class="hidden" >';
+			
 	}
-}
 
 	$addAmigo .= '<input type="hidden" name="idamigo" value="'.$id.'">';
-	$addAmigo .= '<input type="submit" name="add-amigo-submit" value="Enviar convite de amizade">';
+	$addAmigo .= '<input type="submit" name="add-amigo-submit" value="Enviar convite de amizade" class="btn-verde">';
 	$addAmigo .= '</form>';	
 
 	$cancelAmigo .= '<input type="hidden" name="idamigo" value="'.$id.'">';
-	$cancelAmigo .= '<input type="submit" name="cancel-amigo-submit" value="Cancelar convite de amizade">';
+	$cancelAmigo .= '<input type="submit" name="cancel-amigo-submit" value="Cancelar convite de amizade" class="btn-vermelho">';
 	$cancelAmigo .= '</form>';	
 
 	$rmvAmigo .= '<input type="hidden" name="idamigo" value="'.$id.'">';
-	$rmvAmigo .= '<input type="submit" name="rmv-amigo-submit" value="Desfazer amizade">';
+	$rmvAmigo .= '<input type="submit" name="rmv-amigo-submit" value="Desfazer amizade" class="btn-vermelho" >';
 	$rmvAmigo .= '</form>';	
+
+	$respAmigo .= '<input type="hidden" name="idamigo" value="'.$id.'">';
+	$respAmigo .= '<input type="submit" name="rmv-amigo-submit" value="Aceitar convite de amizade" class="btn-verde">';
+	$respAmigo .= '<input type="submit" name="rmv-amigo-submit" value="Rejeitar convite de amizade" class="btn-vermelho">';
+	$respAmigo .= '</form>';	
 
 echo $addAmigo;
 echo $cancelAmigo;
 echo $rmvAmigo;
+echo $respAmigo;
 
 ?>
