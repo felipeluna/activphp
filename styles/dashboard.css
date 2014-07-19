@@ -28,7 +28,15 @@
 	top: 0;
 	z-index: 3;
 }
+#dashboard .amigo{
+	background-color: #eee;
+	width: 300px;
+	padding: 5px;
+}
 
+#dashboard .amigo:hover{
+	background-color: #efefef;
+}
 #dashboard header img.logo{
 	margin:5px 15px;
 }
