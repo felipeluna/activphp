@@ -9,10 +9,11 @@ session_start();
 $id_s = $_SESSION['idusuario'];
 
 //verificar se atual é amigo q solicitou
-$sql_amizade = mysql_query("select * from amigos
+$sql_amizade = mysql_query("SELECT * FROM amigos
 						where
-						(idusuario_solicita = $id_s AND
-						idusuario_responde = $id_r) OR (idusuario_solicita = $id_r AND
+						(idusuario_solicita = $id_s AND 
+						idusuario_responde = $id_r) OR 
+						(idusuario_solicita = $id_r AND 
 						idusuario_responde = $id_s)
 						") or die(mysql_error()." erro: check amizade");
 
@@ -25,8 +26,14 @@ $amizedeExiste = mysql_num_rows($sql_amizade);
 		$conviteaceito = $conviteaceito['statusconvite'];		
 		if($conviteaceito){
 		//pega dados do usuario
+			$sql_res= mysql_query("DELETE FROM amigos WHERE
+						(idusuario_solicita = $id_s AND 
+						idusuario_responde = $id_r) OR 
+						(idusuario_solicita = $id_r AND 
+						idusuario_responde = $id_s) AND 
+						 statusconvite = true
+				") or die(mysql_error()." erro: desfazer amizade");
 			echo "amizade.desfeita";
-			$sql_res= mysql_query("delete into amigos values($id_s, $id_r, false)") or die(mysql_error()." erro: fazer amizade");
 		}else{
 			echo "amizade.convitependente";
 		}

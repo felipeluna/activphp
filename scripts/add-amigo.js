@@ -103,13 +103,13 @@ $('form[name="add-amigo"]').submit(function(){
 	    cache: false,
 	    success: function(data){	    		
 		    	data = data.trim();
-		    	if(data == 'amizade.pedidoenviado'){
-		    		showSuccess('Convite de amizade enviado =D');
+		    	if(data == 'amizade.desfeita'){
+		    		showSuccess('Amizade <strong>DESFEITA</strong> com sucesso =D');
 		    		addAmigoForm();
 		    	}else if(data == 'amizade.jaexiste'){
 		    		showError('Ops! Parece que vocês já são amigos');
 		    	}else{
-		    		showError('Ops! houver algum erro =/');
+		    		showError('Ops! houve algum erro =/');
 		    	}
 		    },
 		error: function(req, status, error) {
@@ -118,5 +118,37 @@ $('form[name="add-amigo"]').submit(function(){
 		});
 
 		 return false;
+	});
+
+
+
+	$('form[name="responde-amigo"]').submit(function(e){
+
+
+		// alert(e.target);
+		// alert('add amigo?');
+		var p_id = $('input[name="idamigo"]').val();
+
+		$.ajax({
+	    type: "POST",
+	    url: "submit/aceita-amigo.php",
+	    data: {id: p_id},
+	    dataType: 'html',
+	    cache: false,
+	    success: function(data){	    		
+		    	data = data.trim();
+		    	if(data == 'amizade.conviteaceito'){
+		    		showSuccess('Convite <strong>ACEITO</strong> com sucesso =)');
+		    		rmvAmigoForm();
+		    	}else if(data == 'amizade.convitenaomaispendente'){
+		    		showError('o convite de amizade já havia sido cancelado');
+		    		addAmigoForm();
+		    	}
+		    },
+		error: function(req, status, error) {
+				alert("Erro: "+req.responseText+"; Status: "+status+"; Error: "+error);
+			}
+		});
+		return false;
 	});
 });
