@@ -78,7 +78,9 @@ header a, footer a{
 	padding: 5px 6px;
 	cursor: pointer;
 }
-
+.hidden{
+	display: none;
+}
 /*header #inputBusca270px{
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;

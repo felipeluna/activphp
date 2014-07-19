@@ -12,7 +12,7 @@ $(document).ready(function(){
 
 		    if($clicked.hasClass('pessoa-item')){
 		    	id = $clicked.find('.idusuario').val();
-				loadContentTemp('user_profile', id);
+				loadContentTemp('user-profile-temp', id);
 		    }else if($clicked.hasClass('atividade-item')){
 				id = $clicked.find('.idatividade').val();
 				loadContentTemp('atividade_view', id);

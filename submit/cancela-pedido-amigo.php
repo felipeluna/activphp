@@ -29,8 +29,8 @@ $sql_amizade= mysql_query("select * from amigos
 				(idusuario_solicita = $id_r AND
 				idusuario_responde = $id_s)
 			") or die(mysql_error()." erro: fazer amizade");
-		echo "amizade.pedidoenviado";
+		echo "amizade.pedidocancelado";
 	}else{
-		echo "amizade.jaexiste";
+		echo "amizade.naoexiste";
 	}
 ?>
