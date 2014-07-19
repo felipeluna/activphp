@@ -2,7 +2,7 @@
 
 
 <!-- CSS -->
-
+<link href="styles/content-temp.css" type="text/css" rel="stylesheet" />
 <!-- JAVASCRIPT -->
 <script src="scripts/add-amigo.js" type="text/javascript"></script>
 <a href="" class="x"></a>
@@ -135,8 +135,8 @@ $respAmigo = '';
 	$rmvAmigo .= '</form>';	
 
 	$respAmigo .= '<input type="hidden" name="idamigo" value="'.$id.'">';
-	$respAmigo .= '<input type="submit" name="rmv-amigo-submit" value="Aceitar convite de amizade" class="btn-verde">';
-	$respAmigo .= '<input type="submit" name="rmv-amigo-submit" value="Rejeitar convite de amizade" class="btn-vermelho">';
+	$respAmigo .= '<input type="submit" name="aceita-amigo-submit" value="Aceitar convite de amizade" class="btn-verde">';
+	$respAmigo .= '<input type="submit" name="rejeita-amigo-submit" value="Rejeitar convite de amizade" class="btn-vermelho">';
 	$respAmigo .= '</form>';	
 
 echo $addAmigo;

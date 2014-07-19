@@ -245,7 +245,7 @@ overflow: auto;
 #dashboard #main-container #content-temp{
 	height:auto;
 	position: absolute;
-	left: 280px;
+	left: 0px;
 	right: 0;
 	bottom: 40px;
 	top: 0px;

@@ -121,21 +121,29 @@ $('form[name="add-amigo"]').submit(function(){
 	});
 
 
+	var clicked = '';
+
+	$('form[name="responde-amigo"]').on('click',function(e){
+		clicked = e.target;
+	})
 
 	$('form[name="responde-amigo"]').submit(function(e){
 
 
-		// alert(e.target);
-		// alert('add amigo?');
-		var p_id = $('input[name="idamigo"]').val();
+		//pega input clicado do form
+		clicked = $(clicked).attr('name');
+		//inicia varial de url do ajax
+		var v_url = '';
+		//inicia varial de função de sucesso do ajax
+		var successFunction = function(){};
 
-		$.ajax({
-	    type: "POST",
-	    url: "submit/aceita-amigo.php",
-	    data: {id: p_id},
-	    dataType: 'html',
-	    cache: false,
-	    success: function(data){	    		
+		//se elemento clicado for de aceitar
+		if(clicked == 'aceita-amigo-submit'){
+			//aceitar amigo
+			v_url = 'aceita-amigo.php';
+
+			//funcao de sucesso
+			successFunction = function(data){ 		
 		    	data = data.trim();
 		    	if(data == 'amizade.conviteaceito'){
 		    		showSuccess('Convite <strong>ACEITO</strong> com sucesso =)');
@@ -144,7 +152,35 @@ $('form[name="add-amigo"]').submit(function(){
 		    		showError('o convite de amizade já havia sido cancelado');
 		    		addAmigoForm();
 		    	}
-		    },
+		    };
+		}else{//senao
+			//rejeitar amigo
+			v_url = 'rejeita-amigo.php';
+
+			//funcao de sucesso
+			successFunction = function(data){ 		
+		    	data = data.trim();
+		    	if(data == 'amizade.conviterejeitado'){
+		    		showSuccess('Convite <strong>ACEITO</strong> com sucesso =)');
+		    		addAmigoForm();
+		    	}else if(data == 'amizade.naohaconvite'){
+		    		showError('o convite de amizade já havia sido cancelado');
+		    		addAmigoForm();
+		    	}
+		    };
+
+		}
+		
+		//get id_amigo
+		var p_id = $('input[name="idamigo"]').val();
+
+		$.ajax({
+	    type: "POST",
+	    url: "submit/"+v_url,
+	    data: {id: p_id},
+	    dataType: 'html',
+	    cache: false,
+	    success: successFunction,
 		error: function(req, status, error) {
 				alert("Erro: "+req.responseText+"; Status: "+status+"; Error: "+error);
 			}
