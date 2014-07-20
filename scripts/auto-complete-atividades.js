@@ -31,7 +31,7 @@ $('#busca200px').submit(function(){
 });
 
 	function setclick(){
-		$('.autocomplete-item').click(function(){
+		$('.autocomplete-item, .search-item').click(function(){
 
 			var $clicked = $(this);
 

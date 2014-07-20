@@ -33,7 +33,7 @@
 					echo "<h2>";
 					echo "Atividades:";
 					echo "</h2>";
-					echo "<label>Resultado de busca para:<i>{$search}</i></label><br>";
+					echo "<label>Resultado de busca para: <i>{$search}</i></label><br>";
 
 					//conta linhas retornadas
 					while($row=mysql_fetch_array($sql_atividades))

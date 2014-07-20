@@ -1,9 +1,9 @@
-$('.deletar-atividade').click(function() {
+$('.deletar').click(function() {
 	var confirmado = confirm("Tem certeza que quer deletar a atividade??");
 	if(confirmado){
 
 		//pega id da atividade.
-		var tr = $(this).parent().parent();
+		var tr = $(this).parent();
 		var id = tr.attr('id');
 		// alert(id);
 		//usar o metodo post de ajax com 3 parametros
@@ -23,10 +23,22 @@ $('.deletar-atividade').click(function() {
 	return false;
 });
 
-$('.editar-atividade').click(function() {
+$('.editar').click(function() {
 
-	var tr = $(this).parent().parent();
+	var tr = $(this).parent();
 	var id = tr.attr('id');
 	loadContentTemp("editar-atividade-temp",id);
+
+	return false;
+});
+
+$('.atividade, .quando-onde').click(function(e) {
+	// var clicked = e.target;
+	// clicked = $(clicked).attr('class');
+	// if(clicked != 'editar-atividade' && clicked != 'deletar-atividade'){
+		var id = $(this).parent().attr('id');
+		// alert("valor: "+id);
+		loadContentTemp("atividade_view",id);
+	// }
 
 });

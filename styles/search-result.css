@@ -1,3 +1,6 @@
+#search-result h2{
+	margin-bottom: 2px;
+}
 #search-result .pessoa-item{
 	width: 250px;
 	background-color: #ececec;
