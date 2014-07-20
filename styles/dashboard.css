@@ -29,14 +29,30 @@
 	z-index: 3;
 }
 #dashboard .amigo{
-	background-color: #eee;
-	width: 300px;
+	background-color: #ededed;
+	width: 200px;
 	padding: 5px;
+	float: left;
+	margin: 10px;
+	cursor: pointer;
 }
 
 #dashboard .amigo:hover{
 	background-color: #efefef;
 }
+#dashboard .amigo img.foto{
+	float: left;
+	margin: 8px;
+}
+
+#dashboard .amigo .local{
+	font-size: 12px;
+}
+
+#dashboard .amigo .amigo-info{
+	float: left;
+}
+
 #dashboard header img.logo{
 	margin:5px 15px;
 }

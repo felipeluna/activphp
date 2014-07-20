@@ -30,7 +30,7 @@ $nome = $row['nome'];
 $cidade = $row['idcidade'];
 $sql_res= mysql_query("select cidade from cidades where idcidade = '$cidade'") or die(mysql_error());
 $row = mysql_fetch_array($sql_res);
-$cidade = $row['cidade'];
+$cidade = utf8_encode($row['cidade']);
 echo "<label>'{$cidade}'</label>";
 
 session_start();

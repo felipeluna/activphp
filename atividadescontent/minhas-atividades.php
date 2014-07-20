@@ -1,6 +1,6 @@
 
 	<!-- Minhas atividades -->
-
+	<script src="scripts/minhas-atividades.js" type="text/javascript" ></script>
 		<table id="minhas-atividades">
 			<thead>
 				<tr>

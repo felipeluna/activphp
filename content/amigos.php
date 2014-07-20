@@ -19,15 +19,16 @@ $sql_amizade = mysql_query("SELECT u.idusuario as id, u.nome as nome, c.cidade a
 	while($row = mysql_fetch_array($sql_amizade, MYSQL_ASSOC)){
 			$id_amigo = $row['id'];
 			$nome = $row['nome'];
-			$cidade = $row['cidade'];
-			$cidade = $row['cidade'];
-
-			echo "<div class='amigo' id='{$id_amigo}'>";
-			echo "<img src='images/user_default-35x35.png'>";
-			echo "<label><strong>{$nome}</strong></label>";
-			echo "<label>
+			$cidade = utf8_encode($row['cidade']);
+		
+			echo "<div class='amigo' id='amigo{$id_amigo}'>";
+			echo "<img src='images/user_default-35x35.png' class='foto'>";
+			echo "<div class='amigo-info'>";
+			echo "<label><strong>{$nome}</strong></label><br>";
+			echo "<label class='local'>
 			<img src='images/local.png'>
 			{$cidade}</label>";
+			echo "</div>";
 			echo "</div>";
 			
 	}
