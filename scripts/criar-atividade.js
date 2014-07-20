@@ -12,6 +12,8 @@ $( document ).ready(function() {
 
 	var successFunction = function(){
 		showSuccess("Atividade criada com sucesso! =D");
+		$('#content-temp').uload();
+		$('#content-temp').fadeOut();
 	};
 
 	$(form).validate({

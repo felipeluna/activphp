@@ -1,5 +1,35 @@
 $(document).ready(function(){
 	
+$('#busca200px').submit(function(){
+	//pega conteúdo da busca
+	var searchid = $(this).find('#inputBusca270px').val();
+	var filtro = $("select[name='filtro']").val();
+
+	$.ajax({
+	    type: "POST",
+	    url: "content-temp/search-result-temp.php",
+	    data: {search: searchid, filtro: filtro},
+	    dataType: 'html',
+	    cache: false,
+	    success: function(page){
+	    		
+	    		//carrega conteudo da pagina na div
+		    	$('#content-temp').html(page);
+		    	//exibe div com conteudo carregado
+		    	$('#content-temp').fadeIn('fast');
+
+		    	//oculta resultado do auto-complete
+		    	$("#result").html("");
+		    	$("#result").fadeOut(); 
+		    },
+		error: function(req, status, error) {
+				alert("Erro: "+req.responseText+"; Status: "+status+"; Error: "+error);
+				}
+	    });
+	return false;
+
+});
+
 	function setclick(){
 		$('.autocomplete-item').click(function(){
 

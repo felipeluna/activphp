@@ -100,6 +100,11 @@
 	line-height: 40px;
 	cursor: pointer;
 }
+
+/*.autocomplete-item a.ver-mais:parent{
+	text-align: center;
+}*/
+
 #busca200px .autocomplete-item-group{
 	width: 284px;
 	background-color: transparent;

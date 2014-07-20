@@ -10,7 +10,7 @@
 
 	<script type="text/javascript" src="scripts/edit.js"></script>
 	<form name="cadastro" action ="" method="post" id="editform">
-		<h1>Editar informações</h1>
+		<h1>Editar perfil</h1>
 		<div class="input-group">
 			<label for="nomeusuario">Nome: </label>
 			<?php
@@ -164,6 +164,6 @@ echo "<input type='hidden' name='idusuario' value='";
 echo $idusuario;
 echo "' />";
 ?>
-<input type="submit" name="submit_edit" value="Editar" id="editar_btn" />
+<input type="submit" name="submit_edit" value="Editar" id="editar_btn" class="btn-verde" />
 </form>
 

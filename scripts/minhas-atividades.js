@@ -1,5 +1,6 @@
 $('.deletar-atividade').click(function() {
-	if(confirm("Tem certeza que quer deletar a atividade??")){
+	var confirmado = confirm("Tem certeza que quer deletar a atividade??");
+	if(confirmado){
 
 		//pega id da atividade.
 		var tr = $(this).parent().parent();
@@ -15,7 +16,7 @@ $('.deletar-atividade').click(function() {
 			data: {id : id},
 			success: function(){
 				showSuccess("Atividade Excluída com SUCESSO");
-				$(tr).slideUp("normal");
+				$(tr).slideUp();
 			}
 		});
 	}

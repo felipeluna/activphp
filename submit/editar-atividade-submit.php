@@ -45,14 +45,14 @@
 
 			// STR_TO_DATE('5/15/2012 8:06:26', '%c/%e/%Y %r')
 			mysql_query("UPDATE `atividades` SET 
-				`titulo`='{$titulo}',
-				`descricao`='{$descricao}',
-				`datahora_inicio`='{$dataInicio}',
-				`duracao`='{$duracao}',
-				`endereco`='{$endereco}',
-				`latitude`='{$lat}',
-				`longitude`='{$lng}',
-				`visibilidade`='{$visibilidade}',
-				`idinteresse`='{$idinteresse}' WHERE idatividade = '{$id}'") or die(mysql_error());	
+			    `titulo`='{$titulo}',
+			    `descricao`='{$descricao}',
+			    `datahora_inicio`= str_to_date('{$dataInicio}', '%d/%m/%Y %T' ),
+			    `duracao`= time('{$duracao}'),
+			    `endereco`='{$endereco}',
+			    `latitude`='{$lat}',
+			    `longitude`='{$lng}',
+			    `visibilidade`='{$visibilidade}',
+			    `idinteresse`='{$idinteresse}' WHERE idatividade = '{$id}'") or die(mysql_error());
 	}
 ?>

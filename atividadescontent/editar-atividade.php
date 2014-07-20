@@ -46,7 +46,9 @@ $duracao_da_atividade = substr($duracao, 0, 5);
 <h1>Editar atividade</h1>
 
 	<form action="submit/editar-atividade-submit.php" name="editar-atividade-form" method="post" id="form-editar-atividade">
-		<input type='hidden' value='{$idatividade}' name='idatividade'/>
+		<?php
+  			echo "<input type='hidden' value='{$idatividade}' name='idatividade'/>"
+  		?>
 		<label for="nome-atividade">Título da Atividade:</label></br>
 		<?php 
 		echo "<input type='text' name='titulo' value='{$titulo}' placeholder='Nome de sua atividade' id='id-atividade'/>";

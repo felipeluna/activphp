@@ -11,7 +11,9 @@ $( document ).ready(function() {
 	var form = $("form[name='editar-atividade-form']");
 
 	var successFunction = function(){
-		showSuccess("Atividade EDITARAAAAAAAAAAARA com sucesso! =D");
+		showSuccess("Atividade <strong>EDITADA</strong> com sucesso! =D");
+		$('#content-temp').uload();
+		$('#content-temp').fadeOut();
 	};
 
 	$(form).validate({

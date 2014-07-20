@@ -1,3 +1,11 @@
+<!-- CSS -->
+<link href="styles/content-temp.css" type="text/css" rel="stylesheet" />
+
+<!-- JAVASCRIPT -->
+<script src="scripts/content-temp.js" type="text/javascript"></script>
+
+<a href="" class="x"></a>
+
 <?php
 	if($_POST){
 
@@ -16,19 +24,15 @@
 				$sql_interesses= mysql_query("select idinteresse, descricao from interesses where descricao like '%$q%' order by idinteresse" ) or die(mysql_error());
 
 				//numero q limita renotrno de atividades
-				$limAtiv = 5;
-				$sql_atividades= mysql_query("select SQL_CALC_FOUND_ROWS idatividade, titulo, endereco, idinteresse from atividades where titulo like '%$q%' order by idinteresse limit ".$limAtiv) or die(mysql_error());				
-
-				//pega o total de valores retornados se houvesse limit
-				$totalSemLimit = mysql_query("SELECT FOUND_ROWS() as total;");
-				$totalSemLimit = mysql_fetch_array($totalSemLimit);
-				$totalSemLimit = $totalSemLimit['total'];
+				
+				$sql_atividades= mysql_query("select idatividade, titulo, endereco, idinteresse from atividades where titulo like '%$q%' order by idinteresse") or die(mysql_error());				
 
 				if(mysql_num_rows($sql_atividades)){
 					//imprime atividades
-					echo "<div class='autocomplete-item-group'>";
-					echo "Atividades";
-					echo "</div>";
+					echo "<h1'>";
+					echo "Resultado de busca para:";
+					echo "</h1>";
+					echo "<h2>{$search}</h2>";
 
 					//conta linhas retornadas
 					while($row=mysql_fetch_array($sql_atividades))
@@ -42,20 +46,11 @@
 						
 						echo "<div class='autocomplete-item atividade-item'>";
 						echo "<img src='images/icons/atividades/";
-						echo $row['idinteresse'].".png' />";
+						echo $row['idinteresse']."laranja.png' />";
 						echo "<input type='hidden' class='idatividade' value='$id' />";
 						echo "<span class='name'>";
 						echo $final_titulo;
 						echo "</span></div>";
-					}
-
-					if($totalSemLimit > $limAtiv){
-						echo "<div class='autocomplete-item atividade-item'>";
-						echo "<input type='hidden' class='idatividade' value='$id' />";
-						echo "<a class='ver-mais'>";
-						echo "Ver mais";
-						echo "</a></div>";
-
 					}
 				}
 
@@ -93,13 +88,7 @@
 			session_start();
 			$idusuario = $_SESSION['idusuario'];
 			
-			$limPessoas = 5;
-			$sql_res= mysql_query("select SQL_CALC_FOUND_ROWS idusuario, nome from usuarios where nome like '%$q%' and idusuario <> ".$idusuario." order by idusuario limit $limPessoas") or die(mysql_error());
-			
-			//pega o total de valores retornados se houvesse limit
-			$totalSemLimit = mysql_query("SELECT FOUND_ROWS() as total;");
-			$totalSemLimit = mysql_fetch_array($totalSemLimit);
-			$totalSemLimit = $totalSemLimit['total'];
+			$sql_res= mysql_query("select idusuario, nome from usuarios where nome like '%$q%' and idusuario <> ".$idusuario." order by idusuario") or die(mysql_error());
 
 			if(mysql_num_rows($sql_res)){
 				//identifica categoria
@@ -119,15 +108,6 @@
 					echo "<input type='hidden' class='idusuario' value='$id' />";
 					echo "<a class='name'>";
 					echo $final_nome;
-					echo "</a></div>";
-
-				}
-
-				if($totalSemLimit > $limPessoas){
-					echo "<div class='autocomplete-item pessoa-item'>";
-					echo "<input type='hidden' class='idusuario' value='$id' />";
-					echo "<a class='ver-mais'>";
-					echo "Ver mais";
 					echo "</a></div>";
 
 				}
