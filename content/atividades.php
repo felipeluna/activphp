@@ -4,6 +4,7 @@
 <div id="container-btn-criar-atividade">
 	<input type="submit" value="Criar uma atividade" id="btn-criar-atividade" class="btn-verde"/>
 </div>
+
 <div id="atividades">
 	<h1>Atividades</h1>
 

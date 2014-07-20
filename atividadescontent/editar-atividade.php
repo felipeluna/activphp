@@ -43,7 +43,7 @@ $duracao_da_atividade = substr($duracao, 0, 5);
 <script type="text/javascript" src="scripts/editar-atividade.js"></script>
 <script type="text/javascript" src="scripts/busca-endereco.js"></script>
 
-<h1>Criar nova atividade</h1>
+<h1>Editar atividade</h1>
 
 	<form action="submit/editar-atividade-submit.php" name="editar-atividade-form" method="post" id="form-editar-atividade">
 		<input type='hidden' value='{$idatividade}' name='idatividade'/>
