@@ -12,6 +12,7 @@
 		$lat = $_POST['lat'];
 		$lng = $_POST['lng'];
 		$id = $_POST['idatividade'];
+		echo $id . "<br>";
 		//array para retornar erros dos campos
 		$fields = array();
 
@@ -54,5 +55,16 @@
 				`longitude`='{$lng}',
 				`visibilidade`='{$visibilidade}',
 				`idinteresse`='{$idinteresse}' WHERE idatividade = '{$id}'") or die(mysql_error());	
+
+			echo "UPDATE `atividades` SET 
+				`titulo`='{$titulo}',
+				`descricao`='{$descricao}',
+				`datahora_inicio`='{$dataInicio}',
+				`duracao`='{$duracao}',
+				`endereco`='{$endereco}',
+				`latitude`='{$lat}',
+				`longitude`='{$lng}',
+				`visibilidade`='{$visibilidade}',
+				`idinteresse`='{$idinteresse}' WHERE idatividade = '{$id}'";
 	}
 ?>
