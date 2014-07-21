@@ -5,6 +5,14 @@ if(isset($_POST['id'])){
 $id = $_POST['id'];
 
 require('../config.php');
+
+$datadosistema = mysql_query("SELECT DATE_FORMAT(NOW(),'%d/%m/%Y') as datadosistema");
+$datadosistema = mysql_fetch_array($datadosistema);
+$datadosistema = $datadosistema['datadosistema'];
+
+echo "<input type='hidden' name='datadosistema' value='{$datadosistema}'>";
+
+
 $sql_res= mysql_query("select * from atividades where idatividade = '$id' order by idatividade") or die(mysql_error());
 $row = mysql_fetch_array($sql_res);
 //escreve titulo

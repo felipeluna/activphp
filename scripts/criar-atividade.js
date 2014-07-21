@@ -22,16 +22,6 @@ $( document ).ready(function() {
 	//   return this.optional(element) || /^http:\/\/mycorporatedomain.com/.test(value);
 	// }, "Não é possível criar uma atividade no passado cara");
 	
-	function toDMY(datajs){
-		datejs = Date.parse(datajs);
-		var dd = datajs.getDate();
-		var mm = datajs.getMonth()+1; //January is 0!
-		var yyyy = datajs.getFullYear();
-		if(dd<10){dd='0'+dd}
-		if(mm<10){mm='0'+mm}
-		return dd+'/'+mm+'/'+yyyy;
-	}
-
 	var datadosistema = $('input[name="datadosistema"]').val();
 
 	jQuery.validator.addMethod("dateGreaterThan",
