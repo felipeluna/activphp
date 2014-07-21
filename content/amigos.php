@@ -1,5 +1,5 @@
 <h1>Amigos</h1>
-
+<script type="text/javascript" src="scripts/amigos.js"></script>
 <?php
 
 require('../config.php');
@@ -21,7 +21,7 @@ $sql_amizade = mysql_query("SELECT u.idusuario as id, u.nome as nome, c.cidade a
 			$nome = $row['nome'];
 			$cidade = utf8_encode($row['cidade']);
 		
-			echo "<div class='amigo' id='amigo{$id_amigo}'>";
+			echo "<div class='amigo' id='{$id_amigo}' >";
 			echo "<img src='images/user_default-35x35.png' class='foto'>";
 			echo "<div class='amigo-info'>";
 			echo "<label><strong>{$nome}</strong></label><br>";
