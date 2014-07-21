@@ -1,0 +1,12 @@
+Criterios de avaliação
+- Correção de bugs criticos - 80%
+- Refinamento de funcionalidades macros - 80%
+- Conclusão das validações - 100%
+
+falta
+[ok]- participar de atividade
+- atividades que eu vou
+- editar conta
+- exibir atividades públicas no perfil do usuarios
+- busca de atividades sem login
+[ok]- exibir resultado de busca para categorias de atividaes
