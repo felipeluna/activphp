@@ -46,6 +46,13 @@
 			<?php
 				
 				require('../config.php');
+
+				$datadosistema = mysql_query("SELECT DATE_FORMAT(NOW(),'%d/%m/%Y') as datadosistema");
+				$datadosistema = mysql_fetch_array($datadosistema);
+				$datadosistema = $datadosistema['datadosistema'];
+
+				echo "<input type='hidden' name='datadosistema' value='{$datadosistema}'>";
+				
 				$result = mysql_query(
 					"SELECT idinteresse, descricao FROM interesses;"
 					)or die(mysql_error("Ops, ocorreu algum erro =("));
