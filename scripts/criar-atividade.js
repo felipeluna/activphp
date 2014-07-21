@@ -52,12 +52,26 @@ $( document ).ready(function() {
 	    return result2;
 	},'A data deve ser hoje('+datadosistema+') ou depois');
 
+
+	jQuery.validator.addMethod("unicoLocal",
+	function(value, element){
+		var result = true;
+
+		numLocais = parseInt(numLocais);
+		
+		if(numLocais >1){
+			result = false;
+		}
+		
+	    return result;
+	},'Especifique mais seu endereço, deve referir-se a um único local');
+
 	$(form).validate({
 		//regras para os campos 
 		rules:{
         	titulo: { required: true},  
-        	descricao: { required: true },
-        	endereco: { required: true },
+        	// descricao: { required: true },
+        	endereco: { required: true, unicoLocal:true},
         	data: { required: true , dateITA: true, dateGreaterThan:true },
         	hora: { required: true , time: true},
         	duracao: { required: true , time: true},
@@ -68,8 +82,8 @@ $( document ).ready(function() {
 		//mensagens para os campos 
 		messages: {
 			titulo: { required: "Campo obrigatório"},  
-        	descricao: { required: "Campo obrigatório" },
-        	endereco: { required: "Campo obrigatório" },
+        	// descricao: { required: "Campo obrigatório" },
+        	endereco: { required: "Campo obrigatório", unicoLocal: 'Especifique mais seu endereço, deve referir-se a um único local' },
         	data: { required: "Campo obrigatório" , dateITA: "Data inválida", dateGreaterThan:'A data deve ser hoje('+datadosistema+') ou depois' },
         	hora: { required: "Campo obrigatório" , time: "Formato de hora inválido, deve ser hh:mm"},
         	duracao: { required: "Campo obrigatório" , time: "Formato de hora inválido, deve ser hh:mm"},

@@ -2,13 +2,12 @@
 
 $page ='
 <!-- CSS -->
-	<link href="styles/content-temp.css" type="text/css" rel="stylesheet" />
+	<link href="styles/content-temp-off.css" type="text/css" rel="stylesheet" />
 
 <!-- JAVASCRIPT -->
-	<script src="scripts/content-temp.js" type="text/javascript"></script>
-	<script src="scripts/atividade-view.js" type="text/javascript"></script>
+	<script src="scripts/content-temp-off.js" type="text/javascript"></script>
 
-<a href="" class="x"></a>';
+<a href="" class="x" width="30px"></a>';
 
 $id = $_POST['id'];
 
@@ -44,23 +43,10 @@ $page .= '<label><strong>Endereço:</strong> </label>';
 $page .= '<label>'.$endereco.'</label><br>';
 
 
-$txtbtn = '';
 
-session_start();
-$idusuario = $_SESSION['idusuario'];
-
-$sql_participa =mysql_query("SELECT * from participa WHERE idusuario = {$idusuario} AND idatividade = {$id}") or die(mysql_error());
-
-if(mysql_num_rows($sql_participa) == 0){
-	$txtbtn = 'value="Participar desta atividade" class="btn-verde"';
-}else{
-	$txtbtn = 'value="Cancelar participação nesta atividade" class="btn-vermelho"';
-}
-
-
-$page .= '<form name="participar" action="submit/participa.php" method="post">';
-$page .= '<input type="hidden" name="idatividade" value="'.$id.'">';
-$page .= '<input type="submit" name="participaratividade_submit"'.$txtbtn.' >';
+$page .= '<form name="participar">';
+$page .= '<input type="hidden" name="idatividade" value="$id">';
+$page .= '<input type="submit" name="participaratividade_submit" value="Participar desta atividade" class="btn-verde">';
 $page .= '</form>';
 
 echo $page;

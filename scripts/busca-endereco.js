@@ -1,5 +1,6 @@
 var map;
 var local;
+var numLocais;
 
 function initialize() {
   var markers = [];
@@ -24,6 +25,9 @@ function initialize() {
   google.maps.event.addListener(searchBox, 'places_changed', function() {
     var places = searchBox.getPlaces();
 
+    //variavel global que guarda instancias de local encontrados para o dado endereco
+    numLocais = places.length;
+    
     if (places.length == 0) {
       return;
     }
@@ -43,10 +47,12 @@ function initialize() {
         scaledSize: new google.maps.Size(25, 25)
       };
 
+      var imageLocal = 'images/local.png';
+
       // Create a marker for each place.
       var marker = new google.maps.Marker({
         map: map,
-        icon: image,
+        icon: imageLocal,
         title: place.name,
         position: place.geometry.location
       });

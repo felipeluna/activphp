@@ -30,7 +30,7 @@ header a, footer a{
 	border-color: #BF3939;
 	border-width: 2px;
 }
-#cadastroForm label.error, #form-criar-atividade label.error{
+#cadastroForm label.error, #form-criar-atividade label.error, #form-editar-atividade label.error{
 	-webkit-border-radius: 6px;
 	-moz-border-radius: 6px;
 	border-radius: 6px;

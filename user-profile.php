@@ -13,7 +13,7 @@ $id = $_POST['id'];
 require('../config.php');
 
 //pega dados do usuario
-$sql_res= mysql_query("select * from usuarios where idusuario = '$id' order by idusuario") or die(mysql_error());
+$sql_res= mysql_query("select * from usuarios where idusuario = {$id} order by idusuario") or die(mysql_error());
 $row = mysql_fetch_array($sql_res);
 
 $nome = $row['nome'];

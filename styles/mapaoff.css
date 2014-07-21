@@ -68,3 +68,12 @@ input[name="submit_login"]{
 	padding: 3px 4px;
 	cursor: pointer;
 }
+
+#mapa-off #content-temp{
+	position: absolute;
+	left: 0;
+	top: 70px;
+	bottom: 40px;
+	background-color: rgba(255, 255, 255,0.8);
+	z-index: 2;
+}

@@ -5,6 +5,48 @@ $('#busca200px').submit(function(){
 	var searchid = $(this).find('#inputBusca270px').val();
 	var filtro = $("select[name='filtro']").val();
 
+	if(filtro == undefined){
+
+		filtro = $("input[name='filtro']").val();
+	}
+
+	searchid = searchid.trim();
+
+	if(searchid != ''){
+		$(this).find('#inputBusca270px').removeClass('.error');
+		$.ajax({
+		    type: "POST",
+		    url: "content-temp/search-result-temp.php",
+		    data: {search: searchid, filtro: filtro},
+		    dataType: 'html',
+		    cache: false,
+		    success: function(page){
+		    		
+		    		//carrega conteudo da pagina na div
+			    	$('#content-temp').html(page);
+			    	//exibe div com conteudo carregado
+			    	$('#content-temp').fadeIn('fast');
+
+			    	//oculta resultado do auto-complete
+			    	$("#result").html("");
+			    	$("#result").fadeOut(); 
+			    },
+			error: function(req, status, error) {
+					alert("Erro: "+req.responseText+"; Status: "+status+"; Error: "+error);
+					}
+	    });
+	}else{
+		$(this).find('#inputBusca270px').addClass('.error');
+		showNotice('Digite algo para fazer a busca');
+	}
+	return false;
+});
+
+
+	function busca(searchFor){
+		//pega conteúdo da busca
+	var searchid = searchFor;
+	var filtro = 'interesses';
 	$.ajax({
 	    type: "POST",
 	    url: "content-temp/search-result-temp.php",
@@ -26,9 +68,7 @@ $('#busca200px').submit(function(){
 				alert("Erro: "+req.responseText+"; Status: "+status+"; Error: "+error);
 				}
 	    });
-	return false;
-
-});
+	}
 
 	function setclick(){
 		$('.autocomplete-item, .search-item').click(function(){
@@ -50,7 +90,7 @@ $('#busca200px').submit(function(){
 				// loadContentTemp('user_profile', id);
 		    }else if($clicked.hasClass('interesse-item')){
 		    	id = $clicked.find('.idinteresse').val();
-		    	alert('Interesse id: '+id);
+		    	busca(id);
 		    }		    
 		});
 	}
@@ -59,6 +99,10 @@ $('#busca200px').submit(function(){
 
 		var searchid = $(element).val();
 		var filtro = $("select[name='filtro']").val();
+
+		if(filtro == undefined){
+			filtro = $("input[name='filtro']").val();
+		}
 		// var jsondata = new Object();//"{'search' : '"+searchid+"' , 'filtro' : '"+filtro+"'}";
 		// jsondata = jQuery.parseJSON(jsondata);
 		// jsondata.search = searchid;

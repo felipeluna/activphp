@@ -45,6 +45,7 @@
 		</form>
 	</header>
 		<script type="text/javascript" src="scripts/gerar-mapa.js"></script>
+		<div id="content-temp"></div>
 		<div id="map-canvas"></div>
 	<footer>			
 			<img src="images/logo-color-dashboard.png" class="logo" />
