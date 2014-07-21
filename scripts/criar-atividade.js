@@ -14,8 +14,15 @@ $( document ).ready(function() {
 
 	var successFunction = function(){
 		showSuccess("Atividade criada com sucesso! =D");
-		$('#content-temp').uload();
+		$('#content-temp').unload();
 		$('#content-temp').fadeOut();
+
+		var atividadePage = $('.tabSelected').attr("href");
+
+		$('#atividades-content').load("atividadescontent/"+atividadePage+".php");
+
+		// rola pro fim da página
+		// $("#content").animate({ scrollTop: $('#content')[0].scrollHeight}, 1000);
 	};
 
 	// jQuery.validator.addMethod("afterDate", function(value, element) {

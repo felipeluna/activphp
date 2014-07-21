@@ -14,8 +14,15 @@ $( document ).ready(function() {
 
 	var successFunction = function(){
 		showSuccess("Atividade <strong>EDITADA</strong> com sucesso! =D");
-		$('#content-temp').uload();
+		$('#content-temp').unload();
 		$('#content-temp').fadeOut();
+
+		var atividadePage = $('.tabSelected').attr("href");
+
+		$('#atividades-content').load("atividadescontent/"+atividadePage+".php");
+
+		// rola pro fim da página
+		// $("#content").animate({ scrollTop: $('#content')[0].scrollHeight}, 1000);
 	};
 
 	var datadosistema = $('input[name="datadosistema"]').val();
