@@ -1,6 +1,46 @@
+	function handleNoGeolocation(errorFlag) {
+		  if (errorFlag) {
+		    var content = 'Error: The Geolocation service failed.';
+		  } else {
+		    var content = 'Error: Your browser doesn\'t support geolocation.';
+		  }
+
+		  var options = {
+		    map: map,
+		    position: new google.maps.LatLng(60, 105),
+		    content: content
+		  };
+
+		  var infowindow = new google.maps.InfoWindow(options);
+		  map.setCenter(options.position);
+	}
+
+function salvarUserPosition(){
+	if(navigator.geolocation){
+	    	navigator.geolocation.getCurrentPosition(function(position) {
+	     		var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+
+				//salva posição do usuário
+				$('input[name="user_lat"]').val(position.coords.latitude);
+  				$('input[name="user_lng"]').val( position.coords.longitude);
+
+	    	},
+	    	function() {
+	      		handleNoGeolocation(true);
+	    	});
+	  	}
+}
+
 $(document).ready(function(){
 	
+	var script = document.createElement('script');
+	script.type = 'text/javascript';
+	script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&' +
+	'callback=salvarUserPosition';
+	document.body.appendChild(script);	
+	
 $('#busca200px').submit(function(){
+
 	//pega conteúdo da busca
 	var searchid = $(this).find('#inputBusca270px').val();
 	var filtro = $("select[name='filtro']").val();
@@ -17,7 +57,8 @@ $('#busca200px').submit(function(){
 		$.ajax({
 		    type: "POST",
 		    url: "content-temp/search-result-temp.php",
-		    data: {search: searchid, filtro: filtro},
+		    // data: {search: searchid, filtro: filtro, user_lat: $('input[name="user_lat"]').val(), user_lng:$('input[name="user_lng"]').val()},
+		    data: $(this).serialize(),
 		    dataType: 'html',
 		    cache: false,
 		    success: function(page){

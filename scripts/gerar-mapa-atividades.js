@@ -34,7 +34,7 @@
 	     		var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
 		       	///////////////BEGIN - PINO do usuario NO MAPA
-		    		var image = 'images/user-pin.png';
+		    	var image = 'images/user-pin.png';
 				var marker = new google.maps.Marker({
 			      position: pos,
 			      map: map,
@@ -44,6 +44,11 @@
 				markers.push(marker);
 				attachMessage(marker, "Você está aqui!");
 				map.setCenter(pos);
+
+				//salva posição do usuário
+				$('input[name="user_lat"]').val(position.coords.latitude);
+  				$('input[name="user_lng"]').val( position.coords.longitude);
+
 
 				bounds.extend(marker.position);
 				map.fitBounds(bounds);
@@ -77,17 +82,19 @@
 		  map.setCenter(options.position);
 	}
 
-	function loadScript() {
-  		var script = document.createElement('script');
-  		script.type = 'text/javascript';
-  		script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&' +
-      'callback=initializeMap';
-  		document.body.appendChild(script);
-	}
+	// function loadScript() {
+ //  		var script = document.createElement('script');
+ //  		script.type = 'text/javascript';
+ //  		script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&' +
+ //      'callback=initializeMap';
+ //  		document.body.appendChild(script);
+	// }
 
 $(document).ready(function(){
 
-	loadScript();
+	// loadScript();
+	
+	initializeMap();
 
 	$('.showonmap').click(function(){
 	
@@ -110,7 +117,7 @@ $(document).ready(function(){
 		// marker.setMap(map);
 		markers.push(marker);
 		// fitMarkers();
-		
+
 		bounds.extend(marker.position);
 		map.fitBounds(bounds);
 		// map.setCenter(posatividade);
