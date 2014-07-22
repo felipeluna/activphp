@@ -24,6 +24,8 @@ function salvarUserPosition(){
 				$('input[name="user_lat"]').val(position.coords.latitude);
   				$('input[name="user_lng"]').val( position.coords.longitude);
 
+  				// alert('dados salvos: '+$('input[name="user_lat"]').val()+" "+ $('input[name="user_lng"]').val());
+
 	    	},
 	    	function() {
 	      		handleNoGeolocation(true);
@@ -88,10 +90,11 @@ $('#busca200px').submit(function(){
 		//pega conteúdo da busca
 	var searchid = searchFor;
 	var filtro = 'interesses';
+	
 	$.ajax({
 	    type: "POST",
 	    url: "content-temp/search-result-temp.php",
-	    data: {search: searchid, filtro: filtro},
+	    data: {search: searchid, filtro: filtro, user_lat: $('input[name="user_lat"]').val(), user_lng:$('input[name="user_lng"]').val()},
 	    dataType: 'html',
 	    cache: false,
 	    success: function(page){
