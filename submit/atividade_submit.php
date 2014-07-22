@@ -59,6 +59,8 @@
 					'{$lng}',
 					{$visibilidade},
 					'{$idusuario}',
-					'{$idinteresse}');") or die(mysql_error());	
+					'{$idinteresse}');") or die(mysql_error());
+
+			// $sql = mysql_query("INSERT INTO participa VALUES ({$idusuario},{$idatividade})") or die(mysql_error()." ERRO: ao tentar participar de atividade");
 	}
 ?>

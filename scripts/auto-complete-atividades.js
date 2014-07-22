@@ -79,6 +79,7 @@ $('#busca200px').submit(function(){
 		    
 		    var decoded = $("#inputBusca270px").html($name).text();
 		    $('#inputBusca270px').val(decoded);
+		    $("#content-temp").unload();
 
 		    if($clicked.hasClass('pessoa-item')){
 		    	id = $clicked.find('.idusuario').val();

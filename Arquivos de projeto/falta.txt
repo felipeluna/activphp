@@ -5,8 +5,10 @@ Criterios de avaliação
 
 falta
 [ok]- participar de atividade
-- atividades que eu vou
+[ok]- atividades que eu vou
 - editar conta
 - exibir atividades públicas no perfil do usuarios
 - busca de atividades sem login
 [ok]- exibir resultado de busca para categorias de atividaes
+- exibir convites enviados pendentes em amigos.php
+- exibir convites recebidos pendentes em amigos.php

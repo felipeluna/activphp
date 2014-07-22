@@ -4,6 +4,7 @@
 
 <!-- JAVASCRIPT -->
 <script src="scripts/content-temp.js" type="text/javascript"></script>
+<script src="scripts/gerar-mapa-atividades.js" type="text/javascript"></script>
 
 <a href="" class="x"></a>
 <div id="search-result">
@@ -26,7 +27,7 @@
 
 				//numero q limita renotrno de atividades
 				
-				$sql_atividades= mysql_query("select idatividade, titulo, endereco, idinteresse from atividades where titulo like '%$q%' order by idinteresse") or die(mysql_error());				
+				$sql_atividades= mysql_query("select * from atividades where titulo like '%$q%' order by idinteresse") or die(mysql_error());				
 
 				if(mysql_num_rows($sql_atividades)){
 					//imprime atividades
@@ -38,20 +39,30 @@
 					//conta linhas retornadas
 					while($row=mysql_fetch_array($sql_atividades))
 					{
+						$idinteresse = $row['idinteresse'];
+						$categoria = mysql_query("SELECT descricao FROM interesses WHERE idinteresse = {$idinteresse}" ) or die(mysql_error());
+						$categoria = mysql_fetch_array($categoria);
+						$categoria = $categoria['descricao'];
+						$lat = $row['latitude'];
+						$lng = $row['longitude'];
+
 						//incrementa linhas retornadas
 						//dados de retorno da busca
-						$titulo =$row['titulo'];
-						$b_titulo ='<strong>'.$q.'</strong>';
-						$final_titulo = str_ireplace($q, $b_titulo, $titulo);
+						$final_titulo =$row['titulo'];
 						$id = $row['idatividade'];
+						$endereco = $row['endereco'];
 						
-						echo "<div class='autocomplete-item atividade-item'>";
-						echo "<img src='images/icons/atividades/";
-						echo $row['idinteresse']."laranja.png' />";
+						echo "<div class='search2-item atividade-item'>";
 						echo "<input type='hidden' class='idatividade' value='$id' />";
-						echo "<span class='name'>";
+						echo "<span class='name'><img src='images/icons/atividades/{$idinteresse}laranja.png' /> ";
 						echo $final_titulo;
-						echo "</span></div>";
+						echo "</span><br>";						
+						// echo "<label>{$categoria}</label><br>";
+						echo "<label><img src='images/local.png'>{$endereco}</label><br>";
+						echo "<input type='hidden' value='{$lat}' name='latitude'>";
+						echo "<input type='hidden' value='{$lng}' name='longitude'>";
+						echo "<img src='images/local-30x30.png' class='showonmap'>";
+						echo "</div>";
 					}
 				}
 
@@ -82,12 +93,10 @@
 					{
 						//incrementa linhas retornadas
 						//dados de retorno da busca
-						$titulo =$row['titulo'];
-						$b_titulo ='<strong>'.$q.'</strong>';
-						$final_titulo = str_ireplace($q, $b_titulo, $titulo);
+						$final_titulo =$row['titulo'];
 						$id = $row['idatividade'];
 						
-						echo "<div class='autocomplete-item atividade-item'>";
+						echo "<div class='search-item atividade-item'>";
 						echo "<img src='images/icons/atividades/";
 						echo $row['idinteresse']."laranja.png' />";
 						echo "<input type='hidden' class='idatividade' value='$id' />";
@@ -137,3 +146,4 @@
 	}
 ?>
 </div>
+<div id="map-canvas-atividades" ></div>

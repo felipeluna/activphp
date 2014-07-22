@@ -2,8 +2,13 @@
 	//variavel q conterá omapa
 	var map;
 
+	var bounds;
+	
+
+	var markers = [];
+
 	//adiciona mensagem ao marker do mapa quando clicado
-	function attachMessage(marker, message) {
+	function attachMessage(marker, message){
 	  var infowindow = new google.maps.InfoWindow({
 	    content: message
 	  });
@@ -13,12 +18,15 @@
 	  });
 	}
 
+
 	function initializeMap() {
+		bounds = new google.maps.LatLngBounds();
+
   		var mapOptions = {
-   			zoom: 15
+   			zoom: 4
   		};
 
-  		map = new google.maps.Map(document.getElementById('map-canvas'),mapOptions);
+  		map = new google.maps.Map(document.getElementById('map-canvas-atividades'),mapOptions);
 
 	  	// Try HTML5 geolocation
 	  	if(navigator.geolocation){
@@ -27,14 +35,18 @@
 
 		       	///////////////BEGIN - PINO do usuario NO MAPA
 		    		var image = 'images/user-pin.png';
-					var marker = new google.maps.Marker({
-				      position: pos,
-				      map: map,
-				      icon: image,
-				      title: 'Hello World!'
-				  });
-					attachMessage(marker, "Você está aqui!");
-				  map.setCenter(pos);
+				var marker = new google.maps.Marker({
+			      position: pos,
+			      map: map,
+			      icon: image,
+			      title: 'User location'
+			  });
+				markers.push(marker);
+				attachMessage(marker, "Você está aqui!");
+				map.setCenter(pos);
+
+				bounds.extend(marker.position);
+				map.fitBounds(bounds);
 		    	///////////////END - PINO do usuario NO MAPA - END
 
 	    	},
@@ -45,6 +57,7 @@
 	    	// Browser doesn't support Geolocation
 	    	handleNoGeolocation(false);
 	  	}
+
   	};
 
   	function handleNoGeolocation(errorFlag) {
@@ -72,4 +85,35 @@
   		document.body.appendChild(script);
 	}
 
-	$(document).ready(loadScript());
+$(document).ready(function(){
+
+	loadScript();
+
+	$('.showonmap').click(function(){
+	
+		var lat = $(this).parent().find('[name="latitude"]').val();
+		var lng = $(this).parent().find('[name="longitude"]').val();
+
+		// alert('lat: '+lat);
+		// alert('lng: '+lng);
+
+		var posatividade = new google.maps.LatLng(lat, lng);
+
+		var image = 'images/local-30x30.png';
+
+		var marker = new google.maps.Marker({
+					      position: posatividade,
+					      map: map,
+					      icon: image,
+					      title: 'Atividade'
+					  });
+		// marker.setMap(map);
+		markers.push(marker);
+		// fitMarkers();
+		
+		bounds.extend(marker.position);
+		map.fitBounds(bounds);
+		// map.setCenter(posatividade);
+	});
+
+});

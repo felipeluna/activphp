@@ -8,9 +8,12 @@
 	background-repeat: no-repeat;
 	background-position: center;
 	/*background-color: #F0AB67;*/
-	padding: 4px;
+	padding: 14px;
+	z-index: 4;
+	background-color: #fff;
 }
 #content-temp a.x:hover{
+	background-color: #ededed;
 	background-image: url('../images/xhover.png');
 	/*background-color: #F28A8A;	*/
 }
