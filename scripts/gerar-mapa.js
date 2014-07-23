@@ -72,4 +72,8 @@
   		document.body.appendChild(script);
 	}
 
-	$(document).ready(loadScript());
+	$(document).ready(function(){
+
+		// loadScript()
+		initializeMap();
+		});

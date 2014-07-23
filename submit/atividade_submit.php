@@ -61,6 +61,9 @@
 					'{$idusuario}',
 					'{$idinteresse}');") or die(mysql_error());
 
-			// $sql = mysql_query("INSERT INTO participa VALUES ({$idusuario},{$idatividade})") or die(mysql_error()." ERRO: ao tentar participar de atividade");
+			$idatividade = mysql_query("SELECT max(idatividade) as id FROM atividades WHERE titulo = '{$titulo}' AND idusuario = '{$idusuario}' ");
+			$idatividade = mysql_fetch_array($idatividade);
+			$idatividade = $idatividade['id'];
+			$sql = mysql_query("INSERT INTO participa VALUES ({$idusuario},{$idatividade})") or die(mysql_error()." ERRO: ao tentar participar de atividade");
 	}
 ?>

@@ -47,7 +47,7 @@ function initialize() {
         scaledSize: new google.maps.Size(25, 25)
       };
 
-      var imageLocal = 'images/local.png';
+      var imageLocal = 'images/local-30x30.png';
 
       // Create a marker for each place.
       var marker = new google.maps.Marker({
@@ -95,8 +95,9 @@ function salveLocation(lat, lng){
 
 // window.onload = loadScript;
 $(document).ready(function(){
-  var functionname = 'initialize';
-  $.getScript("http://maps.google.com/maps/api/js?key=AIzaSyBVZqVVZBg3ZgGEFB8Q4eaxiNnA4EPp3YA&libraries=places&sensor=false&callback="+functionname);
+  // var functionname = 'initialize';
+  // $.getScript("http://maps.google.com/maps/api/js?key=AIzaSyBVZqVVZBg3ZgGEFB8Q4eaxiNnA4EPp3YA&libraries=places&sensor=false&callback="+functionname);
+  initialize();
 
   $('#id-endereco-atividade').keydown(function(event){
     if(event.keyCode == 13) {
