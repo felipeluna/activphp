@@ -8,7 +8,6 @@ $(document).ready(function(){
 
 	var successFunction = function(){
 		
-
 		var txtbtn = $('input[name="participaratividade_submit"]').val();
 		if(txtbtn == 'Participar desta atividade'){
 			showSuccess("Você agora <strong>participa<strong> desta atividade");

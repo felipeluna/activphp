@@ -6,4 +6,6 @@ $(document).ready(function(){
 		loadContentTemp('user-profile-temp', id);
     }); 
 
+    $('#tab-content').load('amigoscontent/meus-amigos.php');
+
 });

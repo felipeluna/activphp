@@ -1,10 +1,15 @@
-#search-result h2{
+#search-result, #search-result-com-mapa h2{
 	margin-bottom: 2px;
 }
 
 /*////////*/
 /* PESSOA */
 /*////////*/
+#search-result{
+	position: absolute;
+	padding: 10px;
+}
+
 #search-result .pessoa-item{
 	width: 250px;
 	background-color: #ececec;
@@ -29,36 +34,36 @@
 /*////////*/
 /* Atividades */
 /*////////*/
-#search-result .atividade-item{
+#search-result-com-mapa .atividade-item{
 	background-color: #ececec;
 	margin: 5px;
 	padding: 10px;
 	cursor: pointer;
 	width: 93%;
 }
-#search-result .atividade-item .name{
+#search-result-com-mapa .atividade-item .name{
 	text-transform: uppercase;
 	font-weight: bold;
 	font-size: 16px;
 	height: 35px;
 	width: 100%;
 }
-#search-result .atividade-item:hover{
+#search-result-com-mapa .atividade-item:hover{
 	background-color: #ddd;
 }
-#search-result .atividade-item *{
+#search-result-com-mapa .atividade-item *{
 	float: left;
 }
 
-#search-result .atividade-item div{
+#search-result-com-mapa .atividade-item div{
 	padding: 10px;
 }
 
-#search-result .atividade-item {
+#search-result-com-mapa .atividade-item {
 	float: left;
 }
 
-#search-result{
+#search-result-com-mapa{
 	position: absolute;
 	top: 0;
 	right: 70%;

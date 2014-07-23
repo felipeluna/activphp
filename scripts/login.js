@@ -11,7 +11,6 @@ $(document).ready(function(){
 				//tira espaços do inicio e fim
 				data = data.trim();
 
-				
 				if(data == 'login.ok'){
 					//se login foi ok
 					window.location.replace('dashboard.php');

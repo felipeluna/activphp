@@ -1,0 +1,37 @@
+#tabs{
+	border-bottom-style: solid;
+	border-bottom-color: #ddd;
+	border-width: 1px;
+	vertical-align: middle;
+}
+#tabs a.tabSelected{
+	/*bottom*/
+	border-bottom-style: solid;
+	border-bottom-color: #fff;
+	border-width: 1px;
+	/*top*/
+	border-top-style: solid;
+	border-top-color: #ddd;
+	/*right*/
+	border-right-style: solid;
+	border-right-color: #ddd;
+	/*left*/
+	border-left-style: solid;
+	border-left-color: #ddd;
+
+	color:#222;
+	background-color: #fff;
+	padding: 6px;
+}
+
+#tabs a{
+	text-decoration: none;
+	color: #999;
+	line-height: 30px;
+	background-color: #eee;
+	padding: 5px;
+
+	border-bottom-style: solid;
+	border-bottom-color: #ddd;
+	border-bottom-width: 1px;
+}
