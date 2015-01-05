@@ -126,6 +126,10 @@
 				<input type="text" name="campo_busca" placeholder="Busca" id="inputBusca270px" />
 				<input type="submit" name="buscar" value="" id="btnBusca270px" />
 			</form></br>
+<!-- 
+			<?php			
+				include 'busca270px.php';
+			?> -->
 			
 			<?php
 				$result = mysql_query(

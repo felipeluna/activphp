@@ -52,7 +52,7 @@ function loadContentTemp(pageTemp, p_id){
 
    $.ajax({
 	    type: "POST",
-	    url: "content-temp/"+pageTemp+".php",
+	    url: pageTemp+".php",
 	    data: {id: p_id},
 	    dataType: 'html',
 	    cache: false,
@@ -97,3 +97,36 @@ function ajaxValidated(form, successFunction){
 		ajaxError: function(){showErroLogin('Ops! Ocorreu algum erro =( no ajax');}
 		});
 }
+
+function salvarUserPosition(){
+	if(navigator.geolocation){
+	    	navigator.geolocation.getCurrentPosition(function(position) {
+	     		var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+
+				//salva posição do usuário
+				$('input[name="user_lat"]').val(position.coords.latitude);
+  				$('input[name="user_lng"]').val( position.coords.longitude);
+
+  				// alert('dados salvos: '+$('input[name="user_lat"]').val()+" "+ $('input[name="user_lng"]').val());
+	    	},
+	    	function() {
+	      		handleNoGeolocation(true);
+	    	});
+	  	}
+}
+
+function funcoesMapa(){
+	salvarUserPosition();
+	initializeMap();
+}
+	
+
+$(document).ready(function(){
+	
+	var script = document.createElement('script');
+	script.type = 'text/javascript';
+	script.src = 'http://maps.google.com/maps/api/js?key=AIzaSyBVZqVVZBg3ZgGEFB8Q4eaxiNnA4EPp3YA&libraries=places&sensor=false?v=3.exp&' +
+	'callback=funcoesMapa';
+	document.body.appendChild(script);	
+
+});

@@ -1,6 +1,6 @@
 
 	//variavel q conterá omapa
-	var map;
+	var mapoff;
 
 	//adiciona mensagem ao marker do mapa quando clicado
 	function attachMessage(marker, message) {
@@ -18,7 +18,7 @@
    			zoom: 15
   		};
 
-  		map = new google.maps.Map(document.getElementById('map-canvas'),mapOptions);
+  		mapoff = new google.maps.Map(document.getElementById('map-canvas'),mapOptions);
 
 	  	// Try HTML5 geolocation
 	  	if(navigator.geolocation){
@@ -29,12 +29,12 @@
 		    		var image = 'images/user-pin.png';
 					var marker = new google.maps.Marker({
 				      position: pos,
-				      map: map,
+				      map: mapoff,
 				      icon: image,
 				      title: 'Hello World!'
 				  });
 					attachMessage(marker, "Você está aqui!");
-				  map.setCenter(pos);
+				  mapoff.setCenter(pos);
 		    	///////////////END - PINO do usuario NO MAPA - END
 
 	    	},
@@ -55,13 +55,13 @@
 		  }
 
 		  var options = {
-		    map: map,
+		    map: mapoff,
 		    position: new google.maps.LatLng(60, 105),
 		    content: content
 		  };
 
 		  var infowindow = new google.maps.InfoWindow(options);
-		  map.setCenter(options.position);
+		  mapoff.setCenter(options.position);
 	}
 
 	function loadScript() {
@@ -75,5 +75,5 @@
 	$(document).ready(function(){
 
 		// loadScript()
-		initializeMap();
+		// initializeMap();
 		});

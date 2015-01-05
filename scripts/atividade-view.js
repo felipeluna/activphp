@@ -17,7 +17,7 @@ $(document).ready(function(){
 
 			var atividadePage = $('.tabSelected').attr("href");
 
-			$('#atividades-content').load("atividadescontent/"+atividadePage+".php");
+			$('#atividades-content').load(atividadePage+".php");
 
 		}else if (txtbtn == 'Cancelar participação nesta atividade'){
 			showSuccess("Você <strong>cancelou</strong> sua participação nesta atividade");
@@ -27,7 +27,7 @@ $(document).ready(function(){
 
 			var atividadePage = $('.tabSelected').attr("href");
 
-			$('#atividades-content').load("atividadescontent/"+atividadePage+".php");
+			$('#atividades-content').load(atividadePage+".php");
 		}
 	};
 

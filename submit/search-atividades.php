@@ -30,6 +30,8 @@
 						$lat = $row['latitude'];
 						$lng = $row['longitude'];
 
+						$data = $row['datahora_inicio'];
+
 						//incrementa linhas retornadas
 						//dados de retorno da busca
 						$final_titulo =$row['titulo'];
@@ -37,17 +39,17 @@
 						$endereco = $row['endereco'];
 						$distancia = number_format(calcDistancia($user_lat,$user_lng, $lat, $lng),2);
 						echo "<div class='search2-item atividade-item'>";
-						echo "<input type='hidden' class='idatividade' value='$id' />";
-						echo "<span class='name'><img src='images/icons/atividades/{$idinteresse}laranja.png' /> ";
+						echo "<div class='topinfo'><input type='hidden' class='idatividade' value='$id' />";
+						echo "<img src='images/icons/atividades/{$idinteresse}laranja.png' /> ";
+						echo "<span class='name'>";
 						echo $final_titulo;
-						echo "</span><br>";						
-						// echo "<label>{$categoria}</label><br>";
-
-						echo "<label class='distancia'><strong>Distancia:</strong> {$distancia}Km</label>";
-						echo "<label class='endereco'><img src='images/local.png'>{$endereco}</label><br>";
-						echo "<input type='hidden' value='{$lat}' name='latitude'>";
+						echo "</span></div>";
+						echo "<img src='images/icons/relogio.png'><label>{$data}</label>";
+						// echo "<label class='endereco'><img src='images/local.png'>{$endereco}</label><br>";
+						echo "<div class='distancia' ><input type='hidden' value='{$lat}' name='latitude'>";
 						echo "<input type='hidden' value='{$lng}' name='longitude'>";
 						echo "<img src='images/local-30x30.png' class='showonmap'>";
+						echo "<label>{$distancia}Km</label></div>";
 						echo "</div>";
 					}
 				}else{

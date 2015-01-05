@@ -38,7 +38,7 @@
 		// echo $search;
 		// echo $filtro;
 		if($filtro == 'atividades'){
-				
+						
 			include('search-atividades.php');			
 			
 		}elseif($filtro == 'interesses'){

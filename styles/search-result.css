@@ -12,7 +12,7 @@
 
 #search-result .pessoa-item{
 	width: 250px;
-	background-color: #ececec;
+	background-color: #dfdfdf;
 	margin: 15px;
 	cursor: pointer;
 }
@@ -46,7 +46,6 @@
 	font-weight: bold;
 	font-size: 16px;
 	height: 35px;
-	width: 100%;
 }
 #search-result-com-mapa .atividade-item:hover{
 	background-color: #ddd;
@@ -63,6 +62,10 @@
 	float: left;
 }
 
+.topinfo{
+	width: 80%;
+}
+
 #search-result-com-mapa{
 	position: absolute;
 	top: 0;
@@ -70,6 +73,17 @@
 	bottom: 40px;
 	left: 0px;
 	padding: 10px;
+}
+
+#search-result-com-mapa .distancia{
+	background-color: #dfdfdf;
+	position: absolute;
+	right: 25px;
+	margin-top: -8px;
+}
+
+#search-result-com-mapa .distancia:hover{
+	background-color: #cecece;
 }
 
 #content-temp #map-canvas-atividades{

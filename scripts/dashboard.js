@@ -1,5 +1,7 @@
 $(document).ready(function(){
 
+	$('#dashboard #main-container #content-temp').css("overflow","auto");
+
 function toTitleCase(str) {
     return str.replace(/(?:^|\s)\w/g, function(match) {
         return match.toUpperCase();

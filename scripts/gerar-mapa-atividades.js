@@ -18,6 +18,16 @@
 	  });
 	}
 
+	function attachMessageAtividades(marker, message){
+	  var infowindow = new google.maps.InfoWindow({
+	    content: message
+	  });
+
+	  google.maps.event.addListener(marker, 'click', function() {
+	    infowindow.open(marker.get('map'), marker);
+	  });
+	}
+
 
 	function initializeMap() {
 		bounds = new google.maps.LatLngBounds();
@@ -106,11 +116,43 @@ $(document).ready(function(){
 
 		var posatividade = new google.maps.LatLng(lat, lng);
 
+		var AtividadeTitle = $(this).parent().find('.name').html();
+
 		var image = 'images/local-30x30.png';
 
 		var marker = new google.maps.Marker({
 					      position: posatividade,
 					      map: map,
+					      icon: image,
+					      title: AtividadeTitle
+					  });
+		// marker.setMap(map);
+		markers.push(marker);
+
+		attachMessage(marker, AtividadeTitle);
+		// fitMarkers();
+
+		bounds.extend(marker.position);
+		map.fitBounds(bounds);
+		// map.setCenter(posatividade);
+	});
+
+
+	$('#mapa-off .showonmap').click(function(){
+	
+		var lat = $(this).parent().find('[name="latitude"]').val();
+		var lng = $(this).parent().find('[name="longitude"]').val();
+
+		// alert('lat: '+lat);
+		// alert('lng: '+lng);
+
+		var posatividade = new google.maps.LatLng(lat, lng);
+
+		var image = 'images/local-30x30.png';
+
+		var marker = new google.maps.Marker({
+					      position: posatividade,
+					      map: mapoff,
 					      icon: image,
 					      title: 'Atividade'
 					  });
@@ -119,8 +161,11 @@ $(document).ready(function(){
 		// fitMarkers();
 
 		bounds.extend(marker.position);
-		map.fitBounds(bounds);
+		mapoff.fitBounds(bounds);
 		// map.setCenter(posatividade);
 	});
+
+	$('#dashboard #main-container #content-temp').css("overflow","hidden");
+	$('#search-result-com-mapa').css("overflow","auto");
 
 });

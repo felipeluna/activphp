@@ -15,30 +15,9 @@
 		  map.setCenter(options.position);
 	}
 
-function salvarUserPosition(){
-	if(navigator.geolocation){
-	    	navigator.geolocation.getCurrentPosition(function(position) {
-	     		var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-
-				//salva posição do usuário
-				$('input[name="user_lat"]').val(position.coords.latitude);
-  				$('input[name="user_lng"]').val( position.coords.longitude);
-
-  				// alert('dados salvos: '+$('input[name="user_lat"]').val()+" "+ $('input[name="user_lng"]').val());
-	    	},
-	    	function() {
-	      		handleNoGeolocation(true);
-	    	});
-	  	}
-}
-
 $(document).ready(function(){
 	
-	var script = document.createElement('script');
-	script.type = 'text/javascript';
-	script.src = 'http://maps.google.com/maps/api/js?key=AIzaSyBVZqVVZBg3ZgGEFB8Q4eaxiNnA4EPp3YA&libraries=places&sensor=false?v=3.exp&' +
-	'callback=salvarUserPosition';
-	document.body.appendChild(script);	
+	
 	
 $('#busca200px').submit(function(){
 
@@ -83,6 +62,51 @@ $('#busca200px').submit(function(){
 	}
 	return false;
 });
+
+	$('#busca270px').submit(function(){
+
+	//pega conteúdo da busca
+	var searchid = $(this).find('#inputBusca270px').val();
+	var filtro = $("select[name='filtro']").val();
+
+	if(filtro == undefined){
+
+		filtro = $("input[name='filtro']").val();
+	}
+
+	searchid = searchid.trim();
+
+	if(searchid != ''){
+		$(this).find('#inputBusca270px').removeClass('.error');
+		$.ajax({
+		    type: "POST",
+		    url: "content-temp/search-result-temp.php",
+		    // data: {search: searchid, filtro: filtro, user_lat: $('input[name="user_lat"]').val(), user_lng:$('input[name="user_lng"]').val()},
+		    data: $(this).serialize(),
+		    dataType: 'html',
+		    cache: false,
+		    success: function(page){
+		    		
+		    		//carrega conteudo da pagina na div
+			    	$('#content-temp').html(page);
+			    	//exibe div com conteudo carregado
+			    	$('#content-temp').fadeIn('fast');
+
+			    	//oculta resultado do auto-complete
+			    	$("#result").html("");
+			    	$("#result").fadeOut(); 
+			    },
+			error: function(req, status, error) {
+					alert("Erro: "+req.responseText+"; Status: "+status+"; Error: "+error);
+					}
+	    });
+	}else{
+		$(this).find('#inputBusca270px').addClass('.error');
+		showNotice('Digite algo para fazer a busca');
+	}
+	return false;
+});
+
 
 
 	function busca(searchFor){

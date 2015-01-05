@@ -32,6 +32,7 @@
 	width: 100%;
 	position: fixed;
 	bottom: 0;
+	z-index: 3;
 }
 
 #mapa-off footer img.logo{
@@ -69,11 +70,16 @@ input[name="submit_login"]{
 	cursor: pointer;
 }
 
+#mapa-off #content-temp #search-result-com-mapa{
+	z-index: 2;
+	background-color: rgba(255, 255, 255,0.8);
+}
+
 #mapa-off #content-temp{
 	position: absolute;
 	left: 0;
+	right: 0;
 	top: 70px;
-	bottom: 40px;
-	background-color: rgba(255, 255, 255,0.8);
-	z-index: 2;
+	bottom: 0px;
+	/*background-color: rgba(255, 255, 255,0.8);*/
 }
